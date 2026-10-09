@@ -5,15 +5,106 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Divyanshi Gupta | Full-Stack Software Engineer</title>
-    <meta name="description" content="Divyanshi Gupta — Full-Stack Software Engineer specializing in ASP.NET Core, .NET, React, Angular, SQL Server, and AI-integrated backend systems. Cyberpunk Command Center." />
+    <meta name="description" content="Divyanshi Gupta — Full-Stack Software Engineer specializing in ASP.NET Core, .NET, React, Angular, SQL Server, and AI-integrated backend systems. 3D Interactive Portfolio." />
     <meta name="theme-color" content="#070A12" />
+    <meta name="keywords" content="Divyanshi Gupta, Software Engineer, ASP.NET Core, .NET, React, Full Stack Developer, Backend Engineer, India" />
+    <meta property="og:title" content="Divyanshi Gupta | Full-Stack Software Engineer" />
+    <meta property="og:description" content="3D Interactive Developer Portfolio — Backend Engineering, ASP.NET Core, React, Node.js, SQL Server" />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,25 95,75 50,95 5,75 5,25' fill='%23070A12' stroke='%2348E5FF' stroke-width='4'/%3E%3Ctext x='50' y='60' font-family='sans-serif' font-size='32' font-weight='900' fill='%2348E5FF' text-anchor='middle'%3EDG%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      #cyber-loader {
+        position: fixed;
+        inset: 0;
+        background: #06080F;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      #cyber-loader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .loader-logo {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(72,229,255,0.2), rgba(139,92,255,0.2));
+        border: 1.5px solid #48E5FF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 900;
+        font-size: 1.6rem;
+        color: #48E5FF;
+        box-shadow: 0 0 30px rgba(72,229,255,0.35);
+        margin-bottom: 1.5rem;
+        animation: logoPulse 1.5s ease-in-out infinite;
+        clip-path: polygon(0 0, 80% 0, 100% 20%, 100% 100%, 20% 100%, 0 80%);
+      }
+      @keyframes logoPulse {
+        0%, 100% { box-shadow: 0 0 20px rgba(72,229,255,0.3); }
+        50% { box-shadow: 0 0 60px rgba(72,229,255,0.7), 0 0 120px rgba(139,92,255,0.3); }
+      }
+      .loader-text {
+        font-size: 0.72rem;
+        color: #48E5FF;
+        letter-spacing: 0.2em;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+      }
+      .loader-bar-track {
+        width: 200px;
+        height: 2px;
+        background: rgba(72,229,255,0.12);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .loader-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #48E5FF, #8B5CFF);
+        border-radius: 999px;
+        animation: barLoad 1.2s ease-in-out forwards;
+        box-shadow: 0 0 8px #48E5FF;
+      }
+      @keyframes barLoad {
+        0% { width: 0%; }
+        100% { width: 100%; }
+      }
+    </style>
   </head>
   <body>
+    <!-- Cinematic boot loader -->
+    <div id="cyber-loader">
+      <div class="loader-logo">DG</div>
+      <div class="loader-text">INITIALIZING DIGITAL REALM</div>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Remove loader once React mounts
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          var loader = document.getElementById('cyber-loader');
+          if (loader) loader.classList.add('hidden');
+          setTimeout(function() {
+            if (loader && loader.parentNode) loader.parentNode.removeChild(loader);
+          }, 600);
+        }, 800);
+      });
+    </script>
   </body>
 </html>

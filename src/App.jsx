@@ -5,6 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Cursor from "./components/Cursor";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ParticleField from "./components/ParticleField";
 import Home from "./pages/Home";
 import WorkPage from "./pages/WorkPage";
 import EngineeringLabPage from "./pages/EngineeringLabPage";
@@ -48,6 +49,7 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <ParticleField density={60} speed={0.18} />
         <Cursor />
         <Navbar />
         <AnimatedRoutes />
