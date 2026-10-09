@@ -4,7 +4,6 @@ import * as THREE from "three";
 export default function Hero3DCanvas() {
   const containerRef = useRef(null);
   const [webGLFailed, setWebGLFailed] = useState(false);
-  const [activeNode, setActiveNode] = useState(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -28,7 +27,7 @@ export default function Hero3DCanvas() {
       scene = new THREE.Scene();
 
       camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.set(0, 0, 14);
+      camera.position.set(0, 0, 15);
 
       renderer = new THREE.WebGLRenderer({
         antialias: true,
@@ -39,60 +38,78 @@ export default function Hero3DCanvas() {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       container.appendChild(renderer.domElement);
 
-      // Group holding the entire rotating system
+      // System group holding all 3D elements
       const systemGroup = new THREE.Group();
       scene.add(systemGroup);
 
-      // Core: Inner Glowing Icosahedron
-      const coreGeo = new THREE.IcosahedronGeometry(2.3, 2);
-      const coreMat = new THREE.MeshBasicMaterial({
+      // ── GLACIAL MARBLE / ATOM CORE ──
+      // Central crystalline sculpture (nested icosahedron + octahedron + dense core)
+      const coreOuterGeo = new THREE.IcosahedronGeometry(2.4, 3);
+      const coreOuterMat = new THREE.MeshBasicMaterial({
         color: 0x48e5ff,
         wireframe: true,
         transparent: true,
-        opacity: 0.75,
+        opacity: 0.6,
       });
-      const coreMesh = new THREE.Mesh(coreGeo, coreMat);
-      systemGroup.add(coreMesh);
+      const coreOuter = new THREE.Mesh(coreOuterGeo, coreOuterMat);
+      systemGroup.add(coreOuter);
 
-      // Inner dense glowing sphere
-      const innerSphereGeo = new THREE.SphereGeometry(1.4, 24, 24);
-      const innerSphereMat = new THREE.MeshBasicMaterial({
+      // Inner refractive marble sphere
+      const coreInnerGeo = new THREE.SphereGeometry(1.6, 32, 32);
+      const coreInnerMat = new THREE.MeshBasicMaterial({
         color: 0x8b5cff,
         wireframe: true,
         transparent: true,
         opacity: 0.35,
       });
-      const innerSphere = new THREE.Mesh(innerSphereGeo, innerSphereMat);
-      systemGroup.add(innerSphere);
+      const coreInner = new THREE.Mesh(coreInnerGeo, coreInnerMat);
+      systemGroup.add(coreInner);
 
-      // Multi-Axis Orbital Rings
-      const createRing = (radius, tiltX, tiltY, colorHex) => {
-        const ringGeo = new THREE.RingGeometry(radius - 0.02, radius + 0.02, 64);
-        const ringMat = new THREE.MeshBasicMaterial({
+      // Pulsing center singularity
+      const centerPointGeo = new THREE.OctahedronGeometry(0.8, 0);
+      const centerPointMat = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        wireframe: true,
+      });
+      const centerPoint = new THREE.Mesh(centerPointGeo, centerPointMat);
+      systemGroup.add(centerPoint);
+
+      // ── MULTI-AXIS ATOMIC ORBITAL RINGS ──
+      const createOrbitRing = (radius, tiltX, tiltY, tiltZ, colorHex) => {
+        const curve = new THREE.EllipseCurve(
+          0, 0,             // ax, aY
+          radius, radius * 0.75, // xRadius, yRadius (elliptical atom feel)
+          0, 2 * Math.PI,   // aStartAngle, aEndAngle
+          false,            // aClockwise
+          0                 // aRotation
+        );
+        const points = curve.getPoints(100);
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        const material = new THREE.LineBasicMaterial({
           color: colorHex,
-          side: THREE.DoubleSide,
           transparent: true,
           opacity: 0.45,
         });
-        const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-        ringMesh.rotation.x = tiltX;
-        ringMesh.rotation.y = tiltY;
-        return ringMesh;
+        const line = new THREE.Line(geometry, material);
+        line.rotation.x = tiltX;
+        line.rotation.y = tiltY;
+        line.rotation.z = tiltZ;
+        return line;
       };
 
-      const ring1 = createRing(4.2, Math.PI / 3, 0.2, 0x48e5ff);
-      const ring2 = createRing(5.2, -Math.PI / 4, Math.PI / 6, 0x8b5cff);
-      const ring3 = createRing(6.0, Math.PI / 6, -Math.PI / 5, 0x22d3ee);
+      const ring1 = createOrbitRing(4.5, Math.PI / 3, 0.2, 0.4, 0x48e5ff);
+      const ring2 = createOrbitRing(5.4, -Math.PI / 3.5, Math.PI / 5, -0.3, 0x8b5cff);
+      const ring3 = createOrbitRing(6.2, Math.PI / 6, -Math.PI / 4, 0.6, 0x38bdf8);
       systemGroup.add(ring1);
       systemGroup.add(ring2);
       systemGroup.add(ring3);
 
-      // Ambient Particle Cloud
-      const particleCount = 180;
+      // ── AMBIENT CELESTIAL PARTICLES ──
+      const particleCount = 220;
       const particleGeo = new THREE.BufferGeometry();
       const posArray = new Float32Array(particleCount * 3);
       for (let i = 0; i < particleCount * 3; i += 3) {
-        const r = 3 + Math.random() * 5.5;
+        const r = 2.5 + Math.random() * 5.8;
         const theta = Math.random() * Math.PI * 2;
         const phi = Math.acos(Math.random() * 2 - 1);
         posArray[i] = r * Math.sin(phi) * Math.cos(theta);
@@ -104,47 +121,47 @@ export default function Hero3DCanvas() {
         size: 0.08,
         color: 0x48e5ff,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.75,
       });
-      const particlePoints = new THREE.Points(particleGeo, particleMat);
-      systemGroup.add(particlePoints);
+      const particles = new THREE.Points(particleGeo, particleMat);
+      systemGroup.add(particles);
 
-      // Orbiting Satellites with Labels
+      // ── ORBITING TECH NODES WITH HIGH-TECH BILLBOARDS ──
       const techNodes = [
-        { name: ".NET", radius: 4.4, speed: 0.55, offset: 0, color: "#8b5cff" },
-        { name: "SQL", radius: 4.4, speed: 0.55, offset: Math.PI, color: "#48e5ff" },
-        { name: "React", radius: 5.3, speed: 0.42, offset: (Math.PI * 2) / 3, color: "#48e5ff" },
-        { name: "Node.js", radius: 5.3, speed: 0.42, offset: (Math.PI * 5) / 3, color: "#10b981" },
-        { name: "Angular", radius: 6.1, speed: 0.32, offset: Math.PI / 4, color: "#ef4444" },
-        { name: "AI / FastAPI", radius: 6.1, speed: 0.32, offset: (Math.PI * 5) / 4, color: "#a855f7" },
+        { name: ".NET", radius: 4.5, speed: 0.55, offset: 0, color: "#8b5cff" },
+        { name: "SQL Server", radius: 4.5, speed: 0.55, offset: Math.PI, color: "#48e5ff" },
+        { name: "React", radius: 5.4, speed: 0.42, offset: (Math.PI * 2) / 3, color: "#38bdf8" },
+        { name: "Node.js", radius: 5.4, speed: 0.42, offset: (Math.PI * 5) / 3, color: "#10b981" },
+        { name: "Angular", radius: 6.2, speed: 0.32, offset: Math.PI / 4, color: "#ef4444" },
+        { name: "FastAPI / AI", radius: 6.2, speed: 0.32, offset: (Math.PI * 5) / 4, color: "#c084fc" },
       ];
 
       const satelliteMeshes = techNodes.map((tech) => {
         const group = new THREE.Group();
 
-        // Satellite glowing dot
-        const dotGeo = new THREE.SphereGeometry(0.18, 16, 16);
-        const dotMat = new THREE.MeshBasicMaterial({ color: tech.color });
-        const dotMesh = new THREE.Mesh(dotGeo, dotMat);
-        group.add(dotMesh);
+        // Node center marker
+        const nodeGeo = new THREE.SphereGeometry(0.18, 16, 16);
+        const nodeMat = new THREE.MeshBasicMaterial({ color: tech.color });
+        const nodeMesh = new THREE.Mesh(nodeGeo, nodeMat);
+        group.add(nodeMesh);
 
-        // Satellite outer pulse ring
+        // Node outer energy ring
         const ringGeo = new THREE.RingGeometry(0.24, 0.28, 24);
         const ringMat = new THREE.MeshBasicMaterial({
           color: tech.color,
           side: THREE.DoubleSide,
           transparent: true,
-          opacity: 0.6,
+          opacity: 0.7,
         });
-        const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-        group.add(ringMesh);
+        const rMesh = new THREE.Mesh(ringGeo, ringMat);
+        group.add(rMesh);
 
-        // Billboard Canvas Sprite for Text Label
+        // Text Badge Billboard
         const canvas = document.createElement("canvas");
         canvas.width = 256;
         canvas.height = 64;
         const ctx = canvas.getContext("2d");
-        ctx.fillStyle = "rgba(7, 10, 18, 0.85)";
+        ctx.fillStyle = "rgba(7, 10, 18, 0.9)";
         ctx.strokeStyle = tech.color;
         ctx.lineWidth = 4;
         ctx.beginPath();
@@ -162,30 +179,27 @@ export default function Hero3DCanvas() {
         const spriteMat = new THREE.SpriteMaterial({ map: texture, transparent: true });
         const sprite = new THREE.Sprite(spriteMat);
         sprite.scale.set(1.4, 0.35, 1);
-        sprite.position.set(0, 0.5, 0);
+        sprite.position.set(0, 0.48, 0);
         group.add(sprite);
 
         systemGroup.add(group);
         return { group, tech };
       });
 
-      // Pointer tracking for subtle 3D tilt
-      let mouseX = 0;
-      let mouseY = 0;
-      let targetRotX = 0;
-      let targetRotY = 0;
+      // Pointer Parallax
+      let mouseX = 0, mouseY = 0;
+      let targetRotX = 0, targetRotY = 0;
 
       const handlePointerMove = (e) => {
         const rect = container.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        mouseX = x * 0.8;
-        mouseY = y * 0.8;
+        mouseX = x * 0.9;
+        mouseY = y * 0.9;
       };
 
       window.addEventListener("pointermove", handlePointerMove);
 
-      // Resize listener
       const handleResize = () => {
         if (!container) return;
         const newW = container.clientWidth;
@@ -203,31 +217,33 @@ export default function Hero3DCanvas() {
         animationFrameId = requestAnimationFrame(animate);
         const elapsed = clock.getElapsedTime();
 
-        // Parallax damping
+        // Smooth parallax damping
         targetRotY += (mouseX - targetRotY) * 0.05;
         targetRotX += (mouseY - targetRotX) * 0.05;
 
-        // Core ambient rotation + pointer parallax
-        coreMesh.rotation.y = elapsed * 0.35;
-        coreMesh.rotation.x = elapsed * 0.2;
-        innerSphere.rotation.y = -elapsed * 0.45;
+        // Core ambient rotations
+        coreOuter.rotation.y = elapsed * 0.3;
+        coreOuter.rotation.x = elapsed * 0.15;
+        coreInner.rotation.y = -elapsed * 0.4;
+        centerPoint.rotation.z = elapsed * 0.5;
+        centerPoint.rotation.x = elapsed * 0.5;
 
         ring1.rotation.z = elapsed * 0.2;
         ring2.rotation.z = -elapsed * 0.15;
         ring3.rotation.z = elapsed * 0.12;
 
-        particlePoints.rotation.y = elapsed * 0.08;
+        particles.rotation.y = elapsed * 0.06;
 
-        // Update satellite orbital positions
+        // Update orbiting satellites
         satelliteMeshes.forEach(({ group, tech }) => {
           const angle = elapsed * tech.speed + tech.offset;
           group.position.x = Math.cos(angle) * tech.radius;
-          group.position.y = Math.sin(angle) * (tech.radius * 0.4);
-          group.position.z = Math.sin(angle * 1.5) * (tech.radius * 0.5);
+          group.position.y = Math.sin(angle) * (tech.radius * 0.45);
+          group.position.z = Math.sin(angle * 1.4) * (tech.radius * 0.5);
         });
 
-        systemGroup.rotation.y = targetRotY * 0.6;
-        systemGroup.rotation.x = targetRotX * 0.6;
+        systemGroup.rotation.y = targetRotY * 0.55;
+        systemGroup.rotation.x = targetRotX * 0.55;
 
         renderer.render(scene, camera);
       };
@@ -242,10 +258,12 @@ export default function Hero3DCanvas() {
           container.removeChild(renderer.domElement);
           renderer.dispose();
         }
-        coreGeo.dispose();
-        coreMat.dispose();
-        innerSphereGeo.dispose();
-        innerSphereMat.dispose();
+        coreOuterGeo.dispose();
+        coreOuterMat.dispose();
+        coreInnerGeo.dispose();
+        coreInnerMat.dispose();
+        centerPointGeo.dispose();
+        centerPointMat.dispose();
         particleGeo.dispose();
         particleMat.dispose();
       };
@@ -260,13 +278,12 @@ export default function Hero3DCanvas() {
       style={{
         position: "relative",
         width: "100%",
-        height: "520px",
+        height: "530px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      {/* 3D Canvas Container */}
       <div
         ref={containerRef}
         style={{
@@ -277,19 +294,19 @@ export default function Hero3DCanvas() {
         }}
       />
 
-      {/* Atmospheric radial glow backdrop */}
+      {/* Atmospheric depth glow */}
       <div
         style={{
           position: "absolute",
-          inset: "10%",
-          background: "radial-gradient(circle, rgba(72, 229, 255, 0.15) 0%, rgba(139, 92, 255, 0.1) 45%, transparent 70%)",
-          filter: "blur(35px)",
+          inset: "15%",
+          background: "radial-gradient(circle, rgba(72, 229, 255, 0.16) 0%, rgba(139, 92, 255, 0.12) 40%, transparent 70%)",
+          filter: "blur(40px)",
           pointerEvents: "none",
           zIndex: 1,
         }}
       />
 
-      {/* WebGL Fallback if device doesn't support WebGL */}
+      {/* WebGL Fallback */}
       {webGLFailed && (
         <div
           style={{
@@ -340,7 +357,7 @@ export default function Hero3DCanvas() {
         </div>
       )}
 
-      {/* HUD System Overlay Badges */}
+      {/* HUD System Overlay */}
       <div
         style={{
           position: "absolute",
@@ -350,7 +367,7 @@ export default function Hero3DCanvas() {
           display: "flex",
           gap: "0.75rem",
           background: "rgba(7, 10, 18, 0.85)",
-          padding: "0.4rem 1rem",
+          padding: "0.4rem 1.1rem",
           borderRadius: "999px",
           border: "1px solid rgba(72, 229, 255, 0.2)",
           backdropFilter: "blur(10px)",
@@ -361,9 +378,9 @@ export default function Hero3DCanvas() {
           pointerEvents: "none",
         }}
       >
-        <span style={{ color: "#48e5ff" }}>● LIVE 3D ORBIT</span>
+        <span style={{ color: "#48e5ff" }}>● ATOM 3D REALM</span>
         <span>|</span>
-        <span>DRAG / HOVER TO EXPLORE CORE</span>
+        <span>HOVER / DRAG TO ROTATE SYSTEM</span>
       </div>
     </div>
   );

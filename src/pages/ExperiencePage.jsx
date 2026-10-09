@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
-import ProjectsUniverse from "../components/ProjectsUniverse";
+import ExperienceTimeline from "../components/ExperienceTimeline";
+import Achievements from "../components/Achievements";
+import TechConstellation from "../components/TechConstellation";
 
-export default function WorkPage() {
+export default function ExperiencePage() {
   return (
     <main style={{ position: "relative", overflowX: "hidden", paddingTop: "80px" }}>
       {/* Page Hero Banner */}
@@ -15,20 +17,26 @@ export default function WorkPage() {
           >
             <div className="section-eyebrow">
               <span className="dot" />
-              PORTFOLIO // MISSION ARCHIVES
+              CAREER TRAJECTORY & TELEMETRY
             </div>
             <h1 className="section-title">
-              PRODUCTION SYSTEMS & <span className="gradient-cyan-purple">FEATURED PROJECTS.</span>
+              EXPERIENCE & <span className="gradient-cyan-purple">PROVEN VALUE.</span>
             </h1>
             <p className="section-subtitle">
-              Comprehensive architectural case studies, live screen recordings, and benchmarked metrics from enterprise backends to consumer platforms.
+              Documented professional engineering history, verified system gains, and the comprehensive interactive technology constellation.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Projects Universe */}
-      <ProjectsUniverse />
+      {/* Verified Metric Highlights */}
+      <Achievements />
+
+      {/* Career Timeline */}
+      <ExperienceTimeline />
+
+      {/* Technology Constellation */}
+      <TechConstellation />
     </main>
   );
 }

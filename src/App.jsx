@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -5,13 +6,23 @@ import Cursor from "./components/Cursor";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import AboutPage from "./pages/AboutPage";
 import WorkPage from "./pages/WorkPage";
-import ServicesPage from "./pages/ServicesPage";
+import EngineeringLabPage from "./pages/EngineeringLabPage";
+import ExperiencePage from "./pages/ExperiencePage";
+import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import BlogPage from "./pages/BlogPage";
-import BlogPostPage from "./pages/BlogPostPage";
 import "./styles.css";
+
+// Automatically scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
+
+  return null;
+}
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -19,12 +30,14 @@ function AnimatedRoutes() {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/work" element={<WorkPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/blog/:id" element={<BlogPostPage />} />
+        <Route path="/projects" element={<WorkPage />} />
+        <Route path="/lab" element={<EngineeringLabPage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        {/* Fallback to Home */}
+        <Route path="*" element={<Home />} />
       </Routes>
     </AnimatePresence>
   );
@@ -34,6 +47,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <Cursor />
         <Navbar />
         <AnimatedRoutes />

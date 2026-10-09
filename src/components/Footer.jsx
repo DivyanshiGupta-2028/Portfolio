@@ -1,21 +1,19 @@
+import { Link } from "react-router-dom";
 import { cyberAudio } from "../utils/cyberAudio";
 
 const NAV_LINKS = [
-  { id: "hero", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "identity", label: "Expertise" },
-  { id: "constellation", label: "Constellation" },
-  { id: "projects", label: "Projects" },
-  { id: "lab", label: "Engineering Lab" },
-  { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
+  { to: "/", label: "Home" },
+  { to: "/work", label: "Projects Universe" },
+  { to: "/lab", label: "Engineering Lab" },
+  { to: "/experience", label: "Experience & Skills" },
+  { to: "/about", label: "About & Rig" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
-  const scrollTo = (id) => {
+  const scrollToTop = () => {
     cyberAudio.playClick();
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -74,16 +72,16 @@ export default function Footer() {
                   DIVYANSHI<span style={{ color: "var(--cyan)" }}>.GUPTA</span>
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-muted)" }}>
-                  DIGITAL REALM // 2026 ARCHITECTURE
+                  DIGITAL REALM // MULTI-PAGE EXPERIENCE
                 </div>
               </div>
             </div>
             <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", maxWidth: "420px", lineHeight: 1.6 }}>
-              Full-Stack Software Engineer with nearly 3 years combined experience architecting enterprise APIs, .NET backends, multi-tenant databases, and AI-integrated systems.
+              Full-Stack Software Engineer specializing in .NET 7+, ASP.NET Core, SQL Server, multi-tenant architectures, and AI-integrated systems.
             </p>
           </div>
 
-          {/* Quick Jump Links */}
+          {/* Quick Page Links */}
           <div>
             <div
               style={{
@@ -94,7 +92,7 @@ export default function Footer() {
                 marginBottom: "0.8rem",
               }}
             >
-              // SYSTEM MODULES
+              // MULTI-PAGE DIRECTORY
             </div>
             <div
               style={{
@@ -104,17 +102,15 @@ export default function Footer() {
               }}
             >
               {NAV_LINKS.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollTo(item.id)}
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => cyberAudio.playClick()}
                   style={{
-                    background: "none",
-                    border: "none",
-                    textAlign: "left",
+                    textDecoration: "none",
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.78rem",
                     color: "var(--text-secondary)",
-                    cursor: "pointer",
                     padding: "0.2rem 0",
                     transition: "color 0.2s ease",
                   }}
@@ -122,7 +118,7 @@ export default function Footer() {
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
                 >
                   ▹ {item.label}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -138,7 +134,7 @@ export default function Footer() {
                 marginBottom: "0.2rem",
               }}
             >
-              // CONNECT
+              // CHANNELS
             </div>
             <a
               href="https://www.linkedin.com/in/divyanshi-gupta"
@@ -180,7 +176,7 @@ export default function Footer() {
             </a>
 
             <button
-              onClick={() => scrollTo("hero")}
+              onClick={scrollToTop}
               className="btn-cyber-secondary"
               style={{
                 padding: "0.45rem 1rem",
@@ -212,7 +208,7 @@ export default function Footer() {
           }}
         >
           <div>
-            © {new Date().getFullYear()} DIVYANSHI GUPTA · ALL RIGHTS RESERVED
+            © {new Date().getFullYear()} DIVYANSHI GUPTA · MULTI-PAGE 3D ARCHITECTURE
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#34d399" }}>

@@ -1,46 +1,187 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
-import AboutSection from "../components/AboutSection";
 import EngineeringIdentity from "../components/EngineeringIdentity";
-import TechConstellation from "../components/TechConstellation";
-import ProjectsUniverse from "../components/ProjectsUniverse";
-import EngineeringLab from "../components/EngineeringLab";
-import ExperienceTimeline from "../components/ExperienceTimeline";
 import Achievements from "../components/Achievements";
-import EducationCertifications from "../components/EducationCertifications";
-import ContactSection from "../components/ContactSection";
+import { cyberAudio } from "../utils/cyberAudio";
 
 export default function Home() {
   return (
     <main style={{ position: "relative", overflowX: "hidden" }}>
-      {/* 01. Hero with 3D Core */}
+      {/* 01. Hero with 3D Atom Core */}
       <Hero />
 
-      {/* 02. About Section / Dossier */}
-      <AboutSection />
-
-      {/* 03. Engineering Identity */}
+      {/* 02. Engineering Identity / Capabilities */}
       <EngineeringIdentity />
 
-      {/* 04. Technology Constellation */}
-      <TechConstellation />
-
-      {/* 05. Project Universe */}
-      <ProjectsUniverse />
-
-      {/* 06. Engineering Lab (Architecture Diagrams) */}
-      <EngineeringLab />
-
-      {/* 07. Experience Timeline */}
-      <ExperienceTimeline />
-
-      {/* 08. Verified Achievements */}
+      {/* 03. Verified Achievements Teaser */}
       <Achievements />
 
-      {/* 09. Education & Certifications */}
-      <EducationCertifications />
+      {/* 04. Multi-Page Exploration Portals (Command Grid) */}
+      <section style={{ position: "relative" }}>
+        <div className="section-container">
+          <div className="section-header">
+            <div className="section-eyebrow">
+              <span className="dot" />
+              SYSTEM PORTALS // EXPLORE REALM
+            </div>
+            <h2 className="section-title">
+              EXPLORE THE <span className="gradient-cyan-purple">FULL ARCHITECTURE.</span>
+            </h2>
+            <p className="section-subtitle">
+              Dive into dedicated deep-dive sections showcasing production case studies, system architecture diagrams, experience telemetry, and formal credentials.
+            </p>
+          </div>
 
-      {/* 10. Contact & Resume */}
-      <ContactSection />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "1.8rem",
+            }}
+          >
+            {/* Portal 1: Projects */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
+              className="cyber-panel clipped-corner"
+              style={{
+                padding: "2.2rem 2rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.05) 0%, rgba(12, 18, 34, 0.85) 100%)",
+              }}
+            >
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--cyan)", marginBottom: "0.6rem" }}>
+                  PORTAL // 01
+                </div>
+                <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
+                  Projects Universe
+                </h3>
+                <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                  7 complete production applications: License SaaS (40% gain), Dating Platform with video demos, Sales Inventory, BellezBuy, and WellMove.
+                </p>
+              </div>
+
+              <Link
+                to="/work"
+                onClick={() => cyberAudio.playClick()}
+                className="btn-cyber-primary"
+                style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
+              >
+                OPEN PROJECTS UNIVERSE →
+              </Link>
+            </motion.div>
+
+            {/* Portal 2: Engineering Lab */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
+              className="cyber-panel clipped-corner"
+              style={{
+                padding: "2.2rem 2rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                background: "linear-gradient(135deg, rgba(139, 92, 255, 0.05) 0%, rgba(12, 18, 34, 0.85) 100%)",
+              }}
+            >
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--purple)", marginBottom: "0.6rem" }}>
+                  PORTAL // 02
+                </div>
+                <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
+                  Engineering Lab
+                </h3>
+                <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                  Interactive system architecture diagrams: API request lifecycles, JWT/OAuth2 flows, multi-tenant partitioning, and AI telemetry pipelines.
+                </p>
+              </div>
+
+              <Link
+                to="/lab"
+                onClick={() => cyberAudio.playClick()}
+                className="btn-cyber-secondary"
+                style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
+              >
+                LAUNCH ENGINEERING LAB →
+              </Link>
+            </motion.div>
+
+            {/* Portal 3: Experience & Constellation */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
+              className="cyber-panel clipped-corner"
+              style={{
+                padding: "2.2rem 2rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.05) 0%, rgba(12, 18, 34, 0.85) 100%)",
+              }}
+            >
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--cyan)", marginBottom: "0.6rem" }}>
+                  PORTAL // 03
+                </div>
+                <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
+                  Experience & Skills
+                </h3>
+                <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                  Career timeline at Sanskriti IT Solutions, verified 40% & 35% improvements, and the interactive technology constellation graph.
+                </p>
+              </div>
+
+              <Link
+                to="/experience"
+                onClick={() => cyberAudio.playClick()}
+                className="btn-cyber-primary"
+                style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
+              >
+                VIEW EXPERIENCE →
+              </Link>
+            </motion.div>
+
+            {/* Portal 4: About & Workstation */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.25 }}
+              className="cyber-panel clipped-corner"
+              style={{
+                padding: "2.2rem 2rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                background: "linear-gradient(135deg, rgba(139, 92, 255, 0.05) 0%, rgba(12, 18, 34, 0.85) 100%)",
+              }}
+            >
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--purple)", marginBottom: "0.6rem" }}>
+                  PORTAL // 04
+                </div>
+                <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.5rem" }}>
+                  About & 3D Workstation
+                </h3>
+                <p style={{ fontSize: "0.88rem", color: "var(--text-secondary)", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                  Interactive 3D isometric workstation rig, personal engineering narrative, B.Tech education, and Microsoft cloud certifications.
+                </p>
+              </div>
+
+              <Link
+                to="/about"
+                onClick={() => cyberAudio.playClick()}
+                className="btn-cyber-secondary"
+                style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
+              >
+                MEET THE ENGINEER →
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

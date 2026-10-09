@@ -1,57 +1,39 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { cyberAudio } from "../utils/cyberAudio";
 
 const NAV_ITEMS = [
-  { id: "hero", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "identity", label: "Expertise" },
-  { id: "constellation", label: "Constellation" },
-  { id: "projects", label: "Projects" },
-  { id: "lab", label: "Engineering Lab" },
-  { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
+  { to: "/", label: "Home" },
+  { to: "/work", label: "Projects" },
+  { to: "/lab", label: "Engineering Lab" },
+  { to: "/experience", label: "Experience" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       const currentScroll = window.scrollY;
       setScrollProgress(totalScroll > 0 ? (currentScroll / totalScroll) * 100 : 0);
-      setScrolled(currentScroll > 40);
-
-      // Determine active section
-      for (const item of [...NAV_ITEMS].reverse()) {
-        const el = document.getElementById(item.id);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (rect.top <= 200) {
-            setActiveSection(item.id);
-            break;
-          }
-        }
-      }
+      setScrolled(currentScroll > 30);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollTo = (id) => {
-    cyberAudio.playClick();
+  useEffect(() => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  }, [location.pathname]);
 
   const toggleSound = () => {
     const newState = cyberAudio.toggle();
@@ -61,10 +43,7 @@ export default function Navbar() {
   return (
     <>
       {/* Scroll Progress Bar */}
-      <div
-        className="scroll-progress-bar"
-        style={{ width: `${scrollProgress}%` }}
-      />
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
 
       <header
         style={{
@@ -77,26 +56,24 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 2rem",
-          background: scrolled ? "rgba(7, 10, 18, 0.88)" : "rgba(7, 10, 18, 0.4)",
+          padding: "0 2.2rem",
+          background: scrolled ? "rgba(7, 10, 18, 0.92)" : "rgba(7, 10, 18, 0.45)",
           backdropFilter: "blur(20px)",
           WebkitBackdropFilter: "blur(20px)",
-          borderBottom: scrolled ? "1px solid rgba(72, 229, 255, 0.15)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid rgba(72, 229, 255, 0.16)" : "1px solid transparent",
           transition: "all 0.3s ease",
         }}
       >
         {/* Monogram / Brand Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: "1.2rem" }}>
-          <button
-            onClick={() => scrollTo("hero")}
+          <Link
+            to="/"
+            onClick={() => cyberAudio.playClick()}
             style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
+              textDecoration: "none",
               display: "flex",
               alignItems: "center",
-              gap: "0.6rem",
-              textDecoration: "none",
+              gap: "0.65rem",
             }}
           >
             <div
@@ -104,7 +81,7 @@ export default function Navbar() {
                 width: "40px",
                 height: "40px",
                 borderRadius: "8px",
-                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.2), rgba(139, 92, 255, 0.2))",
+                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.25), rgba(139, 92, 255, 0.25))",
                 border: "1px solid var(--cyan)",
                 display: "flex",
                 alignItems: "center",
@@ -124,7 +101,7 @@ export default function Navbar() {
                 style={{
                   fontFamily: "var(--font-display)",
                   fontWeight: 700,
-                  fontSize: "1rem",
+                  fontSize: "1.05rem",
                   letterSpacing: "-0.01em",
                   color: "#ffffff",
                 }}
@@ -139,10 +116,10 @@ export default function Navbar() {
                   letterSpacing: "0.15em",
                 }}
               >
-                DIGITAL REALM // 2026
+                DIGITAL REALM // 3D ARCHITECTURE
               </div>
             </div>
-          </button>
+          </Link>
 
           {/* Status Indicator */}
           <div
@@ -180,27 +157,26 @@ export default function Navbar() {
           style={{
             display: "none",
             alignItems: "center",
-            gap: "1.5rem",
+            gap: "1.6rem",
           }}
           className="desktop-nav-menu"
         >
           {NAV_ITEMS.map((item) => {
-            const isActive = activeSection === item.id;
+            const isActive = location.pathname === item.to;
             return (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
+              <Link
+                key={item.to}
+                to={item.to}
                 onMouseEnter={() => cyberAudio.playHover()}
+                onClick={() => cyberAudio.playClick()}
                 style={{
-                  background: "none",
-                  border: "none",
                   fontFamily: "var(--font-mono)",
-                  fontSize: "0.78rem",
+                  fontSize: "0.82rem",
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
+                  textDecoration: "none",
                   color: isActive ? "var(--cyan)" : "var(--text-secondary)",
-                  cursor: "pointer",
-                  padding: "0.4rem 0.2rem",
+                  padding: "0.45rem 0.2rem",
                   position: "relative",
                   transition: "color 0.2s ease",
                 }}
@@ -220,7 +196,7 @@ export default function Navbar() {
                     }}
                   />
                 )}
-              </button>
+              </Link>
             );
           })}
         </nav>
@@ -253,18 +229,20 @@ export default function Navbar() {
           </button>
 
           {/* Let's Connect CTA */}
-          <button
-            onClick={() => scrollTo("contact")}
+          <Link
+            to="/contact"
+            onClick={() => cyberAudio.playClick()}
             className="btn-cyber-primary"
             style={{
               padding: "0.55rem 1.3rem",
               fontSize: "0.82rem",
               display: "none",
+              textDecoration: "none",
             }}
             id="nav-connect-btn"
           >
             LET'S CONNECT
-          </button>
+          </Link>
 
           {/* Mobile Hamburger Toggle */}
           <button
@@ -323,45 +301,50 @@ export default function Navbar() {
                 paddingBottom: "0.5rem",
               }}
             >
-              // COMMAND NAVIGATION
+              // MULTI-PAGE DIRECTORY
             </div>
 
-            {NAV_ITEMS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollTo(item.id)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  textAlign: "left",
-                  fontFamily: "var(--font-display)",
-                  fontSize: "1.15rem",
-                  fontWeight: 600,
-                  color: activeSection === item.id ? "var(--cyan)" : "var(--text-primary)",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  padding: "0.4rem 0",
-                }}
-              >
-                <span>{item.label}</span>
-                {activeSection === item.id && (
-                  <span style={{ color: "var(--cyan)", fontSize: "0.8rem", fontFamily: "var(--font-mono)" }}>
-                    ◀ ACTIVE
-                  </span>
-                )}
-              </button>
-            ))}
+            {NAV_ITEMS.map((item) => {
+              const isActive = location.pathname === item.to;
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => {
+                    cyberAudio.playClick();
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{
+                    textDecoration: "none",
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.15rem",
+                    fontWeight: 600,
+                    color: isActive ? "var(--cyan)" : "var(--text-primary)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "0.4rem 0",
+                  }}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span style={{ color: "var(--cyan)", fontSize: "0.8rem", fontFamily: "var(--font-mono)" }}>
+                      ◀ CURRENT
+                    </span>
+                  )}
+                </Link>
+              );
+            })}
 
             <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid rgba(72, 229, 255, 0.15)" }}>
-              <button
-                onClick={() => scrollTo("contact")}
+              <Link
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
                 className="btn-cyber-primary"
-                style={{ width: "100%", justifyContent: "center" }}
+                style={{ width: "100%", justifyContent: "center", textDecoration: "none" }}
               >
                 LET'S CONNECT
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}

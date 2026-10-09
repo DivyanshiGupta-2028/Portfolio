@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import ProjectsUniverse from "../components/ProjectsUniverse";
+import EngineeringLab from "../components/EngineeringLab";
 
-export default function WorkPage() {
+export default function EngineeringLabPage() {
   return (
     <main style={{ position: "relative", overflowX: "hidden", paddingTop: "80px" }}>
       {/* Page Hero Banner */}
@@ -15,20 +15,20 @@ export default function WorkPage() {
           >
             <div className="section-eyebrow">
               <span className="dot" />
-              PORTFOLIO // MISSION ARCHIVES
+              SYSTEM LABORATORY // ARCHITECTURE INTERNALS
             </div>
             <h1 className="section-title">
-              PRODUCTION SYSTEMS & <span className="gradient-cyan-purple">FEATURED PROJECTS.</span>
+              THE ENGINEERING <span className="gradient-cyan-purple">LABORATORY.</span>
             </h1>
             <p className="section-subtitle">
-              Comprehensive architectural case studies, live screen recordings, and benchmarked metrics from enterprise backends to consumer platforms.
+              Inspect how the systems work beneath the hood: interactive lifecycle traces, security authentication token flows, multi-tenant partitioning, and AI data pipelines.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Projects Universe */}
-      <ProjectsUniverse />
+      {/* Interactive Visualizers */}
+      <EngineeringLab />
     </main>
   );
 }
