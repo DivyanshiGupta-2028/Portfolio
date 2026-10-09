@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
+import GamingVideoTheater from "../components/GamingVideoTheater";
 import EngineeringIdentity from "../components/EngineeringIdentity";
 import Achievements from "../components/Achievements";
 import { cyberAudio } from "../utils/cyberAudio";
@@ -8,16 +9,19 @@ import { cyberAudio } from "../utils/cyberAudio";
 export default function Home() {
   return (
     <main style={{ position: "relative", overflowX: "hidden" }}>
-      {/* 01. Hero with 3D Atom Core */}
+      {/* 01. Hero with 3D Atom Core & Gaming Telemetry */}
       <Hero />
 
-      {/* 02. Engineering Identity / Capabilities */}
+      {/* 02. Gaming Video Holo-Theater (Real Screen Recordings with CRT Scanlines) */}
+      <GamingVideoTheater />
+
+      {/* 03. Engineering Identity & Capabilities */}
       <EngineeringIdentity />
 
-      {/* 03. Verified Achievements Teaser */}
+      {/* 04. Verified Achievements (40% & 35% Benchmark Highlights) */}
       <Achievements />
 
-      {/* 04. Multi-Page Exploration Portals (Command Grid) */}
+      {/* 05. Multi-Page Exploration Portals (Command Grid) */}
       <section style={{ position: "relative" }}>
         <div className="section-container">
           <div className="section-header">
@@ -67,7 +71,7 @@ export default function Home() {
 
               <Link
                 to="/work"
-                onClick={() => cyberAudio.playClick()}
+                onClick={() => cyberAudio.playLaser()}
                 className="btn-cyber-primary"
                 style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
               >
@@ -102,7 +106,7 @@ export default function Home() {
 
               <Link
                 to="/lab"
-                onClick={() => cyberAudio.playClick()}
+                onClick={() => cyberAudio.playLaser()}
                 className="btn-cyber-secondary"
                 style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
               >
@@ -137,7 +141,7 @@ export default function Home() {
 
               <Link
                 to="/experience"
-                onClick={() => cyberAudio.playClick()}
+                onClick={() => cyberAudio.playLaser()}
                 className="btn-cyber-primary"
                 style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
               >
@@ -172,7 +176,7 @@ export default function Home() {
 
               <Link
                 to="/about"
-                onClick={() => cyberAudio.playClick()}
+                onClick={() => cyberAudio.playLaser()}
                 className="btn-cyber-secondary"
                 style={{ textDecoration: "none", width: "100%", justifyContent: "center" }}
               >

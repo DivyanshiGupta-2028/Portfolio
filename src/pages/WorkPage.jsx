@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import GamingVideoTheater from "../components/GamingVideoTheater";
 import ProjectsUniverse from "../components/ProjectsUniverse";
 
 export default function WorkPage() {
@@ -27,7 +28,10 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Projects Universe */}
+      {/* Gaming Video Holo-Theater (Live Production Footage) */}
+      <GamingVideoTheater />
+
+      {/* All 7 Real Projects Universe with Interactive Case Studies */}
       <ProjectsUniverse />
     </main>
   );
