@@ -6,11 +6,11 @@ export default function Cursor() {
   const [ring, setRing] = useState({ x: -100, y: -100 });
   const [hovering, setHovering] = useState(false);
   const [clicking, setClicking] = useState(false);
-  const [isMobile, setIsMobile] = useState(true); // default to true, check in useEffect
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const checkTouch = () => {
-      return window.matchMedia("(pointer: coarse)").matches || 'ontouchstart' in window;
+      return window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
     };
     const touch = checkTouch();
     setIsMobile(touch);
@@ -47,10 +47,11 @@ export default function Cursor() {
   // Lerp ring towards cursor
   useEffect(() => {
     let raf;
-    let rx = ring.x, ry = ring.y;
+    let rx = ring.x,
+      ry = ring.y;
     const lerp = () => {
-      rx += (pos.x - rx) * 0.12;
-      ry += (pos.y - ry) * 0.12;
+      rx += (pos.x - rx) * 0.15;
+      ry += (pos.y - ry) * 0.15;
       setRing({ x: rx, y: ry });
       raf = requestAnimationFrame(lerp);
     };
@@ -62,35 +63,39 @@ export default function Cursor() {
 
   return (
     <>
-      {/* Dot */}
+      {/* Reticle Dot */}
       <motion.div
         style={{
           position: "fixed",
-          top: 0, left: 0,
-          width: hovering ? "16px" : "8px",
-          height: hovering ? "16px" : "8px",
+          top: 0,
+          left: 0,
+          width: hovering ? "14px" : "6px",
+          height: hovering ? "14px" : "6px",
           borderRadius: "50%",
-          background: hovering ? "var(--gold)" : "var(--purple-light)",
+          background: hovering ? "var(--cyan)" : "#ffffff",
+          boxShadow: hovering ? "0 0 15px var(--cyan)" : "none",
           pointerEvents: "none",
           zIndex: 99999,
           mixBlendMode: "screen",
-          transition: "width 0.2s, height 0.2s, background 0.2s",
-          transform: `translate(${pos.x - (hovering ? 8 : 4)}px, ${pos.y - (hovering ? 8 : 4)}px) scale(${clicking ? 0.7 : 1})`,
+          transition: "width 0.15s, height 0.15s, background 0.15s",
+          transform: `translate(${pos.x - (hovering ? 7 : 3)}px, ${pos.y - (hovering ? 7 : 3)}px) scale(${clicking ? 0.7 : 1})`,
         }}
       />
-      {/* Ring */}
+      {/* Targeting Ring */}
       <div
         style={{
           position: "fixed",
-          top: 0, left: 0,
-          width: hovering ? "50px" : "36px",
-          height: hovering ? "50px" : "36px",
+          top: 0,
+          left: 0,
+          width: hovering ? "48px" : "32px",
+          height: hovering ? "48px" : "32px",
           borderRadius: "50%",
-          border: `1.5px solid ${hovering ? "rgba(244,185,66,0.7)" : "rgba(199,125,255,0.5)"}`,
+          border: `1.5px solid ${hovering ? "var(--cyan)" : "rgba(72, 229, 255, 0.4)"}`,
+          boxShadow: hovering ? "0 0 20px rgba(72, 229, 255, 0.35)" : "none",
           pointerEvents: "none",
           zIndex: 99998,
-          transition: "width 0.25s, height 0.25s, border-color 0.25s",
-          transform: `translate(${ring.x - (hovering ? 25 : 18)}px, ${ring.y - (hovering ? 25 : 18)}px)`,
+          transition: "width 0.2s, height 0.2s, border-color 0.2s",
+          transform: `translate(${ring.x - (hovering ? 24 : 16)}px, ${ring.y - (hovering ? 24 : 16)}px)`,
         }}
       />
     </>
