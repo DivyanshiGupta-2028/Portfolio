@@ -44,6 +44,9 @@ const PROJECTS = [
     subCategory: "FULL-STACK PRODUCT / SECURE API DESIGN",
     accent: "#ec4899",
     badge: "LIVE RECORDING",
+    liveLink: "https://play.google.com/apps/internaltest/4701291796801878386",
+    liveLinkLabel: "PLAY STORE (INTERNAL BETA)",
+    liveLinkType: "playstore",
     video: "/Record_2026-05-28-14-45-33.mp4",
     desc: "A dating platform with user authentication, profile management, discovery, matching workflows, and subscription-based premium features.",
     stack: ["React", "Node.js", "Express.js", "ASP.NET Core", "SQL Server", "MySQL", "JWT", "Google OAuth2"],
@@ -106,7 +109,10 @@ const PROJECTS = [
     category: "Full-Stack",
     subCategory: "E-COMMERCE / FULL-STACK INTEGRATION",
     accent: "#10b981",
-    badge: "LIVE DEMO REEL",
+    badge: "LIVE ON PLAY STORE",
+    liveLink: "https://play.google.com/store/apps/details?id=com.Bellezbuy.app&hl=en",
+    liveLinkLabel: "DOWNLOAD ON PLAY STORE",
+    liveLinkType: "playstore",
     video: "/Record_2026-05-28-14-40-29.mp4",
     videoAdmin: "/VID20260529105202.mp4",
     desc: "An e-commerce platform focused on product catalogues, order management, payment integrations, and transactional communication.",
@@ -139,7 +145,10 @@ const PROJECTS = [
     category: "AI / Integration",
     subCategory: "AI-INTEGRATED BACKEND / PERSONALIZATION",
     accent: "#a855f7",
-    badge: "AI PERSONALIZATION",
+    badge: "LIVE WEB PORTAL",
+    liveLink: "https://wellnessphysioportal.sanskriti-tech.cloud/",
+    liveLinkLabel: "LAUNCH PHYSIO PORTAL",
+    liveLinkType: "web",
     desc: "An AI-integrated wellness platform with user-management and health-data APIs, personalized recommendation workflows, adaptive goals, and smart notifications.",
     stack: ["Python", "FastAPI", "REST APIs", "AI/ML Integration", "MySQL", "JWT", "Pydantic"],
     metric: "Sub-50ms health telemetry ingestion & adaptive goal triggers",
@@ -333,6 +342,8 @@ export default function ProjectsUniverse() {
                     justifyContent: "space-between",
                     alignItems: "center",
                     marginBottom: "1rem",
+                    flexWrap: "wrap",
+                    gap: "0.5rem",
                   }}
                 >
                   <span
@@ -345,19 +356,60 @@ export default function ProjectsUniverse() {
                   >
                     MISSION // {project.num}
                   </span>
-                  <span
-                    style={{
-                      padding: "0.25rem 0.65rem",
-                      borderRadius: "4px",
-                      background: "rgba(72, 229, 255, 0.08)",
-                      border: `1px solid ${project.accent}55`,
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.68rem",
-                      color: project.accent,
-                    }}
-                  >
-                    {project.badge}
-                  </span>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                    {project.liveLink && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          cyberAudio.playClick();
+                        }}
+                        style={{
+                          padding: "0.25rem 0.65rem",
+                          borderRadius: "4px",
+                          background: "rgba(16, 185, 129, 0.15)",
+                          border: "1px solid rgba(16, 185, 129, 0.5)",
+                          fontFamily: "var(--font-mono)",
+                          fontSize: "0.68rem",
+                          color: "#34d399",
+                          textDecoration: "none",
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.35rem",
+                          transition: "all 0.2s ease",
+                          cursor: "pointer",
+                        }}
+                        title="Open live deployment in new tab"
+                      >
+                        <span
+                          style={{
+                            width: "6px",
+                            height: "6px",
+                            borderRadius: "50%",
+                            background: "#10b981",
+                            boxShadow: "0 0 8px #10b981",
+                            display: "inline-block",
+                          }}
+                        />
+                        {project.liveLinkType === "playstore" ? "PLAY STORE ↗" : "LIVE PORTAL ↗"}
+                      </a>
+                    )}
+                    <span
+                      style={{
+                        padding: "0.25rem 0.65rem",
+                        borderRadius: "4px",
+                        background: "rgba(72, 229, 255, 0.08)",
+                        border: `1px solid ${project.accent}55`,
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.68rem",
+                        color: project.accent,
+                      }}
+                    >
+                      {project.badge}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Subcategory */}
@@ -490,6 +542,8 @@ export default function ProjectsUniverse() {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
+                  gap: "0.5rem",
+                  flexWrap: "wrap",
                 }}
               >
                 <div
@@ -501,18 +555,46 @@ export default function ProjectsUniverse() {
                 >
                   ★ {project.metric}
                 </div>
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.8rem",
-                    color: project.accent,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.3rem",
-                  }}
-                >
-                  CASE STUDY <span>→</span>
-                </span>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        cyberAudio.playClick();
+                      }}
+                      style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "0.75rem",
+                        color: "#34d399",
+                        textDecoration: "none",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "0.3rem",
+                        padding: "0.2rem 0.55rem",
+                        borderRadius: "4px",
+                        border: "1px solid rgba(16, 185, 129, 0.4)",
+                        background: "rgba(16, 185, 129, 0.1)",
+                      }}
+                    >
+                      <span>{project.liveLinkType === "playstore" ? "▶" : "🌐"}</span> LIVE ↗
+                    </a>
+                  )}
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.8rem",
+                      color: project.accent,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.3rem",
+                    }}
+                  >
+                    CASE STUDY <span>→</span>
+                  </span>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -619,7 +701,7 @@ export default function ProjectsUniverse() {
                   display: "flex",
                   flexWrap: "wrap",
                   gap: "0.5rem",
-                  marginBottom: "1.8rem",
+                  marginBottom: selectedProject.liveLink ? "1.2rem" : "1.8rem",
                 }}
               >
                 {selectedProject.stack.map((t, i) => (
@@ -639,6 +721,86 @@ export default function ProjectsUniverse() {
                   </span>
                 ))}
               </div>
+
+              {/* Live Link Action Bar */}
+              {selectedProject.liveLink && (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    flexWrap: "wrap",
+                    gap: "1rem",
+                    padding: "0.9rem 1.2rem",
+                    marginBottom: "1.8rem",
+                    borderRadius: "10px",
+                    background: "linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(72, 229, 255, 0.08))",
+                    border: "1px solid rgba(16, 185, 129, 0.4)",
+                    boxShadow: "0 0 30px rgba(16, 185, 129, 0.15)",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                    <span
+                      style={{
+                        display: "inline-block",
+                        width: "10px",
+                        height: "10px",
+                        borderRadius: "50%",
+                        background: "#10b981",
+                        boxShadow: "0 0 10px #10b981",
+                      }}
+                    />
+                    <div>
+                      <div
+                        style={{
+                          fontFamily: "var(--font-mono)",
+                          fontSize: "0.72rem",
+                          color: "#34d399",
+                          letterSpacing: "0.1em",
+                        }}
+                      >
+                        VERIFIED PRODUCTION DEPLOYMENT
+                      </div>
+                      <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>
+                        {selectedProject.liveLinkType === "playstore"
+                          ? "Official Google Play release"
+                          : "Production web application & live portal"}
+                      </div>
+                    </div>
+                  </div>
+
+                  <a
+                    href={selectedProject.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      cyberAudio.playClick();
+                    }}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      padding: "0.6rem 1.3rem",
+                      borderRadius: "6px",
+                      background: "linear-gradient(135deg, #10b981, #06b6d4)",
+                      color: "#040711",
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.82rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.06em",
+                      textDecoration: "none",
+                      boxShadow: "0 0 20px rgba(16, 185, 129, 0.4)",
+                      transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <span>{selectedProject.liveLinkType === "playstore" ? "▶" : "🌐"}</span>
+                    <span>{selectedProject.liveLinkLabel}</span>
+                    <span style={{ fontSize: "0.9rem" }}>↗</span>
+                  </a>
+                </div>
+              )}
 
               {/* Video Player if available */}
               {selectedProject.video && (
