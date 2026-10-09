@@ -112,7 +112,7 @@ export default function AboutPage() {
 
             {/* Identity chips */}
             <div style={{ display: "flex", gap: "0.75rem", marginTop: "1.8rem", flexWrap: "wrap" }}>
-              {["B.Tech CSE · AKTU 2022", "AZ-900 Azure Certified", ".NET Specialist", "Backend-First Engineer"].map((chip) => (
+              {["B.Tech CSE · MIET 2024", "AZ-900 & AI-900 Certified", ".NET Specialist", "Backend-First Engineer"].map((chip) => (
                 <span
                   key={chip}
                   style={{

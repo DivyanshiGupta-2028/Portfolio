@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 export default function Experience() {
   const experiences = [
     {
-      date: "JUL 2024 – PRESENT · NOIDA",
-      role: "Software Engineer – .NET",
+      date: "JUN 2024 – PRESENT · NOIDA",
+      role: "Software Engineer – Full Stack",
       company: "Sanskriti IT Solutions",
       highlights: [
         <>
