@@ -3,11 +3,17 @@ import { cyberAudio } from "../utils/cyberAudio";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
-  { to: "/work", label: "Projects Universe" },
+  { to: "/work", label: "Projects" },
   { to: "/lab", label: "Engineering Lab" },
-  { to: "/experience", label: "Experience & Skills" },
-  { to: "/about", label: "About & Rig" },
+  { to: "/experience", label: "Experience" },
+  { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
+];
+
+const SOCIAL_LINKS = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/divyanshi-gupta" },
+  { label: "GitHub", href: "https://github.com/divyanshi-gupta" },
+  { label: "Resume", href: "/DivyanshiGupta (1).pdf", download: true },
 ];
 
 export default function Footer() {
@@ -17,211 +23,128 @@ export default function Footer() {
   };
 
   return (
-    <footer
-      style={{
+    <footer style={{ position: "relative", zIndex: 2 }}>
+
+      {/* ── Product.inc style large CTA ── */}
+      <div style={{
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+        padding: "6rem 2rem",
+        textAlign: "center",
         position: "relative",
-        zIndex: 2,
-        background: "rgba(5, 8, 16, 0.95)",
-        borderTop: "1px solid rgba(72, 229, 255, 0.15)",
-        padding: "3.5rem 2rem 2rem",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1240px",
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          gap: "2.5rem",
-        }}
-      >
-        {/* Main Footer Row */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            flexWrap: "wrap",
-            gap: "2rem",
-          }}
-        >
-          {/* Brand Info */}
-          <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.8rem", marginBottom: "0.8rem" }}>
-              <div
-                style={{
-                  width: "36px",
-                  height: "36px",
-                  borderRadius: "6px",
-                  background: "linear-gradient(135deg, rgba(72, 229, 255, 0.25), rgba(139, 92, 255, 0.25))",
-                  border: "1px solid var(--cyan)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 900,
-                  color: "#ffffff",
-                  fontSize: "1rem",
-                  clipPath: "polygon(0 0, 100% 0, 85% 100%, 0 100%)",
-                }}
-              >
-                DG
-              </div>
-              <div>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "#ffffff", fontSize: "1.1rem" }}>
-                  DIVYANSHI<span style={{ color: "var(--cyan)" }}>.GUPTA</span>
-                </div>
-                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-muted)" }}>
-                  DIGITAL REALM // MULTI-PAGE EXPERIENCE
-                </div>
-              </div>
-            </div>
-            <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", maxWidth: "420px", lineHeight: 1.6 }}>
-              Full-Stack Software Engineer specializing in .NET 7+, ASP.NET Core, SQL Server, multi-tenant architectures, and AI-integrated systems.
-            </p>
+        overflow: "hidden",
+      }}>
+        {/* Background glow */}
+        <div style={{
+          position: "absolute", top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "600px", height: "400px",
+          background: "radial-gradient(ellipse, rgba(72,229,255,0.055) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
+
+        <div style={{ maxWidth: "1260px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.28)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
+            // READY TO COLLABORATE?
           </div>
 
-          {/* Quick Page Links */}
-          <div>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.75rem",
-                color: "var(--cyan)",
-                letterSpacing: "0.15em",
-                marginBottom: "0.8rem",
-              }}
-            >
-              // MULTI-PAGE DIRECTORY
-            </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "0.5rem 1.5rem",
-              }}
-            >
-              {NAV_LINKS.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => cyberAudio.playClick()}
-                  style={{
-                    textDecoration: "none",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.78rem",
-                    color: "var(--text-secondary)",
-                    padding: "0.2rem 0",
-                    transition: "color 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
-                >
-                  ▹ {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
+          <h2 style={{
+            fontFamily: "var(--font-display)", fontWeight: 800,
+            fontSize: "clamp(2.5rem, 7vw, 5.5rem)", lineHeight: 1.02,
+            letterSpacing: "-0.045em", color: "#ffffff",
+            marginBottom: "2.5rem", maxWidth: "900px", margin: "0 auto 2.5rem",
+          }}>
+            Available for{" "}
+            <span style={{ background: "linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              great work.
+            </span>
+          </h2>
 
-          {/* Verified Contacts & Back to Top */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.75rem",
-                color: "var(--cyan)",
-                letterSpacing: "0.15em",
-                marginBottom: "0.2rem",
-              }}
+          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link
+              to="/contact"
+              onClick={() => cyberAudio.playLaser()}
+              className="btn-flat-primary"
+              style={{ textDecoration: "none", fontSize: "0.9rem" }}
             >
-              // CHANNELS
-            </div>
-            <a
-              href="https://www.linkedin.com/in/divyanshi-gupta"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "#ffffff",
-                textDecoration: "none",
-                fontSize: "0.85rem",
-                fontFamily: "var(--font-mono)",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.5rem",
-              }}
-            >
-              <span>LinkedIn</span> <span>↗</span>
-            </a>
+              START A CONVERSATION →
+            </Link>
             <a
               href="mailto:divyanshi2028@gmail.com"
-              style={{
-                color: "var(--cyan)",
-                textDecoration: "none",
-                fontSize: "0.85rem",
-                fontFamily: "var(--font-mono)",
-              }}
+              className="btn-flat-secondary"
+              style={{ textDecoration: "none", fontSize: "0.9rem" }}
             >
               divyanshi2028@gmail.com
             </a>
-            <a
-              href="tel:+917017796542"
-              style={{
-                color: "var(--text-muted)",
-                textDecoration: "none",
-                fontSize: "0.82rem",
-                fontFamily: "var(--font-mono)",
-              }}
-            >
-              +91-7017796542
-            </a>
+          </div>
+        </div>
+      </div>
 
+      {/* ── Footer nav + info bar ── */}
+      <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(4,6,11,0.9)" }}>
+        <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "2.5rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1.5rem" }}>
+
+          {/* Brand */}
+          <div>
+            <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", color: "#ffffff", marginBottom: "0.2rem" }}>
+              DIVYANSHI<span style={{ color: "var(--cyan)" }}>.GUPTA</span>
+            </div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.1em" }}>
+              FULL-STACK ENGINEER · NOIDA
+            </div>
+          </div>
+
+          {/* Nav links */}
+          <div style={{ display: "flex", gap: "1.8rem", flexWrap: "wrap" }}>
+            {NAV_LINKS.map(item => (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => cyberAudio.playClick()}
+                className="dashed-link"
+                style={{ textDecoration: "none", fontFamily: "var(--font-body)", fontSize: "0.82rem", color: "rgba(255,255,255,0.42)" }}
+                onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.85)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.42)"; }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Social + Back to top */}
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+            {SOCIAL_LINKS.map(s => (
+              <a
+                key={s.label}
+                href={s.href}
+                target={s.download ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                download={s.download}
+                style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "rgba(255,255,255,0.38)", textDecoration: "none", transition: "color 0.2s ease" }}
+                onMouseEnter={e => { e.currentTarget.style.color = "var(--cyan)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.38)"; }}
+              >
+                {s.label} ↗
+              </a>
+            ))}
             <button
               onClick={scrollToTop}
-              className="btn-cyber-secondary"
-              style={{
-                padding: "0.45rem 1rem",
-                fontSize: "0.75rem",
-                marginTop: "0.6rem",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.4rem",
-              }}
+              style={{ background: "none", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "4px", color: "rgba(255,255,255,0.38)", fontFamily: "var(--font-mono)", fontSize: "0.72rem", padding: "0.4rem 0.8rem", cursor: "pointer", transition: "all 0.2s ease" }}
+              onMouseEnter={e => { e.currentTarget.style.color = "var(--cyan)"; e.currentTarget.style.borderColor = "rgba(72,229,255,0.4)"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.38)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
             >
-              <span>▲ ELEVATE TO TOP</span>
+              ↑ TOP
             </button>
           </div>
         </div>
 
-        {/* Bottom Status Bar */}
-        <div
-          style={{
-            borderTop: "1px solid rgba(72, 229, 255, 0.1)",
-            paddingTop: "1.5rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: "1rem",
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.72rem",
-            color: "var(--text-muted)",
-          }}
-        >
-          <div>
-            © {new Date().getFullYear()} DIVYANSHI GUPTA · MULTI-PAGE 3D ARCHITECTURE
+        {/* Bottom micro bar */}
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", maxWidth: "1260px", margin: "0 auto", padding: "1rem 2rem", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(255,255,255,0.18)" }}>
+            © {new Date().getFullYear()} DIVYANSHI GUPTA · ALL RIGHTS RESERVED
           </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "#34d399" }}>
-            <span
-              style={{
-                width: "6px",
-                height: "6px",
-                borderRadius: "50%",
-                background: "#10b981",
-                boxShadow: "0 0 6px #10b981",
-              }}
-            />
-            SYSTEM TELEMETRY: NOMINAL // ALL ENGINES ONLINE
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "#34d399" }}>
+            <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 6px #10b981" }} />
+            ALL SYSTEMS ONLINE
           </div>
         </div>
       </div>

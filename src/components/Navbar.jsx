@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import MarqueeBanner from "./MarqueeBanner";
 import { cyberAudio } from "../utils/cyberAudio";
 
 const NAV_ITEMS = [
@@ -43,27 +44,34 @@ export default function Navbar() {
   return (
     <>
       {/* Scroll Progress Bar */}
-      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%`, zIndex: 1001 }} />
 
-      <header
+      <div
         style={{
           position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          height: "76px",
           zIndex: 1000,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 2.2rem",
-          background: scrolled ? "rgba(7, 10, 18, 0.92)" : "rgba(7, 10, 18, 0.45)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          borderBottom: scrolled ? "1px solid rgba(72, 229, 255, 0.16)" : "1px solid transparent",
-          transition: "all 0.3s ease",
         }}
       >
+        {/* Top Continuous Engineering Status Marquee (product.inc style) */}
+        <MarqueeBanner />
+
+        <header
+          style={{
+            height: "70px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0 2.2rem",
+            background: scrolled ? "rgba(7, 10, 18, 0.94)" : "rgba(7, 10, 18, 0.65)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+            transition: "all 0.3s ease",
+          }}
+        >
         {/* Monogram / Brand Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: "1.2rem" }}>
           <Link
@@ -267,6 +275,7 @@ export default function Navbar() {
           </button>
         </div>
       </header>
+      </div>
 
       {/* Mobile Drawer Menu */}
       <AnimatePresence>
@@ -278,7 +287,7 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             style={{
               position: "fixed",
-              top: "76px",
+              top: "102px",
               left: 0,
               right: 0,
               background: "rgba(7, 10, 18, 0.98)",

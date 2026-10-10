@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "./context/ThemeContext";
 import Cursor from "./components/Cursor";
+import MarqueeBanner from "./components/MarqueeBanner";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ParticleField from "./components/ParticleField";

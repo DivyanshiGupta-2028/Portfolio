@@ -4,134 +4,65 @@ import Workstation3DCanvas from "../components/Workstation3DCanvas";
 import AboutSection from "../components/AboutSection";
 import EducationCertifications from "../components/EducationCertifications";
 
+const IDENTITY_CHIPS = [
+  { label: "B.Tech CSE · MIET 2024", color: "#38bdf8" },
+  { label: "AZ-900 & AI-900 Certified", color: "#10b981" },
+  { label: ".NET Specialist", color: "var(--cyan)" },
+  { label: "Backend-First Engineer", color: "var(--purple)" },
+];
+
 export default function AboutPage() {
   return (
     <main style={{ position: "relative", overflowX: "hidden", paddingTop: "80px" }}>
 
-      {/* ── Cinematic 3D Hero ── */}
-      <section
-        style={{
-          position: "relative",
-          minHeight: "400px",
-          display: "flex",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
-        <PageHero3D accentColor={0x38bdf8} secondColor={0x8b5cff} height={400} />
+      {/* ── product.inc style hero — large editorial text ── */}
+      <section style={{ position: "relative", overflow: "hidden" }}>
+        <div style={{
+          position: "absolute", top: "-10%", right: "-5%",
+          width: "600px", height: "600px",
+          background: "radial-gradient(ellipse, rgba(56,189,248,0.07) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
 
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(90deg, rgba(7,10,18,0.88) 0%, rgba(7,10,18,0.5) 60%, transparent 100%)",
-            zIndex: 1,
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "140px",
-            background: "linear-gradient(to bottom, transparent 0%, #070A12 100%)",
-            zIndex: 2,
-            pointerEvents: "none",
-          }}
-        />
+        <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "5rem 1.75rem 3rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "3rem", alignItems: "start" }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
+                // ABOUT
+              </div>
 
-        <div
-          className="section-container"
-          style={{ position: "relative", zIndex: 3, paddingBottom: "2rem", paddingTop: "2rem" }}
-        >
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.72rem",
-                color: "#38bdf8",
-                letterSpacing: "0.2em",
-                marginBottom: "1rem",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.6rem",
-              }}
-            >
-              <span
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: "#38bdf8",
-                  boxShadow: "0 0 12px #38bdf8",
-                }}
-                className="cyber-pulse"
-              />
-              ENGINEERING DOSSIER // BIOGRAPHY · DEVELOPER STORY
-            </div>
-
-            <h1
-              style={{
-                fontSize: "clamp(2.2rem, 5vw, 4rem)",
-                fontWeight: 800,
-                lineHeight: 1.05,
-                letterSpacing: "-0.03em",
-                marginBottom: "1.2rem",
-                maxWidth: "680px",
-              }}
-            >
-              THE ENGINEER{" "}
-              <span
-                style={{
-                  background: "linear-gradient(135deg, #38bdf8 0%, var(--purple) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  filter: "drop-shadow(0 0 20px rgba(56,189,248,0.4))",
-                }}
-              >
-                BEHIND THE CODE.
-              </span>
-            </h1>
-
-            <p
-              style={{
-                color: "var(--text-secondary)",
-                fontSize: "clamp(0.95rem, 1.6vw, 1.1rem)",
-                lineHeight: 1.7,
-                maxWidth: "560px",
-              }}
-            >
-              Explore my engineering mindset, problem-solving philosophies, 3D developer workstation, B.Tech education, and Microsoft certifications.
-            </p>
-
-            {/* Identity chips */}
-            <div style={{ display: "flex", gap: "0.75rem", marginTop: "1.8rem", flexWrap: "wrap" }}>
-              {["B.Tech CSE · MIET 2024", "AZ-900 & AI-900 Certified", ".NET Specialist", "Backend-First Engineer"].map((chip) => (
-                <span
-                  key={chip}
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.72rem",
-                    color: "#38bdf8",
-                    background: "rgba(56,189,248,0.08)",
-                    border: "1px solid rgba(56,189,248,0.3)",
-                    borderRadius: "999px",
-                    padding: "0.35rem 0.85rem",
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  {chip}
+              <h1 style={{
+                fontFamily: "var(--font-display)", fontWeight: 800,
+                fontSize: "clamp(3rem, 7vw, 6rem)", lineHeight: 1.0,
+                letterSpacing: "-0.045em", marginBottom: "1.5rem", maxWidth: "860px"
+              }}>
+                The engineer{" "}
+                <span style={{ background: "linear-gradient(135deg, #38bdf8 0%, var(--purple) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                  behind the code.
                 </span>
-              ))}
-            </div>
-          </motion.div>
+              </h1>
+
+              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem" }}>
+                Full-stack engineer with 3 years building enterprise SaaS backends, AI-integrated platforms, and consumer mobile apps. Specialist in .NET, ASP.NET Core, React, and multi-tenant architectures.
+              </p>
+
+              {/* Identity chips — product.inc flat tags */}
+              <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                {IDENTITY_CHIPS.map(chip => (
+                  <span
+                    key={chip.label}
+                    className="pi-tag"
+                    style={{ color: chip.color, borderColor: `${chip.color}40` }}
+                  >
+                    {chip.label}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          </div>
         </div>
+
+        <div className="pi-divider-cyan" style={{ margin: "0 1.75rem" }} />
       </section>
 
       {/* 3D Developer Workstation */}

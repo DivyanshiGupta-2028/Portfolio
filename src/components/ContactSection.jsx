@@ -1,6 +1,41 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { cyberAudio } from "../utils/cyberAudio";
+
+const CHANNELS = [
+  {
+    label: "EMAIL",
+    value: "divyanshi2028@gmail.com",
+    href: "mailto:divyanshi2028@gmail.com",
+    icon: "✉",
+  },
+  {
+    label: "LINKEDIN",
+    value: "linkedin.com/in/divyanshi-gupta",
+    href: "https://www.linkedin.com/in/divyanshi-gupta",
+    icon: "↗",
+  },
+  {
+    label: "GITHUB",
+    value: "github.com/divyanshi-gupta",
+    href: "https://github.com/divyanshi-gupta",
+    icon: "↗",
+  },
+  {
+    label: "PHONE",
+    value: "+91-7017796542",
+    href: "tel:+917017796542",
+    icon: "↗",
+  },
+];
+
+const OPPORTUNITY_TYPES = [
+  "Full-Time Role",
+  "Internship",
+  "Freelance / Contract",
+  "Open Source Collaboration",
+  "Technical Mentorship",
+];
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -13,7 +48,6 @@ export default function ContactSection() {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
   const validate = () => {
     const errs = {};
@@ -39,7 +73,6 @@ export default function ContactSection() {
     setSubmitted(true);
     cyberAudio.playSuccess();
 
-    // Trigger user mail client with pre-filled message
     const subject = encodeURIComponent(`[${formData.opportunityType}] Portfolio Inquiry from ${formData.name}`);
     const body = encodeURIComponent(
       `Hi Divyanshi,\n\nName: ${formData.name}\nEmail: ${formData.email}\nOpportunity Type: ${formData.opportunityType}\n\nMessage:\n${formData.message}`
@@ -55,524 +88,180 @@ export default function ContactSection() {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
+  if (submitted) {
+    return (
+      <section style={{ position: "relative" }}>
+        <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "6rem 1.75rem", textAlign: "center" }}>
+          <motion.div initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}>
+            <div style={{ fontSize: "3rem", marginBottom: "1.5rem" }}>✓</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: "1rem" }}>
+              Message sent.
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "1.05rem", maxWidth: "500px", margin: "0 auto" }}>
+              Your mail client should open now. I'll respond within 24 hours.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="contact" style={{ position: "relative" }}>
-      <div className="section-container">
-        {/* Section Header */}
-        <div className="section-header">
-          <div className="section-eyebrow">
-            <span className="dot" />
-            COMMUNICATIONS ARRAY // CONTACT
+      <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "5rem 1.75rem 0" }}>
+
+        {/* Section header */}
+        <div style={{ marginBottom: "4rem" }}>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.16em", marginBottom: "1rem" }}>
+            // CONTACT
           </div>
-          <h2 className="section-title">
-            LET'S BUILD <span className="gradient-cyan-purple">SOMETHING THAT MATTERS.</span>
+          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, maxWidth: "800px", marginBottom: "1.25rem" }}>
+            Let's build{" "}
+            <span style={{ background: "linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              something that matters.
+            </span>
           </h2>
-          <p className="section-subtitle">
-            Open to opportunities where backend engineering, full-stack development, and thoughtful product execution come together.
+          <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px" }}>
+            Open to full-time backend / full-stack roles, freelance projects, and technical collaborations. Based in Noida — available immediately.
           </p>
         </div>
 
-        {/* 2-Column: Direct Channels + Interactive Contact Form */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1.2fr",
-            gap: "2.5rem",
-          }}
-          className="contact-grid"
-        >
-          {/* Left: Contact Channels & Resume Download */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            {/* Direct Channel Cards */}
-            <div className="cyber-panel clipped-corner" style={{ padding: "2rem" }}>
-              <h3
-                style={{
-                  fontSize: "1.3rem",
-                  fontWeight: 700,
-                  color: "#ffffff",
-                  marginBottom: "1.4rem",
-                }}
-              >
-                DIRECT FREQUENCIES
-              </h3>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
-                {/* Email */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0.8rem 1rem",
-                    borderRadius: "8px",
-                    background: "rgba(7, 10, 18, 0.7)",
-                    border: "1px solid rgba(72, 229, 255, 0.15)",
-                  }}
-                >
-                  <div>
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-muted)" }}>
-                      EMAIL TRANSMISSION
-                    </div>
-                    <a
-                      href="mailto:divyanshi2028@gmail.com"
-                      style={{ color: "var(--cyan)", textDecoration: "none", fontSize: "0.92rem", fontWeight: 600 }}
-                    >
-                      divyanshi2028@gmail.com
-                    </a>
-                  </div>
-                  <button
-                    onClick={copyEmail}
-                    style={{
-                      background: "rgba(72, 229, 255, 0.1)",
-                      border: "1px solid rgba(72, 229, 255, 0.3)",
-                      color: "var(--cyan)",
-                      borderRadius: "6px",
-                      padding: "0.35rem 0.7rem",
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.72rem",
-                      cursor: "pointer",
-                    }}
-                  >
-                    {copiedEmail ? "COPIED ✔" : "COPY"}
-                  </button>
-                </div>
-
-                {/* LinkedIn */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0.8rem 1rem",
-                    borderRadius: "8px",
-                    background: "rgba(7, 10, 18, 0.7)",
-                    border: "1px solid rgba(72, 229, 255, 0.15)",
-                  }}
-                >
-                  <div>
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-muted)" }}>
-                      PROFESSIONAL NETWORK
-                    </div>
-                    <a
-                      href="https://www.linkedin.com/in/divyanshi-gupta"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: "#ffffff", textDecoration: "none", fontSize: "0.92rem", fontWeight: 600 }}
-                    >
-                      linkedin.com/in/divyanshi-gupta ↗
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0.8rem 1rem",
-                    borderRadius: "8px",
-                    background: "rgba(7, 10, 18, 0.7)",
-                    border: "1px solid rgba(72, 229, 255, 0.15)",
-                  }}
-                >
-                  <div>
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-muted)" }}>
-                      TELEPHONE LINE
-                    </div>
-                    <a
-                      href="tel:+917017796542"
-                      style={{ color: "#ffffff", textDecoration: "none", fontSize: "0.92rem", fontWeight: 600 }}
-                    >
-                      +91-7017796542
-                    </a>
-                  </div>
-                </div>
-              </div>
+        {/* product.inc two-column grid */}
+        <div className="pi-contact-grid">
+          {/* Left: Direct channels */}
+          <div className="pi-contact-left">
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "rgba(255,255,255,0.35)", marginBottom: "2.5rem" }}>
+              DIRECT CHANNELS
             </div>
 
-            {/* Resume Callout Card */}
-            <div
-              className="cyber-panel clipped-corner"
-              style={{
-                padding: "1.8rem 2rem",
-                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.08) 0%, rgba(139, 92, 255, 0.08) 100%)",
-                border: "1px solid var(--cyan)",
-              }}
-            >
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--cyan)", marginBottom: "0.4rem" }}>
-                // VERIFIED RESUME ASSET
-              </div>
-              <h4 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#ffffff", marginBottom: "0.6rem" }}>
-                Divyanshi Gupta — Full Resume
-              </h4>
-              <p style={{ fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "1.2rem" }}>
-                PDF document detailing engineering background, verified achievements, .NET backend services, and cloud certs.
-              </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: "2.2rem" }}>
+              {CHANNELS.map((ch) => (
+                <div key={ch.label}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "rgba(255,255,255,0.3)", marginBottom: "0.35rem" }}>
+                    {ch.label}
+                  </div>
+                  <a
+                    href={ch.href}
+                    target={ch.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="dashed-link"
+                    style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                  >
+                    {ch.value} <span style={{ opacity: 0.5, fontSize: "0.8rem" }}>{ch.icon}</span>
+                  </a>
+                </div>
+              ))}
+            </div>
 
-              <div style={{ display: "flex", gap: "0.8rem", flexWrap: "wrap" }}>
-                <a
-                  href="/divyanshi-gupta-resume.pdf"
-                  download="divyanshi-gupta-resume.pdf"
-                  className="btn-cyber-primary"
-                  style={{ padding: "0.65rem 1.4rem", fontSize: "0.85rem" }}
-                  onClick={() => cyberAudio.playSuccess()}
-                >
-                  DOWNLOAD PDF ↓
-                </a>
+            {/* Availability badge */}
+            <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.55rem", fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "#34d399" }}>
+                <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981" }} className="cyber-pulse" />
+                OPEN TO OPPORTUNITIES · IMMEDIATE JOIN
+              </div>
+
+              {/* Copy email */}
+              <div style={{ marginTop: "1.5rem" }}>
                 <button
-                  onClick={() => {
-                    cyberAudio.playClick();
-                    setResumeModalOpen(true);
-                  }}
-                  className="btn-cyber-secondary"
-                  style={{ padding: "0.65rem 1.4rem", fontSize: "0.85rem" }}
+                  onClick={copyEmail}
+                  className="btn-flat-secondary"
+                  style={{ fontSize: "0.8rem", height: "38px", padding: "0 1.1rem" }}
                 >
-                  VIEW RESUME 👁
+                  {copiedEmail ? "✓ COPIED!" : "COPY EMAIL"}
                 </button>
+              </div>
+
+              {/* Resume download */}
+              <div style={{ marginTop: "0.75rem" }}>
+                <a
+                  href="/DivyanshiGupta (1).pdf"
+                  download
+                  className="btn-flat-primary"
+                  style={{ textDecoration: "none", fontSize: "0.8rem", height: "38px", padding: "0 1.1rem" }}
+                >
+                  ↓ DOWNLOAD RESUME
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Right: Interactive Contact Form */}
-          <div className="cyber-panel clipped-corner" style={{ padding: "2.2rem" }}>
-            <h3
-              style={{
-                fontSize: "1.35rem",
-                fontWeight: 700,
-                color: "#ffffff",
-                marginBottom: "0.4rem",
-              }}
-            >
-              INITIATE TRANSMISSION
-            </h3>
-            <p
-              style={{
-                fontSize: "0.88rem",
-                color: "var(--text-secondary)",
-                marginBottom: "1.8rem",
-              }}
-            >
-              Send an inquiry regarding full-time roles, engineering consultations, or technical collaborations.
-            </p>
+          {/* Right: Minimal form */}
+          <div className="pi-contact-right">
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "rgba(255,255,255,0.35)", marginBottom: "2.5rem" }}>
+              SEND A MESSAGE
+            </div>
 
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                style={{
-                  padding: "2rem",
-                  borderRadius: "10px",
-                  background: "rgba(16, 185, 129, 0.1)",
-                  border: "1px solid rgba(16, 185, 129, 0.3)",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>✔</div>
-                <h4 style={{ color: "#34d399", fontSize: "1.2rem", fontWeight: 700, marginBottom: "0.5rem" }}>
-                  TRANSMISSION DISPATCHED
-                </h4>
-                <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", marginBottom: "1.2rem" }}>
-                  Your email client has been prepared with your inquiry. I will review and reply promptly!
-                </p>
-                <button
-                  onClick={() => setSubmitted(false)}
+            <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+              {/* Name */}
+              <div>
+                <label className="pi-input-label" htmlFor="pi-name">YOUR NAME</label>
+                <input
+                  id="pi-name"
+                  className="pi-input"
+                  type="text"
+                  placeholder="Aarav Sharma"
+                  value={formData.name}
+                  onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))}
+                />
+                {errors.name && <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "#f87171", marginTop: "0.4rem" }}>{errors.name}</div>}
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="pi-input-label" htmlFor="pi-email">YOUR EMAIL</label>
+                <input
+                  id="pi-email"
+                  className="pi-input"
+                  type="email"
+                  placeholder="name@company.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
+                />
+                {errors.email && <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "#f87171", marginTop: "0.4rem" }}>{errors.email}</div>}
+              </div>
+
+              {/* Opportunity Type */}
+              <div>
+                <label className="pi-input-label" htmlFor="pi-type">OPPORTUNITY TYPE</label>
+                <select
+                  id="pi-type"
+                  value={formData.opportunityType}
+                  onChange={(e) => setFormData(p => ({ ...p, opportunityType: e.target.value }))}
                   style={{
-                    background: "none",
-                    border: "1px solid rgba(72, 229, 255, 0.3)",
-                    color: "var(--cyan)",
-                    borderRadius: "6px",
-                    padding: "0.5rem 1rem",
-                    cursor: "pointer",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.8rem",
+                    width: "100%", background: "transparent", border: "none",
+                    borderBottom: "1px solid rgba(255,255,255,0.14)", color: "#ffffff",
+                    fontFamily: "var(--font-body)", fontSize: "1rem",
+                    padding: "0.85rem 0", outline: "none", cursor: "pointer",
+                    appearance: "none", WebkitAppearance: "none",
                   }}
                 >
-                  SEND ANOTHER MESSAGE
-                </button>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.2rem" }}>
-                {/* Name */}
-                <div>
-                  <label
-                    htmlFor="contact-name"
-                    style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "0.3rem" }}
-                  >
-                    IDENTIFIER / NAME *
-                  </label>
-                  <input
-                    id="contact-name"
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Alex Vance"
-                    style={{
-                      width: "100%",
-                      padding: "0.8rem 1rem",
-                      borderRadius: "6px",
-                      background: "rgba(7, 10, 18, 0.8)",
-                      border: `1px solid ${errors.name ? "#ef4444" : "rgba(72, 229, 255, 0.2)"}`,
-                      color: "#ffffff",
-                      fontFamily: "var(--font-body)",
-                      fontSize: "0.92rem",
-                      outline: "none",
-                    }}
-                  />
-                  {errors.name && <span style={{ color: "#ef4444", fontSize: "0.75rem", fontFamily: "var(--font-mono)" }}>{errors.name}</span>}
-                </div>
+                  {OPPORTUNITY_TYPES.map(t => <option key={t} value={t} style={{ background: "#06080F" }}>{t}</option>)}
+                </select>
+              </div>
 
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="contact-email"
-                    style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "0.3rem" }}
-                  >
-                    RETURN ADDRESS / EMAIL *
-                  </label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. alex@enterprise.com"
-                    style={{
-                      width: "100%",
-                      padding: "0.8rem 1rem",
-                      borderRadius: "6px",
-                      background: "rgba(7, 10, 18, 0.8)",
-                      border: `1px solid ${errors.email ? "#ef4444" : "rgba(72, 229, 255, 0.2)"}`,
-                      color: "#ffffff",
-                      fontFamily: "var(--font-body)",
-                      fontSize: "0.92rem",
-                      outline: "none",
-                    }}
-                  />
-                  {errors.email && <span style={{ color: "#ef4444", fontSize: "0.75rem", fontFamily: "var(--font-mono)" }}>{errors.email}</span>}
-                </div>
+              {/* Message */}
+              <div>
+                <label className="pi-input-label" htmlFor="pi-message">MESSAGE</label>
+                <textarea
+                  id="pi-message"
+                  className="pi-input"
+                  placeholder="Tell me about the role or project..."
+                  rows={5}
+                  value={formData.message}
+                  onChange={(e) => setFormData(p => ({ ...p, message: e.target.value }))}
+                  style={{ resize: "vertical" }}
+                />
+                {errors.message && <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "#f87171", marginTop: "0.4rem" }}>{errors.message}</div>}
+              </div>
 
-                {/* Opportunity Type */}
-                <div>
-                  <label
-                    htmlFor="contact-opportunity"
-                    style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "0.3rem" }}
-                  >
-                    OPPORTUNITY TYPE
-                  </label>
-                  <select
-                    id="contact-opportunity"
-                    value={formData.opportunityType}
-                    onChange={(e) => setFormData({ ...formData, opportunityType: e.target.value })}
-                    style={{
-                      width: "100%",
-                      padding: "0.8rem 1rem",
-                      borderRadius: "6px",
-                      background: "rgba(7, 10, 18, 0.8)",
-                      border: "1px solid rgba(72, 229, 255, 0.2)",
-                      color: "#ffffff",
-                      fontFamily: "var(--font-body)",
-                      fontSize: "0.92rem",
-                      outline: "none",
-                    }}
-                  >
-                    <option value="Full-Time Role">Full-Time Software Engineer Role</option>
-                    <option value="Contract / Consulting">Contract / Backend Consulting</option>
-                    <option value="Architecture Review">Architecture / System Design Review</option>
-                    <option value="General Technical Inquiry">General Technical Inquiry</option>
-                  </select>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label
-                    htmlFor="contact-message"
-                    style={{ display: "block", fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)", marginBottom: "0.3rem" }}
-                  >
-                    TRANSMISSION MESSAGE *
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe the role, project requirements, or opportunity..."
-                    style={{
-                      width: "100%",
-                      padding: "0.8rem 1rem",
-                      borderRadius: "6px",
-                      background: "rgba(7, 10, 18, 0.8)",
-                      border: `1px solid ${errors.message ? "#ef4444" : "rgba(72, 229, 255, 0.2)"}`,
-                      color: "#ffffff",
-                      fontFamily: "var(--font-body)",
-                      fontSize: "0.92rem",
-                      outline: "none",
-                      resize: "vertical",
-                    }}
-                  />
-                  {errors.message && <span style={{ color: "#ef4444", fontSize: "0.75rem", fontFamily: "var(--font-mono)" }}>{errors.message}</span>}
-                </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="btn-cyber-primary clipped-corner"
-                  style={{ width: "100%", marginTop: "0.5rem" }}
-                >
-                  DISPATCH TRANSMISSION ✉
-                </button>
-              </form>
-            )}
+              {/* Submit */}
+              <button type="submit" className="btn-flat-primary" style={{ alignSelf: "flex-start", fontSize: "0.9rem" }}>
+                SEND MESSAGE →
+              </button>
+            </form>
           </div>
         </div>
       </div>
-
-      {/* Resume Modal */}
-      <AnimatePresence>
-        {resumeModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            style={{
-              position: "fixed",
-              inset: 0,
-              zIndex: 10000,
-              background: "rgba(4, 6, 12, 0.88)",
-              backdropFilter: "blur(16px)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "1.5rem",
-            }}
-            onClick={() => setResumeModalOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              style={{
-                width: "100%",
-                maxWidth: "780px",
-                maxHeight: "85vh",
-                overflowY: "auto",
-                background: "rgba(9, 14, 28, 0.98)",
-                border: "1px solid var(--cyan)",
-                borderRadius: "16px",
-                padding: "2.5rem",
-                position: "relative",
-              }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setResumeModalOpen(false)}
-                style={{
-                  position: "absolute",
-                  top: "1.5rem",
-                  right: "1.5rem",
-                  background: "rgba(72, 229, 255, 0.1)",
-                  border: "1px solid rgba(72, 229, 255, 0.3)",
-                  color: "var(--cyan)",
-                  borderRadius: "8px",
-                  width: "36px",
-                  height: "36px",
-                  cursor: "pointer",
-                }}
-              >
-                ✕
-              </button>
-
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--cyan)", marginBottom: "0.5rem" }}>
-                // EXECUTIVE DOSSIER VIEW
-              </div>
-              <h2 style={{ fontSize: "1.8rem", fontWeight: 800, color: "#ffffff", marginBottom: "0.2rem" }}>
-                DIVYANSHI GUPTA
-              </h2>
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
-                Full-Stack Software Engineer · Noida, India · divyanshi2028@gmail.com · +91-7017796542
-              </div>
-
-              {/* Summary */}
-              <div style={{ marginBottom: "1.5rem", paddingBottom: "1.2rem", borderBottom: "1px solid rgba(72, 229, 255, 0.15)" }}>
-                <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--cyan)", marginBottom: "0.4rem" }}>
-                  SUMMARY
-                </h4>
-                <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)", lineHeight: 1.6 }}>
-                  Full-Stack Software Engineer with nearly 3 years of combined experience specializing in ASP.NET Core, .NET 7+, C#, React, Angular, SQL Server, and AI-integrated backend systems. Proven record reducing manual operational effort by 40% and optimizing CMS load times by 35%.
-                </p>
-              </div>
-
-              {/* Work History */}
-              <div style={{ marginBottom: "1.5rem", paddingBottom: "1.2rem", borderBottom: "1px solid rgba(72, 229, 255, 0.15)" }}>
-                <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--cyan)", marginBottom: "0.8rem" }}>
-                  WORK EXPERIENCE
-                </h4>
-                <div style={{ marginBottom: "1rem" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, color: "#ffffff", fontSize: "0.95rem" }}>
-                    <span>Software Engineer – Full Stack</span>
-                    <span style={{ color: "var(--cyan)", fontFamily: "var(--font-mono)", fontSize: "0.8rem" }}>June 2024 – Present</span>
-                  </div>
-                  <div style={{ color: "var(--purple)", fontSize: "0.85rem", marginBottom: "0.4rem" }}>
-                    Sanskriti IT Solutions Pvt. Ltd., Noida
-                  </div>
-                  <ul style={{ listStyle: "disc", paddingLeft: "1.2rem", color: "var(--text-secondary)", fontSize: "0.85rem", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-                    <li>Architected REST APIs and backend services using C# and ASP.NET Core with SQL Server.</li>
-                    <li>Verified Gain: 40% reduction in manual license assignment effort on multi-tenant SaaS.</li>
-                    <li>Verified Gain: 35% improvement in Angular CMS load time using lazy loading & caching.</li>
-                    <li>Configured JWT authentication, Google OAuth2, audit logging, and Azure DevOps CI/CD.</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, color: "#ffffff", fontSize: "0.95rem" }}>
-                    <span>Android Developer Intern</span>
-                    <span style={{ color: "var(--cyan)", fontFamily: "var(--font-mono)", fontSize: "0.8rem" }}>Feb 2024 – June 2024</span>
-                  </div>
-                  <div style={{ color: "var(--purple)", fontSize: "0.85rem", marginBottom: "0.4rem" }}>
-                    Sanskriti IT Solutions Pvt. Ltd., Noida
-                  </div>
-                  <ul style={{ listStyle: "disc", paddingLeft: "1.2rem", color: "var(--text-secondary)", fontSize: "0.85rem", display: "flex", flexDirection: "column", gap: "0.3rem" }}>
-                    <li>Integrated REST APIs for login, registration, and OTP verification workflows.</li>
-                    <li>Participated in regression testing, bug fixing, and agile sprints.</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Certs & Education */}
-              <div>
-                <h4 style={{ fontFamily: "var(--font-mono)", fontSize: "0.8rem", color: "var(--cyan)", marginBottom: "0.4rem" }}>
-                  CREDENTIALS & EDUCATION
-                </h4>
-                <div style={{ color: "var(--text-secondary)", fontSize: "0.85rem", lineHeight: 1.6 }}>
-                  <div>• B.Tech in Computer Science & Engineering — Meerut Institute of Eng. & Tech. (2020 – 2024)</div>
-                  <div>• Microsoft Certified: Azure Fundamentals (AZ-900)</div>
-                  <div>• Microsoft Certified: Azure AI Fundamentals (AI-900)</div>
-                </div>
-              </div>
-
-              {/* Action in Modal */}
-              <div style={{ marginTop: "1.8rem", display: "flex", gap: "1rem" }}>
-                <a
-                  href="/divyanshi-gupta-resume.pdf"
-                  download="divyanshi-gupta-resume.pdf"
-                  className="btn-cyber-primary"
-                  style={{ padding: "0.7rem 1.6rem" }}
-                  onClick={() => cyberAudio.playSuccess()}
-                >
-                  DOWNLOAD AS PDF ↓
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <style>{`
-        @media (max-width: 860px) {
-          .contact-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

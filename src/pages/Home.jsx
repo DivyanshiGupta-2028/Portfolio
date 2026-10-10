@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
+import UberDiscoveryEngine from "../components/UberDiscoveryEngine";
 import GamingVideoTheater from "../components/GamingVideoTheater";
 import EngineeringIdentity from "../components/EngineeringIdentity";
 import Achievements from "../components/Achievements";
@@ -83,7 +84,10 @@ export default function Home() {
       {/* 04. Verified Achievements */}
       <Achievements />
 
-      {/* 05. Multi-Page Exploration Portals (Command Grid) */}
+      {/* 05. Uber Careers & Product Inc Discovery Matrix */}
+      <UberDiscoveryEngine />
+
+      {/* 06. Multi-Page Exploration Portals (Command Grid) */}
       <section style={{ position: "relative" }}>
         <div className="section-container">
           <div className="section-header">

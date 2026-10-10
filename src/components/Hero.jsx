@@ -238,13 +238,23 @@ export default function Hero() {
                 marginBottom: "3rem",
               }}
             >
-              <Link
-                to="/work"
+              <a
+                href="#discovery-matrix"
                 onClick={() => cyberAudio.playLaser()}
                 className="btn-cyber-primary clipped-corner"
                 style={{ textDecoration: "none" }}
               >
-                <span>EXPLORE MISSIONS</span>
+                <span>DISCOVERY MATRIX</span>
+                <span style={{ fontSize: "1.1rem" }}>↓</span>
+              </a>
+
+              <Link
+                to="/work"
+                onClick={() => cyberAudio.playClick()}
+                className="btn-cyber-secondary clipped-corner"
+                style={{ textDecoration: "none" }}
+              >
+                <span>CASE STUDIES</span>
                 <span style={{ fontSize: "1.1rem" }}>→</span>
               </Link>
 
@@ -254,34 +264,9 @@ export default function Hero() {
                 className="btn-cyber-secondary clipped-corner"
                 onClick={() => cyberAudio.playSuccess()}
               >
-                <span>DOWNLOAD RESUME</span>
+                <span>RESUME</span>
                 <span>↓</span>
               </a>
-
-              <Link
-                to="/lab"
-                onClick={() => cyberAudio.playTargetLock()}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "var(--text-muted)",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.85rem",
-                  letterSpacing: "0.08em",
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  padding: "0.8rem 1rem",
-                  textDecoration: "none",
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
-              >
-                <span>SYSTEM LAB</span>
-                <span>↗</span>
-              </Link>
             </div>
 
             {/* Social/contact strip */}

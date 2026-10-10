@@ -42,33 +42,81 @@ export default function Hero3DCanvas() {
       const systemGroup = new THREE.Group();
       scene.add(systemGroup);
 
-      // ── GLACIAL MARBLE / ATOM CORE ──
-      // Central crystalline sculpture (nested icosahedron + octahedron + dense core)
-      const coreOuterGeo = new THREE.IcosahedronGeometry(2.4, 3);
+      // ── PRODUCT.INC INSPIRED 3D DOT-MATRIX DIGITAL GLOBE ──
+      const globeRadius = 2.8;
+      const dotCount = 1400;
+      const globeDotGeo = new THREE.BufferGeometry();
+      const globePositions = new Float32Array(dotCount * 3);
+      const globeColors = new Float32Array(dotCount * 3);
+
+      const colorCyan = new THREE.Color(0x48e5ff);
+      const colorPurple = new THREE.Color(0x8b5cff);
+      const colorAmber = new THREE.Color(0xf59e0b);
+
+      for (let i = 0; i < dotCount; i++) {
+        // Fibonacci sphere point distribution
+        const phi = Math.acos(1 - 2 * (i + 0.5) / dotCount);
+        const theta = Math.PI * (1 + 5 ** 0.5) * i;
+
+        const x = globeRadius * Math.sin(phi) * Math.cos(theta);
+        const y = globeRadius * Math.sin(phi) * Math.sin(theta);
+        const z = globeRadius * Math.cos(phi);
+
+        globePositions[i * 3] = x;
+        globePositions[i * 3 + 1] = y;
+        globePositions[i * 3 + 2] = z;
+
+        // Gradient interpolation
+        const mixRatio = (y + globeRadius) / (globeRadius * 2);
+        const col = mixRatio > 0.65
+          ? colorCyan.clone().lerp(colorAmber, (mixRatio - 0.65) * 2.8)
+          : colorPurple.clone().lerp(colorCyan, mixRatio / 0.65);
+
+        globeColors[i * 3] = col.r;
+        globeColors[i * 3 + 1] = col.g;
+        globeColors[i * 3 + 2] = col.b;
+      }
+
+      globeDotGeo.setAttribute("position", new THREE.BufferAttribute(globePositions, 3));
+      globeDotGeo.setAttribute("color", new THREE.BufferAttribute(globeColors, 3));
+
+      const globeDotMat = new THREE.PointsMaterial({
+        size: 0.085,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.9,
+        blending: THREE.AdditiveBlending,
+      });
+
+      const globeDots = new THREE.Points(globeDotGeo, globeDotMat);
+      systemGroup.add(globeDots);
+
+      // Central crystalline sculpture
+      const coreOuterGeo = new THREE.IcosahedronGeometry(1.6, 2);
       const coreOuterMat = new THREE.MeshBasicMaterial({
         color: 0x48e5ff,
         wireframe: true,
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.45,
       });
       const coreOuter = new THREE.Mesh(coreOuterGeo, coreOuterMat);
       systemGroup.add(coreOuter);
 
       // Inner refractive marble sphere
-      const coreInnerGeo = new THREE.SphereGeometry(1.6, 32, 32);
+      const coreInnerGeo = new THREE.SphereGeometry(1.1, 24, 24);
       const coreInnerMat = new THREE.MeshBasicMaterial({
         color: 0x8b5cff,
         wireframe: true,
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.3,
       });
       const coreInner = new THREE.Mesh(coreInnerGeo, coreInnerMat);
       systemGroup.add(coreInner);
 
       // Pulsing center singularity
-      const centerPointGeo = new THREE.OctahedronGeometry(0.8, 0);
+      const centerPointGeo = new THREE.OctahedronGeometry(0.5, 0);
       const centerPointMat = new THREE.MeshBasicMaterial({
-        color: 0xffffff,
+        color: 0xf59e0b,
         wireframe: true,
       });
       const centerPoint = new THREE.Mesh(centerPointGeo, centerPointMat);
@@ -220,6 +268,10 @@ export default function Hero3DCanvas() {
         // Smooth parallax damping
         targetRotY += (mouseX - targetRotY) * 0.05;
         targetRotX += (mouseY - targetRotX) * 0.05;
+
+        // Globe dot-matrix rotation
+        globeDots.rotation.y = elapsed * 0.14;
+        globeDots.rotation.x = Math.sin(elapsed * 0.2) * 0.08;
 
         // Core ambient rotations
         coreOuter.rotation.y = elapsed * 0.3;
