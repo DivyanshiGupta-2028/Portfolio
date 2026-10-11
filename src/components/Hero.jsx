@@ -135,6 +135,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              className="hero-eyebrow-badge"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -203,10 +204,11 @@ export default function Hero() {
 
             {/* Pitch */}
             <p
+              className="hero-pitch"
               style={{
                 color: "var(--text-secondary)",
-                fontSize: "clamp(1rem, 1.8vw, 1.15rem)",
-                lineHeight: 1.8,
+                fontSize: "clamp(0.95rem, 1.6vw, 1.15rem)",
+                lineHeight: 1.75,
                 maxWidth: "560px",
                 marginBottom: "2.5rem",
               }}
@@ -222,7 +224,6 @@ export default function Hero() {
                 display: "flex",
                 gap: "1.1rem",
                 flexWrap: "wrap",
-                marginBottom: "3rem",
               }}
               className="hero-cta-row"
             >
@@ -259,9 +260,10 @@ export default function Hero() {
 
             {/* Social/contact strip */}
             <div
+              className="hero-social-strip"
               style={{
                 display: "flex",
-                gap: "1rem",
+                gap: "0.8rem",
                 flexWrap: "wrap",
                 alignItems: "center",
               }}
@@ -347,6 +349,7 @@ export default function Hero() {
           ].map((item) => (
             <div
               key={item.tag}
+              className="hero-meta-item"
               style={{
                 display: "flex",
                 flexDirection: "column",
