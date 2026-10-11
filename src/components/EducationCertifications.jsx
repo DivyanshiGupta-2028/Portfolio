@@ -20,9 +20,9 @@ export default function EducationCertifications() {
 
         {/* 3 Column Grid: Degree + 2 MS Certs */}
         <div
+          className="education-cert-grid education-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "2rem",
           }}
         >

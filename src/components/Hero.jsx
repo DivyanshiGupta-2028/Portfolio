@@ -80,53 +80,37 @@ export default function Hero() {
       />
 
       <div className="section-container" style={{ paddingBottom: 0 }}>
-        {/* Top Gamer System Telemetry Strip */}
+        {/* Top Gamer System Telemetry Strip - Visible & structured on all screens */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "0.55rem 1.2rem",
-            borderRadius: "10px",
-            background: "var(--bg-surface)",
-            border: "1px solid var(--border)",
-            fontFamily: "var(--font-mono)",
-            fontSize: "0.72rem",
-            color: "var(--text-muted)",
-            marginBottom: "2.5rem",
-            flexWrap: "wrap",
-            gap: "0.5rem",
-            backdropFilter: "blur(12px)",
-          }}
+          className="hero-telemetry-bar"
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+          <div className="hero-telemetry-item">
             <span
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.4rem",
-                color: "var(--cyan)",
-                fontWeight: 700,
+                width: "7px",
+                height: "7px",
+                borderRadius: "50%",
+                background: "var(--cyan)",
+                boxShadow: "0 0 10px var(--cyan)",
               }}
-            >
-              <span
-                style={{
-                  width: "7px", height: "7px", borderRadius: "50%",
-                  background: "var(--cyan)", boxShadow: "0 0 10px var(--cyan)",
-                }}
-                className="cyber-pulse"
-              />
-              GAME LOBBY // RANK: SENIOR FULL-STACK
-            </span>
-            <span>|</span>
-            <span style={{ color: "#34d399" }}>SYSTEM INTEGRITY: 100%</span>
+              className="cyber-pulse"
+            />
+            <span style={{ color: "var(--cyan)", fontWeight: 700 }}>LOBBY: SENIOR FULL-STACK</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "1.2rem" }} className="hero-telemetry-verbose">
+          <div className="hero-telemetry-divider">|</div>
+          <div className="hero-telemetry-item">
+            <span style={{ color: "#34d399", fontWeight: 600 }}>SYSTEM: 100% INTEGRITY</span>
+          </div>
+          <div className="hero-telemetry-divider">|</div>
+          <div className="hero-telemetry-item">
             <span>REGION: ASIA-SOUTH // NOIDA, INDIA</span>
-            <span style={{ color: "var(--purple)" }}>ENGINE: .NET 7+ · THREE.JS · REACT</span>
+          </div>
+          <div className="hero-telemetry-divider">|</div>
+          <div className="hero-telemetry-item">
+            <span style={{ color: "var(--purple)", fontWeight: 600 }}>ENGINE: .NET 7+ · THREE.JS · REACT</span>
           </div>
         </motion.div>
 
@@ -178,12 +162,15 @@ export default function Hero() {
 
             {/* Main Headline with Glitch */}
             <h1
+              className="hero-headline"
               style={{
-                fontSize: "clamp(2.5rem, 4.8vw, 4.4rem)",
+                fontSize: "clamp(1.85rem, 5vw, 4.4rem)",
                 fontWeight: 800,
-                lineHeight: 1.07,
+                lineHeight: 1.08,
                 letterSpacing: "-0.03em",
                 marginBottom: "1.5rem",
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
               }}
             >
               I BUILD THE{" "}
@@ -348,7 +335,6 @@ export default function Hero() {
             backdropFilter: "blur(16px)",
             borderRadius: "14px",
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "1.5rem",
           }}
           className="hero-meta-strip"

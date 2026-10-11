@@ -106,9 +106,9 @@ export default function Home() {
 
           {/* Portal Grid — 2x2 gaming mission selection */}
           <div
+            className="home-portals-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
               gap: "1.5rem",
             }}
           >

@@ -82,9 +82,9 @@ export default function EngineeringIdentity() {
 
         {/* 3 Capability Cards Grid */}
         <div
+          className="capabilities-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "2rem",
           }}
         >

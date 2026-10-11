@@ -327,10 +327,12 @@ export default function Hero3DCanvas() {
 
   return (
     <div
+      className="hero-3d-canvas-inner"
       style={{
         position: "relative",
         width: "100%",
-        height: "530px",
+        height: "100%",
+        minHeight: "280px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -411,28 +413,33 @@ export default function Hero3DCanvas() {
 
       {/* HUD System Overlay */}
       <div
+        className="hero-hud-overlay"
         style={{
           position: "absolute",
           bottom: "12px",
           left: "50%",
           transform: "translateX(-50%)",
           display: "flex",
-          gap: "0.75rem",
-          background: "rgba(7, 10, 18, 0.85)",
-          padding: "0.4rem 1.1rem",
+          alignItems: "center",
+          gap: "0.5rem",
+          background: "rgba(7, 10, 18, 0.88)",
+          padding: "0.35rem 0.9rem",
           borderRadius: "999px",
           border: "1px solid rgba(72, 229, 255, 0.2)",
           backdropFilter: "blur(10px)",
           zIndex: 3,
-          fontSize: "0.75rem",
+          fontSize: "0.72rem",
           fontFamily: "'JetBrains Mono', monospace",
           color: "#94a3b8",
           pointerEvents: "none",
+          maxWidth: "92%",
+          width: "max-content",
+          justifyContent: "center",
         }}
       >
-        <span style={{ color: "#48e5ff" }}>● ATOM 3D REALM</span>
-        <span>|</span>
-        <span>HOVER / DRAG TO ROTATE SYSTEM</span>
+        <span style={{ color: "#48e5ff", fontWeight: 700 }}>● ATOM 3D REALM</span>
+        <span style={{ opacity: 0.4 }}>|</span>
+        <span className="hero-hud-hint">DRAG TO ROTATE</span>
       </div>
     </div>
   );

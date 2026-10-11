@@ -203,9 +203,9 @@ export default function Achievements() {
 
         {/* 5 Core Capability Highlights */}
         <div
+          className="achievements-highlights-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
             gap: "1.2rem",
           }}
         >

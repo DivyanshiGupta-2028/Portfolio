@@ -306,9 +306,9 @@ export default function ProjectsUniverse() {
 
         {/* Project Cards Grid */}
         <div
+          className="projects-universe-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
             gap: "2rem",
           }}
         >
