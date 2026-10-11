@@ -105,7 +105,7 @@ export default function GamingVideoTheater() {
   };
 
   return (
-    <section style={{ position: "relative", padding: "5rem 1.5rem" }}>
+    <section className="gaming-theater-section" style={{ position: "relative" }}>
       <div className="section-container" style={{ paddingBottom: 0 }}>
         {/* Section Header */}
         <div className="section-header">
@@ -217,6 +217,7 @@ export default function GamingVideoTheater() {
 
           {/* Video Screen Container with CRT Scanlines & Reticles */}
           <div
+            className="gaming-video-screen-wrap"
             style={{
               position: "relative",
               borderRadius: "8px",

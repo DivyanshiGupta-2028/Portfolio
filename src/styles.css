@@ -1606,16 +1606,41 @@ html, body {
     line-height: 1.35 !important;
   }
 
-  /* Portals: 1 clean full-width column */
-  .home-portals-grid {
+  /* Gaming Video Holo-Theater on mobile */
+  .gaming-theater-section {
+    padding: 2.2rem 0.75rem !important;
+  }
+
+  .gaming-theater-section .cyber-panel {
+    padding: 1.1rem 0.9rem !important;
+    border-radius: 12px !important;
+  }
+
+  .gaming-video-screen-wrap {
+    min-height: 220px !important;
+    max-height: 350px !important;
+  }
+
+  /* Engineering Identity: Optimized cards */
+  .capabilities-grid {
     grid-template-columns: 1fr !important;
     gap: 1.2rem !important;
   }
 
-  /* Capabilities: 1 clean column */
-  .capabilities-grid {
+  .capabilities-grid .cyber-panel {
+    padding: 1.5rem 1.25rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* Verified Metric Cards */
+  .metric-cards-grid {
     grid-template-columns: 1fr !important;
     gap: 1.2rem !important;
+  }
+
+  .metric-cards-grid .cyber-panel {
+    padding: 1.6rem 1.35rem !important;
+    border-radius: 12px !important;
   }
 
   /* Achievements highlights: 1 clean column with equal cards */
@@ -1631,11 +1656,12 @@ html, body {
   }
 
   .uber-card {
-    padding: 1.3rem !important;
+    padding: 1.35rem 1.2rem !important;
+    border-radius: 12px !important;
   }
 
   .uber-card-title {
-    font-size: 1.15rem !important;
+    font-size: 1.18rem !important;
   }
 
   .uber-search-box {
@@ -1663,6 +1689,18 @@ html, body {
     border-radius: 14px !important;
     padding: 1.35rem !important;
     max-height: 92vh !important;
+  }
+
+  /* Portals: 1 clean full-width column */
+  .home-portals-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.1rem !important;
+  }
+
+  .home-portals-grid > div {
+    padding: 1.6rem 1.3rem !important;
+    min-height: auto !important;
+    border-radius: 12px !important;
   }
 
   /* Engineering Lab: horizontal tabs */

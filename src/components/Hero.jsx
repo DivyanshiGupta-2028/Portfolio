@@ -433,20 +433,6 @@ export default function Hero() {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-        @media (max-width: 960px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: 2rem !important;
-          }
-          .hero-meta-strip {
-            grid-template-columns: 1fr 1fr !important;
-          }
-        }
-        @media (max-width: 600px) {
-          .hero-meta-strip {
-            grid-template-columns: 1fr !important;
-          }
-        }
       `}</style>
     </section>
   );
