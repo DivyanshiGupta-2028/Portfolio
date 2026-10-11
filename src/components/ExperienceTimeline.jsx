@@ -244,8 +244,8 @@ export default function ExperienceTimeline() {
                       style={{
                         padding: "0.25rem 0.6rem",
                         borderRadius: "4px",
-                        background: "rgba(12, 18, 34, 0.8)",
-                        border: "1px solid rgba(72, 229, 255, 0.15)",
+                        background: "var(--bg-surface-elevated)",
+                        border: "1px solid var(--border)",
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.72rem",
                         color: "var(--text-secondary)",

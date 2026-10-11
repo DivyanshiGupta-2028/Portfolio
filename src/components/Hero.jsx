@@ -91,8 +91,8 @@ export default function Hero() {
             alignItems: "center",
             padding: "0.55rem 1.2rem",
             borderRadius: "10px",
-            background: "rgba(12, 18, 34, 0.7)",
-            border: "1px solid rgba(72, 229, 255, 0.14)",
+            background: "var(--bg-surface)",
+            border: "1px solid var(--border)",
             fontFamily: "var(--font-mono)",
             fontSize: "0.72rem",
             color: "var(--text-muted)",
@@ -124,7 +124,7 @@ export default function Hero() {
             <span>|</span>
             <span style={{ color: "#34d399" }}>SYSTEM INTEGRITY: 100%</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: "1.2rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.2rem" }} className="hero-telemetry-verbose">
             <span>REGION: ASIA-SOUTH // NOIDA, INDIA</span>
             <span style={{ color: "var(--purple)" }}>ENGINE: .NET 7+ · THREE.JS · REACT</span>
           </div>
@@ -237,6 +237,7 @@ export default function Hero() {
                 flexWrap: "wrap",
                 marginBottom: "3rem",
               }}
+              className="hero-cta-row"
             >
               <a
                 href="#discovery-matrix"
@@ -327,6 +328,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.88 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.0, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="hero-3d-canvas-wrap"
             style={{ width: "100%", position: "relative" }}
           >
             <Hero3DCanvas />
@@ -341,8 +343,8 @@ export default function Hero() {
           style={{
             marginTop: "2.5rem",
             padding: "1.4rem 2rem",
-            background: "rgba(12, 18, 34, 0.65)",
-            border: "1px solid rgba(72, 229, 255, 0.14)",
+            background: "var(--bg-surface)",
+            border: "1px solid var(--border)",
             backdropFilter: "blur(16px)",
             borderRadius: "14px",
             display: "grid",

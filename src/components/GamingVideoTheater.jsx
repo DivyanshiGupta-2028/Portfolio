@@ -194,9 +194,9 @@ export default function GamingVideoTheater() {
                   style={{
                     padding: "0.6rem 1.2rem",
                     borderRadius: "6px",
-                    background: isActive ? "rgba(72, 229, 255, 0.18)" : "rgba(12, 18, 34, 0.7)",
-                    border: `1px solid ${isActive ? m.color : "rgba(72, 229, 255, 0.15)"}`,
-                    color: isActive ? "#ffffff" : "var(--text-secondary)",
+                    background: isActive ? "rgba(72, 229, 255, 0.18)" : "var(--bg-surface)",
+                    border: `1px solid ${isActive ? m.color : "var(--border)"}`,
+                    color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
                     fontFamily: "var(--font-mono)",
                     fontSize: "0.78rem",
                     cursor: "pointer",
@@ -335,7 +335,7 @@ export default function GamingVideoTheater() {
             onClick={handleSeek}
             style={{
               height: "6px",
-              background: "rgba(12, 18, 34, 0.8)",
+              background: "var(--bg-surface-elevated)",
               cursor: "pointer",
               position: "relative",
               marginTop: "0.8rem",

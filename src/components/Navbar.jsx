@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import MarqueeBanner from "./MarqueeBanner";
+import ThemeSwitcher from "./ThemeSwitcher";
 import { cyberAudio } from "../utils/cyberAudio";
 
 const NAV_ITEMS = [
@@ -65,10 +66,10 @@ export default function Navbar() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "0 2.2rem",
-            background: scrolled ? "rgba(7, 10, 18, 0.94)" : "rgba(7, 10, 18, 0.65)",
+            background: scrolled ? "var(--nav-bg-scrolled)" : "var(--nav-bg)",
             backdropFilter: "blur(20px)",
             WebkitBackdropFilter: "blur(20px)",
-            borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+            borderBottom: "1px solid var(--border)",
             transition: "all 0.3s ease",
           }}
         >
@@ -209,17 +210,17 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Action Controls: Sound Toggle + Connect CTA */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+        {/* Action Controls: Theme Switcher + Sound + Connect CTA */}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
           {/* Cyber Sound Toggle */}
           <button
             onClick={toggleSound}
             title={soundEnabled ? "Mute Cyber Audio FX" : "Enable Cyber Audio FX"}
             style={{
-              background: soundEnabled ? "rgba(72, 229, 255, 0.15)" : "rgba(12, 18, 34, 0.7)",
-              border: `1px solid ${soundEnabled ? "var(--cyan)" : "rgba(72, 229, 255, 0.2)"}`,
+              background: soundEnabled ? "rgba(72, 229, 255, 0.15)" : "transparent",
+              border: `1px solid ${soundEnabled ? "var(--cyan)" : "var(--border)"}`,
               borderRadius: "8px",
-              padding: "0.45rem 0.75rem",
+              padding: "0.45rem 0.6rem",
               color: soundEnabled ? "var(--cyan)" : "var(--text-muted)",
               cursor: "pointer",
               fontFamily: "var(--font-mono)",
@@ -231,10 +232,12 @@ export default function Navbar() {
             }}
           >
             <span>{soundEnabled ? "🔊" : "🔇"}</span>
-            <span style={{ display: "none" }} className="sound-text">
-              {soundEnabled ? "AUDIO ON" : "AUDIO OFF"}
-            </span>
           </button>
+
+          {/* Theme Switcher (desktop) */}
+          <div className="desktop-theme-switcher">
+            <ThemeSwitcher />
+          </div>
 
           {/* Let's Connect CTA */}
           <Link
@@ -260,7 +263,7 @@ export default function Navbar() {
             }}
             style={{
               background: "none",
-              border: "1px solid rgba(72, 229, 255, 0.3)",
+              border: "1px solid var(--border)",
               borderRadius: "6px",
               padding: "0.45rem 0.65rem",
               color: "var(--cyan)",
@@ -290,9 +293,9 @@ export default function Navbar() {
               top: "102px",
               left: 0,
               right: 0,
-              background: "rgba(7, 10, 18, 0.98)",
+              background: "var(--mobile-nav-bg)",
               backdropFilter: "blur(24px)",
-              borderBottom: "1px solid rgba(72, 229, 255, 0.2)",
+              borderBottom: "1px solid var(--border-strong)",
               padding: "1.5rem 2rem 2.5rem",
               zIndex: 999,
               display: "flex",
@@ -345,7 +348,9 @@ export default function Navbar() {
               );
             })}
 
-            <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid rgba(72, 229, 255, 0.15)" }}>
+            <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid var(--border)", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+              {/* Theme switcher in mobile menu */}
+              <ThemeSwitcher isMobile={true} />
               <Link
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
@@ -365,7 +370,10 @@ export default function Navbar() {
           .desktop-status-pill { display: flex !important; }
           #nav-connect-btn { display: inline-flex !important; }
           .mobile-hamburger-btn { display: none !important; }
-          .sound-text { display: inline !important; }
+          .desktop-theme-switcher { display: inline-flex !important; }
+        }
+        @media (max-width: 991px) {
+          .desktop-theme-switcher { display: none !important; }
         }
       `}</style>
     </>

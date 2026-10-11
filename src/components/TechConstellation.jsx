@@ -135,9 +135,9 @@ export default function TechConstellation() {
               fontFamily: "var(--font-mono)",
               fontSize: "0.78rem",
               cursor: "pointer",
-              background: selectedCategory === "all" ? "var(--cyan)" : "rgba(12, 18, 34, 0.7)",
+              background: selectedCategory === "all" ? "var(--cyan)" : "var(--bg-surface)",
               color: selectedCategory === "all" ? "#040711" : "var(--text-secondary)",
-              border: `1px solid ${selectedCategory === "all" ? "var(--cyan)" : "rgba(72, 229, 255, 0.2)"}`,
+              border: `1px solid ${selectedCategory === "all" ? "var(--cyan)" : "var(--border)"}`,
               transition: "all 0.2s ease",
             }}
           >
@@ -159,9 +159,9 @@ export default function TechConstellation() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.78rem",
                   cursor: "pointer",
-                  background: isSelected ? cat.color : "rgba(12, 18, 34, 0.7)",
+                  background: isSelected ? cat.color : "var(--bg-surface)",
                   color: isSelected ? "#040711" : "var(--text-secondary)",
-                  border: `1px solid ${isSelected ? cat.color : "rgba(72, 229, 255, 0.2)"}`,
+                  border: `1px solid ${isSelected ? cat.color : "var(--border)"}`,
                   transition: "all 0.2s ease",
                 }}
               >
@@ -179,7 +179,7 @@ export default function TechConstellation() {
             gap: "2rem",
             alignItems: "start",
           }}
-          className="constellation-layout"
+          className="constellation-layout tech-constellation-layout"
         >
           {/* Left: Star Map / Clustered Nodes */}
           <div
@@ -260,7 +260,7 @@ export default function TechConstellation() {
             className="cyber-panel clipped-corner"
             style={{
               padding: "2rem",
-              background: "rgba(12, 18, 34, 0.9)",
+              background: "var(--bg-surface-elevated)",
               border: `1px solid ${activeSkill?.color || "var(--cyan)"}`,
               boxShadow: `0 0 30px ${activeSkill?.color || "var(--cyan)"}22`,
             }}

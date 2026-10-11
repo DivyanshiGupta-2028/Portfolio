@@ -26,7 +26,7 @@ export default function Achievements() {
             gap: "2rem",
             marginBottom: "3rem",
           }}
-          className="metric-cards-grid"
+          className="metric-cards-grid achievements-grid"
         >
           {/* Metric 1 */}
           <motion.div
@@ -37,7 +37,7 @@ export default function Achievements() {
             className="cyber-panel clipped-corner"
             style={{
               padding: "2.8rem 2.2rem",
-              background: "linear-gradient(135deg, rgba(72, 229, 255, 0.08) 0%, rgba(12, 18, 34, 0.85) 100%)",
+              background: "linear-gradient(135deg, rgba(72, 229, 255, 0.08) 0%, var(--bg-surface) 100%)",
               border: "1px solid var(--cyan)",
               boxShadow: "0 0 35px rgba(72, 229, 255, 0.2)",
               display: "flex",
@@ -123,7 +123,7 @@ export default function Achievements() {
             className="cyber-panel clipped-corner"
             style={{
               padding: "2.8rem 2.2rem",
-              background: "linear-gradient(135deg, rgba(139, 92, 255, 0.08) 0%, rgba(12, 18, 34, 0.85) 100%)",
+              background: "linear-gradient(135deg, rgba(139, 92, 255, 0.08) 0%, var(--bg-surface) 100%)",
               border: "1px solid var(--purple)",
               boxShadow: "0 0 35px rgba(139, 92, 255, 0.2)",
               display: "flex",

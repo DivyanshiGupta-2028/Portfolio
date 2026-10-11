@@ -80,8 +80,8 @@ export default function Footer() {
       </div>
 
       {/* ── Footer nav + info bar ── */}
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(4,6,11,0.9)" }}>
-        <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "2.5rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1.5rem" }}>
+      <div style={{ borderTop: "1px solid var(--border)", background: "var(--footer-bg)" }}>
+        <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "2.5rem 2rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "1.5rem" }} className="footer-grid">
 
           {/* Brand */}
           <div>
@@ -111,7 +111,7 @@ export default function Footer() {
           </div>
 
           {/* Social + Back to top */}
-          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.5rem" }} className="footer-links-row">
             {SOCIAL_LINKS.map(s => (
               <a
                 key={s.label}

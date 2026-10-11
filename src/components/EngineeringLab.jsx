@@ -103,10 +103,10 @@ export default function EngineeringLab() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.82rem",
                   cursor: "pointer",
-                  background: isActive ? "rgba(72, 229, 255, 0.15)" : "rgba(12, 18, 34, 0.7)",
+                  background: isActive ? "rgba(72, 229, 255, 0.15)" : "var(--bg-surface)",
                   color: isActive ? "var(--cyan)" : "var(--text-secondary)",
-                  border: `1px solid ${isActive ? "var(--cyan)" : "rgba(72, 229, 255, 0.18)"}`,
-                  boxShadow: isActive ? "0 0 20px rgba(72, 229, 255, 0.25)" : "none",
+                  border: `1px solid ${isActive ? "var(--cyan)" : "var(--border)"}`,
+                  boxShadow: isActive ? "0 0 20px var(--cyan-glow)" : "none",
                   transition: "all 0.2s ease",
                 }}
               >
@@ -196,10 +196,10 @@ export default function EngineeringLab() {
                       borderRadius: "10px",
                       background: isSelected
                         ? "linear-gradient(135deg, rgba(72, 229, 255, 0.25), rgba(139, 92, 255, 0.25))"
-                        : "rgba(12, 18, 34, 0.85)",
-                      border: `1px solid ${isSelected ? "var(--cyan)" : "rgba(72, 229, 255, 0.2)"}`,
-                      boxShadow: isSelected ? "0 0 20px rgba(72, 229, 255, 0.35)" : "none",
-                      color: isSelected ? "#ffffff" : "var(--text-secondary)",
+                        : "var(--bg-surface-elevated)",
+                      border: `1px solid ${isSelected ? "var(--cyan)" : "var(--border)"}`,
+                      boxShadow: isSelected ? "0 0 20px var(--cyan-glow)" : "none",
+                      color: isSelected ? "var(--text-primary)" : "var(--text-secondary)",
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.82rem",
                       cursor: "pointer",
@@ -321,8 +321,8 @@ export default function EngineeringLab() {
                 style={{
                   padding: "0.4rem 0.9rem",
                   borderRadius: "6px",
-                  background: "rgba(12, 18, 34, 0.7)",
-                  border: "1px solid rgba(72, 229, 255, 0.2)",
+                  background: "var(--bg-surface)",
+                  border: "1px solid var(--border)",
                   color: selectedNode === 0 ? "var(--text-dim)" : "var(--cyan)",
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.75rem",
@@ -341,8 +341,8 @@ export default function EngineeringLab() {
                 style={{
                   padding: "0.4rem 0.9rem",
                   borderRadius: "6px",
-                  background: "rgba(12, 18, 34, 0.7)",
-                  border: "1px solid rgba(72, 229, 255, 0.2)",
+                  background: "var(--bg-surface)",
+                  border: "1px solid var(--border)",
                   color: selectedNode === currentSteps.length - 1 ? "var(--text-dim)" : "var(--cyan)",
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.75rem",

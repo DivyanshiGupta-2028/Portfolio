@@ -126,7 +126,7 @@ export default function EducationCertifications() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              background: "linear-gradient(135deg, rgba(72, 229, 255, 0.05) 0%, rgba(12, 18, 34, 0.8) 100%)",
+              background: "linear-gradient(135deg, rgba(72, 229, 255, 0.05) 0%, var(--bg-surface) 100%)",
             }}
           >
             <div>
@@ -227,7 +227,7 @@ export default function EducationCertifications() {
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              background: "linear-gradient(135deg, rgba(139, 92, 255, 0.05) 0%, rgba(12, 18, 34, 0.8) 100%)",
+              background: "linear-gradient(135deg, rgba(139, 92, 255, 0.05) 0%, var(--bg-surface) 100%)",
             }}
           >
             <div>

@@ -163,8 +163,8 @@ export default function AboutSection() {
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
-                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.05) 0%, rgba(12, 18, 34, 0.9) 100%)",
-                border: "1px solid rgba(72, 229, 255, 0.25)",
+                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.05) 0%, var(--bg-surface) 100%)",
+                border: "1px solid var(--border)",
               }}
             >
               {/* Avatar Frame */}

@@ -291,10 +291,10 @@ export default function ProjectsUniverse() {
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.8rem",
                   cursor: "pointer",
-                  background: isSelected ? "var(--cyan)" : "rgba(12, 18, 34, 0.7)",
+                  background: isSelected ? "var(--cyan)" : "var(--bg-surface)",
                   color: isSelected ? "#040711" : "var(--text-secondary)",
-                  border: `1px solid ${isSelected ? "var(--cyan)" : "rgba(72, 229, 255, 0.2)"}`,
-                  boxShadow: isSelected ? "0 0 20px rgba(72, 229, 255, 0.3)" : "none",
+                  border: `1px solid ${isSelected ? "var(--cyan)" : "var(--border)"}`,
+                  boxShadow: isSelected ? "0 0 20px var(--cyan-glow)" : "none",
                   transition: "all 0.25s ease",
                 }}
               >
@@ -509,8 +509,8 @@ export default function ProjectsUniverse() {
                       style={{
                         padding: "0.25rem 0.55rem",
                         borderRadius: "4px",
-                        background: "rgba(12, 18, 34, 0.8)",
-                        border: "1px solid rgba(72, 229, 255, 0.15)",
+                        background: "var(--bg-surface)",
+                        border: "1px solid var(--border)",
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.72rem",
                         color: "var(--text-secondary)",
@@ -865,8 +865,8 @@ export default function ProjectsUniverse() {
                 {/* Problem Statement */}
                 <div
                   style={{
-                    background: "rgba(12, 18, 34, 0.6)",
-                    border: "1px solid rgba(72, 229, 255, 0.15)",
+                    background: "var(--bg-surface-elevated)",
+                    border: "1px solid var(--border)",
                     borderRadius: "10px",
                     padding: "1.2rem 1.4rem",
                   }}
@@ -890,8 +890,8 @@ export default function ProjectsUniverse() {
                 {/* My Contribution */}
                 <div
                   style={{
-                    background: "rgba(12, 18, 34, 0.6)",
-                    border: "1px solid rgba(72, 229, 255, 0.15)",
+                    background: "var(--bg-surface-elevated)",
+                    border: "1px solid var(--border)",
                     borderRadius: "10px",
                     padding: "1.2rem 1.4rem",
                   }}
@@ -915,8 +915,8 @@ export default function ProjectsUniverse() {
                 {/* Key Features */}
                 <div
                   style={{
-                    background: "rgba(12, 18, 34, 0.6)",
-                    border: "1px solid rgba(72, 229, 255, 0.15)",
+                    background: "var(--bg-surface-elevated)",
+                    border: "1px solid var(--border)",
                     borderRadius: "10px",
                     padding: "1.2rem 1.4rem",
                   }}
@@ -953,8 +953,8 @@ export default function ProjectsUniverse() {
                 >
                   <div
                     style={{
-                      background: "rgba(12, 18, 34, 0.6)",
-                      border: "1px solid rgba(72, 229, 255, 0.15)",
+                      background: "var(--bg-surface-elevated)",
+                      border: "1px solid var(--border)",
                       borderRadius: "10px",
                       padding: "1.2rem 1.4rem",
                     }}
@@ -977,8 +977,8 @@ export default function ProjectsUniverse() {
 
                   <div
                     style={{
-                      background: "rgba(12, 18, 34, 0.6)",
-                      border: "1px solid rgba(72, 229, 255, 0.15)",
+                      background: "var(--bg-surface-elevated)",
+                      border: "1px solid var(--border)",
                       borderRadius: "10px",
                       padding: "1.2rem 1.4rem",
                     }}

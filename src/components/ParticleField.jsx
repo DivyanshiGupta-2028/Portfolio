@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
  * ParticleField — full-viewport animated canvas background
  * Inspired by sanskriti-tech.com and product.inc floating particle effects.
  */
-export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", density = 80, speed = 0.25 }) {
+export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", density = 80, speed = 0.25, opacity = 0.55 }) {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -110,7 +110,7 @@ export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", 
         height: "100vh",
         pointerEvents: "none",
         zIndex: 0,
-        opacity: 0.55,
+        opacity: opacity,
       }}
     />
   );

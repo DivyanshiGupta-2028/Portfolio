@@ -235,7 +235,7 @@ export default function ContactSection() {
                     appearance: "none", WebkitAppearance: "none",
                   }}
                 >
-                  {OPPORTUNITY_TYPES.map(t => <option key={t} value={t} style={{ background: "#06080F" }}>{t}</option>)}
+                  {OPPORTUNITY_TYPES.map(t => <option key={t} value={t} style={{ background: "var(--bg)", color: "var(--text-primary)" }}>{t}</option>)}
                 </select>
               </div>
 

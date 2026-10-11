@@ -192,8 +192,8 @@ export default function UberDiscoveryEngine() {
       id="discovery-matrix"
       style={{
         position: "relative",
-        borderTop: "1px solid rgba(255, 255, 255, 0.08)",
-        background: "radial-gradient(ellipse at 50% 0%, #0d1222 0%, #05070e 60%)",
+        borderTop: "1px solid var(--border)",
+        background: "var(--bg-gradient)",
         padding: "5rem 0 6rem",
       }}
     >

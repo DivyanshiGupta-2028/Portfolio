@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import Cursor from "./components/Cursor";
 import MarqueeBanner from "./components/MarqueeBanner";
 import Navbar from "./components/Navbar";
@@ -45,17 +45,33 @@ function AnimatedRoutes() {
   );
 }
 
+// Inner shell — has access to ThemeContext
+function AppShell() {
+  const { currentPalette, theme } = useTheme();
+  // Dim particles more in light mode so they don't overwhelm the light bg
+  const particleOpacity = theme === "light" ? 0.3 : 0.55;
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <ParticleField
+        color1={currentPalette.secondary}
+        color2={currentPalette.primary}
+        density={60}
+        speed={0.18}
+        opacity={particleOpacity}
+      />
+      <Cursor />
+      <Navbar />
+      <AnimatedRoutes />
+      <Footer />
+    </BrowserRouter>
+  );
+}
+
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <ScrollToTop />
-        <ParticleField density={60} speed={0.18} />
-        <Cursor />
-        <Navbar />
-        <AnimatedRoutes />
-        <Footer />
-      </BrowserRouter>
+      <AppShell />
     </ThemeProvider>
   );
 }
