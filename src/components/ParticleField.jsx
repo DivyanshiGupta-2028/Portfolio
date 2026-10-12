@@ -15,6 +15,8 @@ export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", 
     let animId;
     let particles = [];
 
+    const isMobile = window.innerWidth < 768;
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -23,17 +25,19 @@ export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", 
 
     const initParticles = () => {
       particles = [];
-      const count = Math.floor((canvas.width * canvas.height) / (10000 / density * 10));
+      // Sane particle caps: 18 on mobile, 42 on desktop
+      const isMob = canvas.width < 768;
+      const count = isMob ? 18 : 42;
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * speed,
-          vy: (Math.random() - 0.5) * speed,
-          r: Math.random() * 1.8 + 0.4,
-          opacity: Math.random() * 0.6 + 0.2,
+          vx: (Math.random() - 0.5) * (speed * 0.8),
+          vy: (Math.random() - 0.5) * (speed * 0.8),
+          r: Math.random() * 1.6 + 0.5,
+          opacity: Math.random() * 0.5 + 0.25,
           pulse: Math.random() * Math.PI * 2,
-          colorIdx: Math.random() > 0.6 ? 1 : 0,
+          colorIdx: Math.random() > 0.5 ? 1 : 0,
         });
       }
     };
@@ -48,10 +52,15 @@ export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", 
     const rgb1 = hexToRgb(color1);
     const rgb2 = hexToRgb(color2);
 
+    const maxDist = 110;
+    const maxDistSq = maxDist * maxDist;
+
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const isMob = canvas.width < 768;
 
-      particles.forEach((p, i) => {
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
         p.pulse += 0.012;
         const alpha = p.opacity * (0.65 + 0.35 * Math.sin(p.pulse));
         const rgb = p.colorIdx === 0 ? rgb1 : rgb2;
@@ -61,19 +70,26 @@ export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", 
         ctx.fillStyle = `rgba(${rgb},${alpha})`;
         ctx.fill();
 
-        for (let j = i + 1; j < particles.length; j++) {
-          const q = particles[j];
-          const dx = p.x - q.x;
-          const dy = p.y - q.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            const lineAlpha = ((120 - dist) / 120) * 0.12;
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = `rgba(${rgb1},${lineAlpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
+        // On mobile, skip the line connections to guarantee 120fps refresh rate
+        if (!isMob) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const q = particles[j];
+            const dx = p.x - q.x;
+            if (dx > maxDist || dx < -maxDist) continue;
+            const dy = p.y - q.y;
+            if (dy > maxDist || dy < -maxDist) continue;
+
+            const distSq = dx * dx + dy * dy;
+            if (distSq < maxDistSq) {
+              const dist = Math.sqrt(distSq);
+              const lineAlpha = ((maxDist - dist) / maxDist) * 0.12;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(q.x, q.y);
+              ctx.strokeStyle = `rgba(${rgb1},${lineAlpha})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
           }
         }
 
@@ -83,11 +99,19 @@ export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", 
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
-      });
+      }
     };
 
+    let isVisible = true;
+    const handleVisibility = () => {
+      isVisible = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
+
     const loop = () => {
-      draw();
+      if (isVisible) {
+        draw();
+      }
       animId = requestAnimationFrame(loop);
     };
 
@@ -97,6 +121,7 @@ export default function ParticleField({ color1 = "#48E5FF", color2 = "#8B5CFF", 
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, [color1, color2, density, speed]);
 

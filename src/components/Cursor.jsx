@@ -8,17 +8,25 @@ export default function Cursor() {
   const [clicking, setClicking] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
 
+  const dotRef = useRef(null);
+  const ringRef = useRef(null);
+  const mousePos = useRef({ x: -100, y: -100 });
+  const ringPos = useRef({ x: -100, y: -100 });
+
   useEffect(() => {
-    const checkTouch = () => {
-      return window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
-    };
-    const touch = checkTouch();
-    setIsMobile(touch);
-    if (touch) return;
+    const isTouch = window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    setIsMobile(isTouch);
+    if (isTouch) return;
+
+    let rafId;
 
     const onMove = (e) => {
-      setPos({ x: e.clientX, y: e.clientY });
+      mousePos.current = { x: e.clientX, y: e.clientY };
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate(${e.clientX - (hovering ? 7 : 3)}px, ${e.clientY - (hovering ? 7 : 3)}px) scale(${clicking ? 0.7 : 1})`;
+      }
     };
+
     const onOver = (e) => {
       const el = e.target;
       const isInteractive =
@@ -29,42 +37,41 @@ export default function Cursor() {
         el.classList.contains("clickable");
       setHovering(!!isInteractive);
     };
+
     const onDown = () => setClicking(true);
     const onUp = () => setClicking(false);
 
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseover", onOver);
-    window.addEventListener("mousedown", onDown);
-    window.addEventListener("mouseup", onUp);
+    const lerp = () => {
+      ringPos.current.x += (mousePos.current.x - ringPos.current.x) * 0.18;
+      ringPos.current.y += (mousePos.current.y - ringPos.current.y) * 0.18;
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate(${ringPos.current.x - (hovering ? 24 : 16)}px, ${ringPos.current.y - (hovering ? 24 : 16)}px)`;
+      }
+      rafId = requestAnimationFrame(lerp);
+    };
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("mouseover", onOver, { passive: true });
+    window.addEventListener("mousedown", onDown, { passive: true });
+    window.addEventListener("mouseup", onUp, { passive: true });
+    rafId = requestAnimationFrame(lerp);
+
     return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("mouseover", onOver);
       window.removeEventListener("mousedown", onDown);
       window.removeEventListener("mouseup", onUp);
     };
-  }, []);
-
-  // Lerp ring towards cursor
-  useEffect(() => {
-    let raf;
-    let rx = ring.x,
-      ry = ring.y;
-    const lerp = () => {
-      rx += (pos.x - rx) * 0.15;
-      ry += (pos.y - ry) * 0.15;
-      setRing({ x: rx, y: ry });
-      raf = requestAnimationFrame(lerp);
-    };
-    raf = requestAnimationFrame(lerp);
-    return () => cancelAnimationFrame(raf);
-  }, [pos]);
+  }, [hovering, clicking]);
 
   if (isMobile) return null;
 
   return (
     <>
       {/* Reticle Dot */}
-      <motion.div
+      <div
+        ref={dotRef}
         style={{
           position: "fixed",
           top: 0,
@@ -78,11 +85,12 @@ export default function Cursor() {
           zIndex: 99999,
           mixBlendMode: "screen",
           transition: "width 0.15s, height 0.15s, background 0.15s",
-          transform: `translate(${pos.x - (hovering ? 7 : 3)}px, ${pos.y - (hovering ? 7 : 3)}px) scale(${clicking ? 0.7 : 1})`,
+          willChange: "transform",
         }}
       />
       {/* Targeting Ring */}
       <div
+        ref={ringRef}
         style={{
           position: "fixed",
           top: 0,
@@ -95,7 +103,7 @@ export default function Cursor() {
           pointerEvents: "none",
           zIndex: 99998,
           transition: "width 0.2s, height 0.2s, border-color 0.2s",
-          transform: `translate(${ring.x - (hovering ? 24 : 16)}px, ${ring.y - (hovering ? 24 : 16)}px)`,
+          willChange: "transform",
         }}
       />
     </>

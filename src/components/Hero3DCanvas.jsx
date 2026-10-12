@@ -21,21 +21,22 @@ export default function Hero3DCanvas() {
     let renderer, scene, camera;
 
     try {
-      const width = container.clientWidth || 550;
-      const height = container.clientHeight || 550;
+      const isMobile = window.innerWidth < 768;
+      const width = container.clientWidth || (isMobile ? 360 : 550);
+      const height = container.clientHeight || (isMobile ? 280 : 550);
 
       scene = new THREE.Scene();
 
       camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.set(0, 0, 15);
+      camera.position.set(0, 0, isMobile ? 16 : 15);
 
       renderer = new THREE.WebGLRenderer({
-        antialias: true,
+        antialias: !isMobile, // Disable expensive antialiasing on mobile
         alpha: true,
         powerPreference: "high-performance",
       });
       renderer.setSize(width, height, false);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
       renderer.domElement.style.width = "100%";
       renderer.domElement.style.height = "100%";
       renderer.domElement.style.display = "block";
@@ -47,8 +48,8 @@ export default function Hero3DCanvas() {
       scene.add(systemGroup);
 
       // ── PRODUCT.INC INSPIRED 3D DOT-MATRIX DIGITAL GLOBE ──
-      const globeRadius = 2.8;
-      const dotCount = 1400;
+      const globeRadius = isMobile ? 2.5 : 2.8;
+      const dotCount = isMobile ? 420 : 1200;
       const globeDotGeo = new THREE.BufferGeometry();
       const globePositions = new Float32Array(dotCount * 3);
       const globeColors = new Float32Array(dotCount * 3);
@@ -264,8 +265,14 @@ export default function Hero3DCanvas() {
 
       // Render Loop
       let clock = new THREE.Clock();
+      let isHeroVisible = true;
 
       const animate = () => {
+        if (!isHeroVisible) {
+          animationFrameId = null;
+          return;
+        }
+
         animationFrameId = requestAnimationFrame(animate);
         const elapsed = clock.getElapsedTime();
 
@@ -304,10 +311,33 @@ export default function Hero3DCanvas() {
         renderer.render(scene, camera);
       };
 
+      // Intersection Observer to stop render loop when hero is off-screen
+      const observer = new IntersectionObserver(([entry]) => {
+        const wasVisible = isHeroVisible;
+        isHeroVisible = entry.isIntersecting && !document.hidden;
+        if (isHeroVisible && (!wasVisible || !animationFrameId)) {
+          clock.start();
+          animate();
+        }
+      }, { threshold: 0.05 });
+      observer.observe(container);
+
+      const handleVisibilityChange = () => {
+        if (document.hidden) {
+          isHeroVisible = false;
+        } else {
+          isHeroVisible = true;
+          if (!animationFrameId) animate();
+        }
+      };
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+
       animate();
 
       return () => {
-        cancelAnimationFrame(animationFrameId);
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        observer.disconnect();
+        document.removeEventListener("visibilitychange", handleVisibilityChange);
         window.removeEventListener("pointermove", handlePointerMove);
         window.removeEventListener("resize", handleResize);
         if (renderer && renderer.domElement && container.contains(renderer.domElement)) {

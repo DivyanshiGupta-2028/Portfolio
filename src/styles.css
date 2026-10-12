@@ -1546,8 +1546,16 @@ html, body {
   .hero-pitch {
     font-size: 0.92rem !important;
     line-height: 1.65 !important;
-    margin-bottom: 1.4rem !important;
+    margin-bottom: 1.2rem !important;
     max-width: 100% !important;
+  }
+
+  /* Hero metrics pill container */
+  .hero-metrics-pill-container {
+    padding: 0.65rem 0.5rem !important;
+    margin-bottom: 1.25rem !important;
+    gap: 0.35rem !important;
+    border-radius: 12px !important;
   }
 
   /* Hero Action Buttons: 2-col top + 1 full-width bottom */

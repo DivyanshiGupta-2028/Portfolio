@@ -204,13 +204,56 @@ export default function Hero() {
                 fontSize: "clamp(0.95rem, 1.6vw, 1.15rem)",
                 lineHeight: 1.75,
                 maxWidth: "560px",
-                marginBottom: "2.5rem",
+                marginBottom: "1.5rem",
               }}
             >
               Nearly 3 years building secure APIs, enterprise applications, full-stack products, and AI-integrated backend systems at Sanskriti IT Solutions — delivering{" "}
               <span style={{ color: "var(--cyan)", fontWeight: 600 }}>40% efficiency gains</span> and{" "}
               <span style={{ color: "var(--purple)", fontWeight: 600 }}>sub-45ms latency</span>.
             </p>
+
+            {/* Sanskriti-Tech Inspired High-Impact Metric Strip */}
+            <div
+              className="hero-metrics-pill-container"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, 1fr)",
+                gap: "0.6rem",
+                padding: "0.85rem 1rem",
+                background: "rgba(12, 18, 34, 0.75)",
+                border: "1px solid rgba(72, 229, 255, 0.22)",
+                borderRadius: "14px",
+                backdropFilter: "blur(12px)",
+                marginBottom: "1.8rem",
+                boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
+                maxWidth: "560px",
+              }}
+            >
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.15rem, 2.2vw, 1.45rem)", color: "var(--cyan)", letterSpacing: "-0.02em" }}>
+                  40%
+                </div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
+                  SaaS Gain
+                </div>
+              </div>
+              <div style={{ textAlign: "center", borderLeft: "1px solid rgba(255,255,255,0.1)", borderRight: "1px solid rgba(255,255,255,0.1)" }}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.15rem, 2.2vw, 1.45rem)", color: "var(--purple)", letterSpacing: "-0.02em" }}>
+                  &lt;45ms
+                </div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
+                  API Latency
+                </div>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.15rem, 2.2vw, 1.45rem)", color: "#f59e0b", letterSpacing: "-0.02em" }}>
+                  3+ Yrs
+                </div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
+                  Sanskriti IT
+                </div>
+              </div>
+            </div>
 
             {/* Action Buttons */}
             <div
