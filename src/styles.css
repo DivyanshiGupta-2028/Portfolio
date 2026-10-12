@@ -1327,10 +1327,36 @@ html, body {
   grid-template-columns: repeat(3, 1fr) !important;
 }
 
+/* ── Hero Grid (Desktop) ── */
+.hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) !important;
+  gap: 3rem !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.hero-grid > * {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
 .hero-3d-canvas-wrap {
-  position: relative;
-  width: 100%;
+  position: relative !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
   height: 520px;
+  overflow: hidden !important;
+}
+
+.hero-3d-canvas-wrap canvas,
+.hero-3d-canvas-inner canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
 }
 
 /* ── Large Desktop / Ultrawide (> 1440px) ── */
@@ -1508,11 +1534,11 @@ html, body {
 
   /* Hero Headline */
   .hero-headline {
-    font-size: clamp(1.85rem, 6.8vw, 2.5rem) !important;
-    line-height: 1.12 !important;
+    font-size: clamp(1.75rem, 6.2vw, 2.35rem) !important;
+    line-height: 1.14 !important;
     letter-spacing: -0.03em !important;
     margin-bottom: 1rem !important;
-    word-break: break-word !important;
+    word-break: normal !important;
     overflow-wrap: break-word !important;
   }
 

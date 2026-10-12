@@ -116,12 +116,6 @@ export default function Hero() {
 
         {/* Main Hero Grid */}
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.1fr 1fr",
-            gap: "3rem",
-            alignItems: "center",
-          }}
           className="hero-grid"
         >
           {/* Left: Identity */}
@@ -165,13 +159,13 @@ export default function Hero() {
             <h1
               className="hero-headline"
               style={{
-                fontSize: "clamp(1.85rem, 5vw, 4.4rem)",
+                fontSize: "clamp(2rem, 4.4vw, 4.4rem)",
                 fontWeight: 800,
                 lineHeight: 1.08,
                 letterSpacing: "-0.03em",
                 marginBottom: "1.5rem",
-                wordBreak: "break-word",
-                overflowWrap: "break-word",
+                wordBreak: "normal",
+                overflowWrap: "normal",
               }}
             >
               I BUILD THE{" "}

@@ -34,8 +34,12 @@ export default function Hero3DCanvas() {
         alpha: true,
         powerPreference: "high-performance",
       });
-      renderer.setSize(width, height);
+      renderer.setSize(width, height, false);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.domElement.style.width = "100%";
+      renderer.domElement.style.height = "100%";
+      renderer.domElement.style.display = "block";
+      renderer.domElement.style.maxWidth = "100%";
       container.appendChild(renderer.domElement);
 
       // System group holding all 3D elements
@@ -250,11 +254,11 @@ export default function Hero3DCanvas() {
 
       const handleResize = () => {
         if (!container) return;
-        const newW = container.clientWidth;
-        const newH = container.clientHeight;
+        const newW = container.clientWidth || 300;
+        const newH = container.clientHeight || 300;
         camera.aspect = newW / newH;
         camera.updateProjectionMatrix();
-        renderer.setSize(newW, newH);
+        renderer.setSize(newW, newH, false);
       };
       window.addEventListener("resize", handleResize);
 
