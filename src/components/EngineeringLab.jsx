@@ -179,7 +179,11 @@ export default function EngineeringLab() {
               gap: "0.6rem",
               overflowX: "auto",
               padding: "1rem 0",
+              maxWidth: "100%",
+              width: "100%",
+              boxSizing: "border-box",
               scrollbarWidth: "thin",
+              WebkitOverflowScrolling: "touch",
             }}
           >
             {currentSteps.map((step, idx) => {

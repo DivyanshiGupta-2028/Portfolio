@@ -224,6 +224,9 @@ html {
   font-size: 16px;
   background-color: var(--bg);
   transition: background-color 0.4s ease;
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
 }
 
 body {
@@ -234,10 +237,19 @@ body {
   font-weight: 400;
   line-height: 1.65;
   overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+#root {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
 }
 
 /* Holographic scanline grid overlay — thinner, more premium */
@@ -1383,11 +1395,15 @@ html, body {
 /* ── Tablet & Small Laptop (641px - 960px) ── */
 @media (max-width: 960px) {
   .section-container {
-    padding: 3.5rem 1.5rem;
+    padding: 3.5rem 1.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .section-title {
     font-size: clamp(2rem, 4.5vw, 2.8rem) !important;
+    word-break: break-word !important;
   }
 
   /* Hero: Tablet adjustments */
@@ -1395,26 +1411,43 @@ html, body {
     min-height: auto !important;
     padding-top: 96px !important;
     padding-bottom: 2.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .hero-grid {
     grid-template-columns: 1fr !important;
     gap: 2.2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .hero-3d-canvas-wrap {
     height: 380px !important;
+    width: 100% !important;
+    max-width: 580px !important;
+    margin: 1rem auto !important;
   }
 
   /* Capability strip: 2x2 balanced layout */
   .hero-meta-strip {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.25rem !important;
-    padding: 1.25rem 1.5rem;
+    padding: 1.25rem 1.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-meta-item {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
   }
 
   .hero-cta-row {
     gap: 0.85rem !important;
+    width: 100% !important;
   }
 
   /* Portals: balanced 2x2 grid */
@@ -1464,6 +1497,8 @@ html, body {
   /* Tech Constellation */
   .tech-constellation-layout {
     grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
@@ -1471,17 +1506,22 @@ html, body {
 @media (max-width: 640px) {
   /* Section spacing */
   .section-container {
-    padding: 2.5rem 1rem !important;
+    padding: 2.2rem 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .section-title {
     font-size: clamp(1.65rem, 6.5vw, 2.2rem) !important;
     line-height: 1.15 !important;
+    word-break: break-word !important;
   }
 
   .section-subtitle {
     font-size: 0.92rem !important;
     line-height: 1.6 !important;
+    word-break: break-word !important;
   }
 
   /* ════ Hero Main Section: Mobile Precision ════ */
@@ -1489,22 +1529,31 @@ html, body {
     min-height: auto !important;
     padding-top: 86px !important;
     padding-bottom: 2rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
   }
 
   #hero .section-container {
     padding: 0.5rem 1rem 1.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* Hero Telemetry: Symmetrical 2x2 grid */
   .hero-telemetry-bar {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.45rem 0.6rem !important;
-    padding: 0.55rem 0.65rem !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 0.45rem 0.5rem !important;
+    padding: 0.6rem 0.75rem !important;
     margin-bottom: 1.35rem !important;
     border-radius: 10px !important;
     background: var(--bg-surface) !important;
     border: 1px solid var(--border) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-telemetry-divider {
@@ -1513,16 +1562,23 @@ html, body {
 
   .hero-telemetry-item {
     display: flex !important;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.5rem;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    align-items: center !important;
+    gap: 0.35rem !important;
+    padding: 0.4rem 0.5rem !important;
+    border-radius: 6px !important;
+    background: rgba(255, 255, 255, 0.035) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
     font-size: 0.64rem !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    min-width: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .hero-telemetry-item span {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
   }
 
   /* Eyebrow badge */
@@ -1530,16 +1586,20 @@ html, body {
     font-size: 0.72rem !important;
     padding: 0.35rem 0.9rem !important;
     margin-bottom: 1rem !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
   }
 
   /* Hero Headline */
   .hero-headline {
-    font-size: clamp(1.75rem, 6.2vw, 2.35rem) !important;
+    font-size: clamp(1.65rem, 6.8vw, 2.35rem) !important;
     line-height: 1.14 !important;
     letter-spacing: -0.03em !important;
     margin-bottom: 1rem !important;
-    word-break: normal !important;
+    word-break: break-word !important;
     overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
   /* Hero Pitch */
@@ -1548,41 +1608,44 @@ html, body {
     line-height: 1.65 !important;
     margin-bottom: 1.2rem !important;
     max-width: 100% !important;
+    width: 100% !important;
+    word-break: break-word !important;
   }
 
   /* Hero metrics pill container */
   .hero-metrics-pill-container {
-    padding: 0.65rem 0.5rem !important;
+    padding: 0.65rem 0.4rem !important;
     margin-bottom: 1.25rem !important;
-    gap: 0.35rem !important;
+    gap: 0.25rem !important;
     border-radius: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
-  /* Hero Action Buttons: 2-col top + 1 full-width bottom */
+  /* Hero Action Buttons: flex column so no text is ever clipped */
   .hero-cta-row {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: 0.6rem !important;
     margin-bottom: 1.25rem !important;
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-cta-row > a,
   .hero-cta-row > button {
     display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
-    padding: 0.65rem 0.6rem !important;
-    font-size: 0.74rem !important;
-    letter-spacing: 0.03em !important;
-    text-align: center;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.04em !important;
+    text-align: center !important;
     width: 100% !important;
     box-sizing: border-box !important;
-  }
-
-  .hero-cta-row > *:last-child:nth-child(odd) {
-    grid-column: span 2 !important;
   }
 
   /* Social Links: Symmetrical 3-column row */
@@ -1592,52 +1655,74 @@ html, body {
     gap: 0.45rem !important;
     margin-bottom: 1.2rem !important;
     width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-social-strip a {
     display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    padding: 0.4rem 0.45rem !important;
-    font-size: 0.72rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.3rem !important;
+    padding: 0.45rem 0.35rem !important;
+    font-size: 0.7rem !important;
     width: 100% !important;
+    box-sizing: border-box !important;
+    min-width: 0 !important;
   }
 
   /* 3D Atom Core on mobile */
   .hero-3d-canvas-wrap {
-    height: 290px !important;
-    margin: 0.5rem 0 1rem !important;
+    height: 300px !important;
+    margin: 0.75rem auto 1.5rem !important;
     width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
   }
 
   .hero-hud-hint {
     font-size: 0.65rem;
   }
 
-  /* Capability Strip: clean 2x2 grid */
+  /* Capability Strip: clean 1-col on phone */
   .hero-meta-strip {
     display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.75rem !important;
-    padding: 0.95rem 0.85rem !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+    padding: 1rem 0.9rem !important;
     margin-top: 1.2rem !important;
     border-radius: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .hero-meta-item {
-    padding-left: 0.6rem !important;
+    padding-left: 0.75rem !important;
     border-left: 2px solid rgba(72, 229, 255, 0.4) !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    word-break: break-word !important;
   }
 
   .hero-meta-item div:nth-child(2) {
-    font-size: 0.82rem !important;
-    line-height: 1.25 !important;
+    font-size: 0.88rem !important;
+    line-height: 1.3 !important;
   }
 
   .hero-meta-item div:nth-child(3) {
-    font-size: 0.68rem !important;
-    line-height: 1.35 !important;
+    font-size: 0.74rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Extra small screens (<400px) */
+  @media (max-width: 400px) {
+    .hero-telemetry-bar {
+      grid-template-columns: 1fr !important;
+    }
+    .hero-social-strip {
+      grid-template-columns: 1fr !important;
+    }
   }
 
   /* Gaming Video Holo-Theater on mobile */

@@ -28,7 +28,18 @@ export default function Hero3DCanvas() {
       scene = new THREE.Scene();
 
       camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-      camera.position.set(0, 0, isMobile ? 16 : 15);
+      const updateCameraZoom = (w) => {
+        if (w < 480) {
+          camera.position.z = 18;
+        } else if (w < 768) {
+          camera.position.z = 16.5;
+        } else if (w < 1024) {
+          camera.position.z = 15.5;
+        } else {
+          camera.position.z = 15;
+        }
+      };
+      updateCameraZoom(width);
 
       renderer = new THREE.WebGLRenderer({
         antialias: !isMobile, // Disable expensive antialiasing on mobile
@@ -258,6 +269,7 @@ export default function Hero3DCanvas() {
         const newW = container.clientWidth || 300;
         const newH = container.clientHeight || 300;
         camera.aspect = newW / newH;
+        updateCameraZoom(newW);
         camera.updateProjectionMatrix();
         renderer.setSize(newW, newH, false);
       };

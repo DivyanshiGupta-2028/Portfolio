@@ -159,13 +159,14 @@ export default function Hero() {
             <h1
               className="hero-headline"
               style={{
-                fontSize: "clamp(2rem, 4.4vw, 4.4rem)",
+                fontSize: "clamp(1.85rem, 5vw, 4.4rem)",
                 fontWeight: 800,
-                lineHeight: 1.08,
+                lineHeight: 1.1,
                 letterSpacing: "-0.03em",
-                marginBottom: "1.5rem",
-                wordBreak: "normal",
-                overflowWrap: "normal",
+                marginBottom: "1.25rem",
+                wordBreak: "break-word",
+                overflowWrap: "break-word",
+                maxWidth: "100%",
               }}
             >
               I BUILD THE{" "}
@@ -201,10 +202,12 @@ export default function Hero() {
               className="hero-pitch"
               style={{
                 color: "var(--text-secondary)",
-                fontSize: "clamp(0.95rem, 1.6vw, 1.15rem)",
-                lineHeight: 1.75,
+                fontSize: "clamp(0.92rem, 1.6vw, 1.12rem)",
+                lineHeight: 1.7,
                 maxWidth: "560px",
-                marginBottom: "1.5rem",
+                width: "100%",
+                wordBreak: "break-word",
+                marginBottom: "1.4rem",
               }}
             >
               Nearly 3 years building secure APIs, enterprise applications, full-stack products, and AI-integrated backend systems at Sanskriti IT Solutions — delivering{" "}
@@ -218,35 +221,37 @@ export default function Hero() {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(3, 1fr)",
-                gap: "0.6rem",
-                padding: "0.85rem 1rem",
+                gap: "0.5rem",
+                padding: "0.8rem 0.9rem",
                 background: "rgba(12, 18, 34, 0.75)",
                 border: "1px solid rgba(72, 229, 255, 0.22)",
                 borderRadius: "14px",
                 backdropFilter: "blur(12px)",
-                marginBottom: "1.8rem",
+                marginBottom: "1.6rem",
                 boxShadow: "0 8px 30px rgba(0, 0, 0, 0.3)",
                 maxWidth: "560px",
+                width: "100%",
+                boxSizing: "border-box",
               }}
             >
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.15rem, 2.2vw, 1.45rem)", color: "var(--cyan)", letterSpacing: "-0.02em" }}>
+              <div style={{ textAlign: "center", minWidth: 0 }}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.05rem, 2.2vw, 1.45rem)", color: "var(--cyan)", letterSpacing: "-0.02em" }}>
                   40%
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
                   SaaS Gain
                 </div>
               </div>
-              <div style={{ textAlign: "center", borderLeft: "1px solid rgba(255,255,255,0.1)", borderRight: "1px solid rgba(255,255,255,0.1)" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.15rem, 2.2vw, 1.45rem)", color: "var(--purple)", letterSpacing: "-0.02em" }}>
+              <div style={{ textAlign: "center", minWidth: 0, borderLeft: "1px solid rgba(255,255,255,0.1)", borderRight: "1px solid rgba(255,255,255,0.1)" }}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.05rem, 2.2vw, 1.45rem)", color: "var(--purple)", letterSpacing: "-0.02em" }}>
                   &lt;45ms
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
                   API Latency
                 </div>
               </div>
-              <div style={{ textAlign: "center" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.15rem, 2.2vw, 1.45rem)", color: "#f59e0b", letterSpacing: "-0.02em" }}>
+              <div style={{ textAlign: "center", minWidth: 0 }}>
+                <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.05rem, 2.2vw, 1.45rem)", color: "#f59e0b", letterSpacing: "-0.02em" }}>
                   3+ Yrs
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>

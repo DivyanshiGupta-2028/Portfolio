@@ -181,7 +181,11 @@ export default function GamingVideoTheater() {
               gap: "0.6rem",
               padding: "1rem 0",
               overflowX: "auto",
+              maxWidth: "100%",
+              width: "100%",
+              boxSizing: "border-box",
               scrollbarWidth: "none",
+              WebkitOverflowScrolling: "touch",
             }}
           >
             {MISSIONS.map((m, idx) => {
@@ -408,16 +412,17 @@ export default function GamingVideoTheater() {
             <div
               style={{
                 display: "flex",
-                gap: "1.5rem",
+                flexWrap: "wrap",
+                gap: "0.8rem 1.4rem",
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.75rem",
               }}
             >
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <span style={{ color: "var(--text-muted)" }}>CONCURRENCY: </span>
                 <span style={{ color: "#ffffff", fontWeight: 700 }}>{mission.concurrency}</span>
               </div>
-              <div>
+              <div style={{ minWidth: 0 }}>
                 <span style={{ color: "var(--text-muted)" }}>SECURITY: </span>
                 <span style={{ color: "var(--cyan)", fontWeight: 700 }}>{mission.security}</span>
               </div>
