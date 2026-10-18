@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
 
 export default function Cursor() {
-  const [pos, setPos] = useState({ x: -100, y: -100 });
-  const [ring, setRing] = useState({ x: -100, y: -100 });
   const [hovering, setHovering] = useState(false);
   const [clicking, setClicking] = useState(false);
   const [isMobile, setIsMobile] = useState(true);
