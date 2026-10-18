@@ -98,19 +98,19 @@ export default function Hero() {
               }}
               className="cyber-pulse"
             />
-            <span style={{ color: "var(--cyan)", fontWeight: 700 }}>LOBBY: SENIOR FULL-STACK</span>
+            <span style={{ color: "var(--cyan)", fontWeight: 700 }}>FULL-STACK ENGINEER</span>
           </div>
           <div className="hero-telemetry-divider">|</div>
           <div className="hero-telemetry-item">
-            <span style={{ color: "#34d399", fontWeight: 600 }}>SYSTEM: 100% INTEGRITY</span>
+            <span style={{ color: "#34d399", fontWeight: 600 }}>100% INTEGRITY</span>
           </div>
           <div className="hero-telemetry-divider">|</div>
           <div className="hero-telemetry-item">
-            <span>REGION: ASIA-SOUTH // NOIDA, INDIA</span>
+            <span>NOIDA, INDIA</span>
           </div>
           <div className="hero-telemetry-divider">|</div>
           <div className="hero-telemetry-item">
-            <span style={{ color: "var(--purple)", fontWeight: 600 }}>ENGINE: .NET 7+ · THREE.JS · REACT</span>
+            <span style={{ color: "var(--purple)", fontWeight: 600 }}>.NET · THREE.JS · REACT</span>
           </div>
         </motion.div>
 
@@ -159,11 +159,11 @@ export default function Hero() {
             <h1
               className="hero-headline"
               style={{
-                fontSize: "clamp(1.85rem, 5vw, 4.4rem)",
+                fontSize: "clamp(1.75rem, 3.6vw, 3.8rem)",
                 fontWeight: 800,
-                lineHeight: 1.1,
+                lineHeight: 1.12,
                 letterSpacing: "-0.03em",
-                marginBottom: "1.25rem",
+                marginBottom: "1rem",
                 wordBreak: "break-word",
                 overflowWrap: "break-word",
                 maxWidth: "100%",
@@ -202,12 +202,12 @@ export default function Hero() {
               className="hero-pitch"
               style={{
                 color: "var(--text-secondary)",
-                fontSize: "clamp(0.92rem, 1.6vw, 1.12rem)",
-                lineHeight: 1.7,
+                fontSize: "clamp(0.88rem, 1.1vw, 1.05rem)",
+                lineHeight: 1.65,
                 maxWidth: "560px",
                 width: "100%",
                 wordBreak: "break-word",
-                marginBottom: "1.4rem",
+                marginBottom: "1.25rem",
               }}
             >
               Nearly 3 years building secure APIs, enterprise applications, full-stack products, and AI-integrated backend systems at Sanskriti IT Solutions — delivering{" "}
@@ -264,35 +264,36 @@ export default function Hero() {
             <div
               style={{
                 display: "flex",
-                gap: "1.1rem",
+                gap: "0.75rem",
                 flexWrap: "wrap",
+                marginBottom: "1.4rem",
               }}
               className="hero-cta-row"
             >
               <a
                 href="#discovery-matrix"
                 onClick={() => cyberAudio.playLaser()}
-                className="btn-cyber-primary clipped-corner"
+                className="btn-cyber-primary"
                 style={{ textDecoration: "none" }}
               >
                 <span>DISCOVERY MATRIX</span>
-                <span style={{ fontSize: "1.1rem" }}>↓</span>
+                <span>↓</span>
               </a>
 
               <Link
                 to="/work"
                 onClick={() => cyberAudio.playClick()}
-                className="btn-cyber-secondary clipped-corner"
+                className="btn-cyber-secondary"
                 style={{ textDecoration: "none" }}
               >
                 <span>CASE STUDIES</span>
-                <span style={{ fontSize: "1.1rem" }}>→</span>
+                <span>→</span>
               </Link>
 
               <a
                 href="/divyanshi-gupta-resume.pdf"
                 download="divyanshi-gupta-resume.pdf"
-                className="btn-cyber-secondary clipped-corner"
+                className="btn-cyber-secondary"
                 onClick={() => cyberAudio.playSuccess()}
               >
                 <span>RESUME</span>
