@@ -8,48 +8,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* ── Core Theme Colors (set dynamically by ThemeContext) ── */
-  --bg: #06080F;
-  --bg-gradient: radial-gradient(ellipse at 50% 0%, #0d1527 0%, #070a12 55%, #04060b 100%);
-  --bg-surface: rgba(12, 18, 34, 0.75);
-  --bg-surface-elevated: rgba(17, 24, 46, 0.92);
-  --bg-surface-hover: rgba(22, 32, 60, 0.98);
+  /* ── Core Theme Colors (Graphite + Electric Orange — set dynamically by ThemeContext) ── */
+  --bg: #17191C;
+  --bg-gradient: radial-gradient(ellipse at 50% 0%, #25292E 0%, #1C1F23 55%, #17191C 100%);
+  --bg-surface: rgba(37, 41, 46, 0.78);
+  --bg-surface-elevated: rgba(42, 47, 54, 0.94);
+  --bg-surface-hover: rgba(50, 56, 64, 0.98);
 
   /* Navigation surfaces */
-  --nav-bg: rgba(7, 10, 18, 0.7);
-  --nav-bg-scrolled: rgba(7, 10, 18, 0.94);
-  --mobile-nav-bg: rgba(7, 10, 18, 0.98);
-  --marquee-bg: rgba(10, 13, 22, 0.95);
-  --footer-bg: rgba(4, 6, 11, 0.9);
+  --nav-bg: rgba(23, 25, 28, 0.72);
+  --nav-bg-scrolled: rgba(23, 25, 28, 0.96);
+  --mobile-nav-bg: rgba(23, 25, 28, 0.99);
+  --marquee-bg: rgba(20, 22, 25, 0.97);
+  --footer-bg: rgba(18, 19, 22, 0.97);
 
-  /* Accents (overridden per palette by ThemeContext) */
-  --cyan: #48E5FF;
-  --cyan-dim: #229cb0;
-  --cyan-glow: rgba(72, 229, 255, 0.35);
-  --purple: #7A56D0;
-  --purple-glow: rgba(122, 86, 208, 0.35);
-  --magenta: #d946ef;
-  --emerald: #10b981;
-  --sky: #38bdf8;
+  /* Accents — Electric Orange */
+  --orange: #FF793F;
+  --orange-dim: #d4602e;
+  --orange-glow: rgba(255, 121, 63, 0.35);
+  /* Legacy aliases so all existing classes resolve to orange */
+  --cyan: #FF793F;
+  --cyan-dim: #d4602e;
+  --cyan-glow: rgba(255, 121, 63, 0.35);
+  --purple: #FF793F;
+  --purple-glow: rgba(255, 121, 63, 0.30);
+  --magenta: #FF793F;
+  --emerald: #FF793F;
+  --sky: #FF793F;
 
   /* Text */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-dim: #475569;
+  --text-primary: #E9E9E7;
+  --text-secondary: #9298A1;
+  --text-muted: #6B7280;
+  --text-dim: #4B5563;
 
   /* Borders & Dividers */
-  --border: rgba(72, 229, 255, 0.16);
-  --border-strong: rgba(72, 229, 255, 0.5);
-  --border-purple: rgba(122, 86, 208, 0.28);
+  --border: rgba(255, 121, 63, 0.14);
+  --border-strong: rgba(255, 121, 63, 0.45);
+  --border-purple: rgba(255, 121, 63, 0.22);
 
   /* Radii & Shadows */
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
-  --glow-cyan: 0 0 40px rgba(72, 229, 255, 0.28);
-  --glow-purple: 0 0 40px rgba(122, 86, 208, 0.28);
-  --card-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+  --glow-cyan: 0 0 40px rgba(255, 121, 63, 0.28);
+  --glow-purple: 0 0 40px rgba(255, 121, 63, 0.22);
+  --card-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
 
   /* Fonts */
   --font-display: 'Space Grotesk', -apple-system, sans-serif;
@@ -58,7 +62,7 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   LIGHT MODE — [data-theme="light"]
+   LIGHT MODE — [data-theme="light"] — Warm Off-White
    ═══════════════════════════════════════════════════ */
 [data-theme="light"] body {
   background: var(--bg);
@@ -68,18 +72,18 @@
 
 [data-theme="light"] body::before {
   background:
-    linear-gradient(rgba(100, 116, 180, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 116, 180, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 121, 63, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 121, 63, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 [data-theme="light"] body::after {
-  background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(220, 228, 245, 0.5) 100%);
+  background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(210, 205, 198, 0.5) 100%);
 }
 
-[data-theme="light"] ::-webkit-scrollbar-track { background: #e8edf5; }
+[data-theme="light"] ::-webkit-scrollbar-track { background: #EAE8E4; }
 [data-theme="light"] ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--cyan) 0%, var(--purple) 100%);
+  background: linear-gradient(180deg, #FF793F 0%, #d4602e 100%);
 }
 
 [data-theme="light"] .cyber-panel {
@@ -252,14 +256,14 @@ body {
   position: relative;
 }
 
-/* Holographic scanline grid overlay — thinner, more premium */
+/* Holographic scanline grid overlay — orange-tinted, ultra-subtle */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   background: 
-    linear-gradient(rgba(72, 229, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(72, 229, 255, 0.018) 1px, transparent 1px);
+    linear-gradient(rgba(255, 121, 63, 0.014) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 121, 63, 0.014) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   z-index: 1;
@@ -270,7 +274,7 @@ body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(4, 6, 11, 0.92) 100%);
+  background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(17, 19, 22, 0.90) 100%);
   pointer-events: none;
   z-index: 1;
 }
