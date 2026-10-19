@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { cyberAudio } from "../utils/cyberAudio";
+import { useTheme } from "../context/ThemeContext";
 
 const NAV_LINKS = [
   { to: "/", label: "Home" },
@@ -17,6 +18,9 @@ const SOCIAL_LINKS = [
 ];
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const isLight = theme === "light";
+
   const scrollToTop = () => {
     cyberAudio.playClick();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -27,7 +31,7 @@ export default function Footer() {
 
       {/* ── Product.inc style large CTA ── */}
       <div style={{
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: isLight ? "1px solid rgba(23,25,28,0.08)" : "1px solid rgba(255,255,255,0.06)",
         padding: "6rem 2rem",
         textAlign: "center",
         position: "relative",
@@ -38,19 +42,19 @@ export default function Footer() {
           position: "absolute", top: "50%", left: "50%",
           transform: "translate(-50%, -50%)",
           width: "600px", height: "400px",
-          background: "radial-gradient(ellipse, rgba(72,229,255,0.055) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(255,121,63,0.055) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
 
         <div style={{ maxWidth: "1260px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.28)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
             // READY TO COLLABORATE?
           </div>
 
           <h2 style={{
             fontFamily: "var(--font-display)", fontWeight: 800,
             fontSize: "clamp(2.5rem, 7vw, 5.5rem)", lineHeight: 1.02,
-            letterSpacing: "-0.045em", color: "#ffffff",
+            letterSpacing: "-0.045em", color: "var(--text-primary)",
             marginBottom: "2.5rem", maxWidth: "900px", margin: "0 auto 2.5rem",
           }}>
             Available for{" "}
@@ -85,10 +89,10 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", color: "#ffffff", marginBottom: "0.2rem" }}>
+            <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", color: "var(--text-primary)", marginBottom: "0.2rem" }}>
               DIVYANSHI<span style={{ color: "var(--cyan)" }}>.GUPTA</span>
             </div>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.1em" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-muted)", letterSpacing: "0.1em" }}>
               FULL-STACK ENGINEER · NOIDA
             </div>
           </div>
@@ -101,9 +105,9 @@ export default function Footer() {
                 to={item.to}
                 onClick={() => cyberAudio.playClick()}
                 className="dashed-link"
-                style={{ textDecoration: "none", fontFamily: "var(--font-body)", fontSize: "0.82rem", color: "rgba(255,255,255,0.42)" }}
-                onMouseEnter={e => { e.currentTarget.style.color = "rgba(255,255,255,0.85)"; }}
-                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.42)"; }}
+                style={{ textDecoration: "none", fontFamily: "var(--font-body)", fontSize: "0.82rem", color: "var(--text-muted)" }}
+                onMouseEnter={e => { e.currentTarget.style.color = "var(--cyan)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "var(--text-muted)"; }}
               >
                 {item.label}
               </Link>
@@ -119,18 +123,18 @@ export default function Footer() {
                 target={s.download ? undefined : "_blank"}
                 rel="noopener noreferrer"
                 download={s.download}
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "rgba(255,255,255,0.38)", textDecoration: "none", transition: "color 0.2s ease" }}
+                style={{ fontFamily: "var(--font-mono)", fontSize: "0.75rem", color: "var(--text-muted)", textDecoration: "none", transition: "color 0.2s ease" }}
                 onMouseEnter={e => { e.currentTarget.style.color = "var(--cyan)"; }}
-                onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.38)"; }}
+                onMouseLeave={e => { e.currentTarget.style.color = "var(--text-muted)"; }}
               >
                 {s.label} ↗
               </a>
             ))}
             <button
               onClick={scrollToTop}
-              style={{ background: "none", border: "1px solid rgba(255,255,255,0.12)", borderRadius: "4px", color: "rgba(255,255,255,0.38)", fontFamily: "var(--font-mono)", fontSize: "0.72rem", padding: "0.4rem 0.8rem", cursor: "pointer", transition: "all 0.2s ease" }}
-              onMouseEnter={e => { e.currentTarget.style.color = "var(--cyan)"; e.currentTarget.style.borderColor = "rgba(72,229,255,0.4)"; }}
-              onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.38)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)"; }}
+              style={{ background: "none", border: "1px solid var(--border)", borderRadius: "4px", color: "var(--text-muted)", fontFamily: "var(--font-mono)", fontSize: "0.72rem", padding: "0.4rem 0.8rem", cursor: "pointer", transition: "all 0.2s ease" }}
+              onMouseEnter={e => { e.currentTarget.style.color = "var(--cyan)"; e.currentTarget.style.borderColor = "var(--border-strong)"; }}
+              onMouseLeave={e => { e.currentTarget.style.color = "var(--text-muted)"; e.currentTarget.style.borderColor = "var(--border)"; }}
             >
               ↑ TOP
             </button>
@@ -138,8 +142,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom micro bar */}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", maxWidth: "1260px", margin: "0 auto", padding: "1rem 2rem", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem" }}>
-          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(255,255,255,0.18)" }}>
+        <div style={{ borderTop: isLight ? "1px solid rgba(23,25,28,0.06)" : "1px solid rgba(255,255,255,0.04)", maxWidth: "1260px", margin: "0 auto", padding: "1rem 2rem", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-dim)" }}>
             © {new Date().getFullYear()} DIVYANSHI GUPTA · ALL RIGHTS RESERVED
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "#34d399" }}>

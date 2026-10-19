@@ -97,7 +97,7 @@ export default function ContactSection() {
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: "1rem" }}>
               Message sent.
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "1.05rem", maxWidth: "500px", margin: "0 auto" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", maxWidth: "500px", margin: "0 auto" }}>
               Your mail client should open now. I'll respond within 24 hours.
             </p>
           </motion.div>
@@ -112,7 +112,7 @@ export default function ContactSection() {
 
         {/* Section header */}
         <div style={{ marginBottom: "4rem" }}>
-          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.16em", marginBottom: "1rem" }}>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em", marginBottom: "1rem" }}>
             // CONTACT
           </div>
           <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2.5rem, 5.5vw, 4.5rem)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.05, maxWidth: "800px", marginBottom: "1.25rem" }}>
@@ -121,7 +121,7 @@ export default function ContactSection() {
               something that matters.
             </span>
           </h2>
-          <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px" }}>
+          <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.7, maxWidth: "560px" }}>
             Open to full-time backend / full-stack roles, freelance projects, and technical collaborations. Based in Noida — available immediately.
           </p>
         </div>
@@ -130,14 +130,14 @@ export default function ContactSection() {
         <div className="pi-contact-grid">
           {/* Left: Direct channels */}
           <div className="pi-contact-left">
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "rgba(255,255,255,0.35)", marginBottom: "2.5rem" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "var(--text-muted)", marginBottom: "2.5rem" }}>
               DIRECT CHANNELS
             </div>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "2.2rem" }}>
               {CHANNELS.map((ch) => (
                 <div key={ch.label}>
-                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "rgba(255,255,255,0.3)", marginBottom: "0.35rem" }}>
+                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "var(--text-dim)", marginBottom: "0.35rem" }}>
                     {ch.label}
                   </div>
                   <a
@@ -187,7 +187,7 @@ export default function ContactSection() {
 
           {/* Right: Minimal form */}
           <div className="pi-contact-right">
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "rgba(255,255,255,0.35)", marginBottom: "2.5rem" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "var(--text-muted)", marginBottom: "2.5rem" }}>
               SEND A MESSAGE
             </div>
 
@@ -229,7 +229,7 @@ export default function ContactSection() {
                   onChange={(e) => setFormData(p => ({ ...p, opportunityType: e.target.value }))}
                   style={{
                     width: "100%", background: "transparent", border: "none",
-                    borderBottom: "1px solid rgba(255,255,255,0.14)", color: "#ffffff",
+                    borderBottom: "1px solid var(--border)", color: "var(--text-primary)",
                     fontFamily: "var(--font-body)", fontSize: "1rem",
                     padding: "0.85rem 0", outline: "none", cursor: "pointer",
                     appearance: "none", WebkitAppearance: "none",

@@ -145,7 +145,7 @@ export default function EngineeringIdentity() {
                       fontSize: "1.45rem",
                       fontWeight: 700,
                       marginBottom: "0.6rem",
-                      color: "#ffffff",
+                      color: "var(--text-primary)",
                     }}
                   >
                     {cap.title}

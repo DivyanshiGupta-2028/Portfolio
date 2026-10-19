@@ -230,14 +230,14 @@ export default function UberDiscoveryEngine() {
               fontWeight: 800,
               letterSpacing: "-0.035em",
               lineHeight: 1.05,
-              color: "#ffffff",
+              color: "var(--text-primary)",
               marginBottom: "1rem",
             }}
           >
             SEARCH ARCHITECTURE &{" "}
             <span
               style={{
-                background: "linear-gradient(135deg, #ffffff 0%, #94a3b8 100%)",
+                background: "linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -285,7 +285,7 @@ export default function UberDiscoveryEngine() {
               style={{
                 background: "transparent",
                 border: "none",
-                color: "rgba(255,255,255,0.5)",
+                color: "var(--text-muted)",
                 cursor: "pointer",
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.8rem",
@@ -454,12 +454,12 @@ export default function UberDiscoveryEngine() {
                     position: "absolute",
                     top: "1.5rem",
                     right: "1.5rem",
-                    background: "rgba(255, 255, 255, 0.08)",
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
+                    background: "var(--bg-surface)",
+                    border: "1px solid var(--border)",
                     borderRadius: "50%",
                     width: "36px",
                     height: "36px",
-                    color: "#ffffff",
+                    color: "var(--text-primary)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -496,7 +496,7 @@ export default function UberDiscoveryEngine() {
                     fontSize: "clamp(1.8rem, 3.5vw, 2.4rem)",
                     fontWeight: 800,
                     letterSpacing: "-0.03em",
-                    color: "#ffffff",
+                    color: "var(--text-primary)",
                     marginBottom: "0.5rem",
                   }}
                 >
@@ -519,8 +519,8 @@ export default function UberDiscoveryEngine() {
                     display: "grid",
                     gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
                     gap: "1rem",
-                    background: "rgba(255, 255, 255, 0.03)",
-                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    background: "var(--bg-surface)",
+                    border: "1px solid var(--border)",
                     borderRadius: "12px",
                     padding: "1.2rem",
                     marginBottom: "1.8rem",
@@ -532,7 +532,7 @@ export default function UberDiscoveryEngine() {
                         style={{
                           fontSize: "1.3rem",
                           fontWeight: 800,
-                          color: m.highlight ? "var(--cyan)" : "#ffffff",
+                          color: m.highlight ? "var(--cyan)" : "var(--text-primary)",
                           fontFamily: "var(--font-display)",
                         }}
                       >
@@ -559,7 +559,7 @@ export default function UberDiscoveryEngine() {
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.75rem",
-                      color: "rgba(255, 255, 255, 0.5)",
+                      color: "var(--text-muted)",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
                       marginBottom: "0.5rem",
@@ -578,7 +578,7 @@ export default function UberDiscoveryEngine() {
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.75rem",
-                      color: "rgba(255, 255, 255, 0.5)",
+                      color: "var(--text-muted)",
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
                       marginBottom: "0.75rem",
@@ -593,9 +593,9 @@ export default function UberDiscoveryEngine() {
                         style={{
                           fontFamily: "var(--font-mono)",
                           fontSize: "0.74rem",
-                          color: "#ffffff",
-                          background: "rgba(255, 255, 255, 0.08)",
-                          border: "1px solid rgba(255, 255, 255, 0.14)",
+                          color: "var(--text-primary)",
+                          background: "var(--bg-surface)",
+                          border: "1px solid var(--border)",
                           padding: "0.3rem 0.75rem",
                           borderRadius: "6px",
                         }}

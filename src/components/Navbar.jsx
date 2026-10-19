@@ -90,7 +90,7 @@ export default function Navbar() {
                 width: "40px",
                 height: "40px",
                 borderRadius: "8px",
-                background: "linear-gradient(135deg, rgba(72, 229, 255, 0.25), rgba(139, 92, 255, 0.25))",
+                background: "linear-gradient(135deg, rgba(255, 121, 63, 0.25), rgba(212, 96, 46, 0.25))",
                 border: "1px solid var(--cyan)",
                 display: "flex",
                 alignItems: "center",
@@ -98,8 +98,8 @@ export default function Navbar() {
                 fontFamily: "var(--font-display)",
                 fontWeight: 900,
                 fontSize: "1.1rem",
-                color: "#ffffff",
-                boxShadow: "0 0 15px rgba(72, 229, 255, 0.3)",
+                color: "var(--text-primary)",
+                boxShadow: "0 0 15px var(--orange-glow)",
                 clipPath: "polygon(0 0, 100% 0, 85% 100%, 0 100%)",
               }}
             >
@@ -112,7 +112,7 @@ export default function Navbar() {
                   fontWeight: 700,
                   fontSize: "1.05rem",
                   letterSpacing: "-0.01em",
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                 }}
               >
                 DIVYANSHI<span style={{ color: "var(--cyan)" }}>.GUPTA</span>

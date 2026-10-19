@@ -25,7 +25,7 @@ export default function ExperiencePage() {
 
         <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "5rem 1.75rem 3rem" }}>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
               // EXPERIENCE · SANSKRITI IT SOLUTIONS
             </div>
 
@@ -40,14 +40,14 @@ export default function ExperiencePage() {
               </span>
             </h1>
 
-            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "520px" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "520px" }}>
               3 years building enterprise systems at Sanskriti IT Solutions. Verified 40% and 35% benchmark improvements, AZ-900 Azure certified, and a full-stack tech constellation spanning 20+ technologies.
             </p>
           </motion.div>
         </div>
 
         {/* Metrics band */}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "2.5rem 1.75rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "2rem" }}>
             {METRICS.map((m, i) => (
               <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.08 }} className="pi-stat-block">

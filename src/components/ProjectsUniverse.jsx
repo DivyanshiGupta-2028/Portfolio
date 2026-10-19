@@ -429,7 +429,7 @@ export default function ProjectsUniverse() {
                   style={{
                     fontSize: "1.45rem",
                     fontWeight: 700,
-                    color: "#ffffff",
+                    color: "var(--text-primary)",
                     marginBottom: "0.8rem",
                     lineHeight: 1.25,
                   }}
@@ -689,7 +689,7 @@ export default function ProjectsUniverse() {
                   fontSize: "clamp(1.8rem, 3.5vw, 2.4rem)",
                   fontWeight: 800,
                   marginBottom: "0.8rem",
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                 }}
               >
                 {selectedProject.title}

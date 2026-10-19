@@ -420,7 +420,7 @@ export default function GamingVideoTheater() {
             >
               <div style={{ minWidth: 0 }}>
                 <span style={{ color: "var(--text-muted)" }}>CONCURRENCY: </span>
-                <span style={{ color: "#ffffff", fontWeight: 700 }}>{mission.concurrency}</span>
+                <span style={{ color: "var(--text-primary)", fontWeight: 700 }}>{mission.concurrency}</span>
               </div>
               <div style={{ minWidth: 0 }}>
                 <span style={{ color: "var(--text-muted)" }}>SECURITY: </span>

@@ -41,6 +41,13 @@
   --text-secondary: #9298A1;
   --text-muted: #6B7280;
   --text-dim: #4B5563;
+  --cream: #E9E9E7;
+  --dim: #6B7280;
+  --muted: #9298A1;
+  --surface: rgba(37, 41, 46, 0.78);
+  --surface2: rgba(42, 47, 54, 0.94);
+  --gold: #FF793F;
+  --teal: #FF793F;
 
   /* Borders & Dividers */
   --border: rgba(255, 121, 63, 0.14);
@@ -64,6 +71,16 @@
 /* ═══════════════════════════════════════════════════
    LIGHT MODE — [data-theme="light"] — Warm Off-White
    ═══════════════════════════════════════════════════ */
+[data-theme="light"] {
+  --cream: #17191C;
+  --dim: #6B7280;
+  --muted: #4B5563;
+  --surface: rgba(255, 255, 255, 0.90);
+  --surface2: rgba(244, 242, 239, 0.96);
+  --gold: #FF793F;
+  --teal: #FF793F;
+}
+
 [data-theme="light"] body {
   background: var(--bg);
   background-image: var(--bg-gradient);
@@ -162,7 +179,7 @@
   box-shadow: 0 0 18px rgba(255,121,63,0.18);
 }
 [data-theme="light"] .btn-cyber-primary:hover {
-  color: #ffffff;
+  color: #17191C;
   box-shadow: 0 0 40px rgba(255,121,63,0.55), 0 8px 24px rgba(23,25,28,0.25);
 }
 [data-theme="light"] .btn-cyber-secondary {
@@ -227,7 +244,8 @@
 [data-theme="light"] .uber-pill:hover { background: #ffffff; color: var(--text-primary); border-color: rgba(255,121,63,0.25); }
 [data-theme="light"] .uber-pill.active {
   background: #FF793F;
-  color: #ffffff;
+  color: #17191C;
+  font-weight: 700;
   border-color: #FF793F;
   box-shadow: 0 0 14px rgba(255,121,63,0.35);
 }
@@ -257,7 +275,7 @@
 }
 [data-theme="light"] .uber-card:hover .uber-card-arrow {
   background: #FF793F;
-  color: #ffffff;
+  color: #17191C;
   border-color: #FF793F;
 }
 

@@ -35,7 +35,7 @@ export default function ContactPage() {
               </span>
             </h1>
 
-            <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "520px" }}>
+            <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem", lineHeight: 1.7, maxWidth: "520px" }}>
               Reach out about software engineering roles, backend consulting, API architecture reviews, or full-stack collaborations.
             </p>
           </motion.div>

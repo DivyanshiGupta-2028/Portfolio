@@ -78,7 +78,7 @@ export default function Achievements() {
                 style={{
                   fontSize: "1.35rem",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   marginBottom: "0.8rem",
                 }}
               >
@@ -164,7 +164,7 @@ export default function Achievements() {
                 style={{
                   fontSize: "1.35rem",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   marginBottom: "0.8rem",
                 }}
               >
@@ -240,7 +240,7 @@ export default function Achievements() {
                 style={{
                   fontSize: "0.95rem",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                 }}
               >
                 {cap.title}

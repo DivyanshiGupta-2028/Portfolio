@@ -163,10 +163,10 @@ export default function WorkPage() {
 
           {/* Section eyebrow */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "4rem", paddingBottom: "1rem" }}>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.35)", letterSpacing: "0.16em" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em" }}>
               // ALL PROJECTS
             </div>
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "rgba(255,255,255,0.25)", letterSpacing: "0.1em" }}>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-dim)", letterSpacing: "0.1em" }}>
               2023 → PRESENT
             </div>
           </div>
@@ -254,7 +254,7 @@ export default function WorkPage() {
 
       {/* ── Bottom CTA Band ── */}
       <div className="pi-cta-section">
-        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
+        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
           LOOKING TO COLLABORATE?
         </p>
         <h2 className="pi-cta-headline">

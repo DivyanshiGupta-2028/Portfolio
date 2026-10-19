@@ -285,10 +285,11 @@ export default function Projects() {
                   {proj.featured && (
                     <span
                       style={{
-                        background: "linear-gradient(135deg,#ff5078,#c2185b)",
-                        color: "white",
+                        background: "var(--cyan)",
+                        color: "#17191C",
+                        fontWeight: 700,
                         fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: "1rem",
+                        fontSize: "0.85rem",
                         padding: "0.2rem 0.6rem",
                         letterSpacing: "0.1em",
                       }}

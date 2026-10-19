@@ -187,7 +187,7 @@ export default function Testimonials() {
                   background: "linear-gradient(135deg, var(--purple), var(--gold))",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "0.82rem",
-                  color: "white", flexShrink: 0,
+                  color: "#17191C", flexShrink: 0,
                 }}>{t.avatar}</div>
                 <div>
                   <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "1.08rem" }}>{t.name}</div>

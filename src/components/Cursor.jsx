@@ -76,11 +76,10 @@ export default function Cursor() {
           width: hovering ? "14px" : "6px",
           height: hovering ? "14px" : "6px",
           borderRadius: "50%",
-          background: hovering ? "var(--cyan)" : "#ffffff",
-          boxShadow: hovering ? "0 0 15px var(--cyan)" : "none",
+          background: hovering ? "var(--cyan)" : "var(--cyan)",
+          boxShadow: hovering ? "0 0 15px var(--cyan)" : "0 0 8px rgba(255, 121, 63, 0.4)",
           pointerEvents: "none",
           zIndex: 99999,
-          mixBlendMode: "screen",
           transition: "width 0.15s, height 0.15s, background 0.15s",
           willChange: "transform",
         }}

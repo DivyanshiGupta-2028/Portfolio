@@ -175,7 +175,7 @@ export default function ServicesPage() {
                   <div style={{ fontSize: "3rem", lineHeight: 1, color: "var(--purple-light)", opacity: 0.25, fontFamily: "Georgia, serif", marginBottom: "-0.5rem" }}>"</div>
                   <p style={{ color: "var(--muted)", fontSize: "1.08rem", lineHeight: 1.855, marginBottom: "1.5rem", fontStyle: "italic" }}>{t.quote}</p>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.8rem" }}>
-                    <div style={{ width: "44px", height: "44px", borderRadius: "50%", background: "linear-gradient(135deg, var(--purple), var(--gold))", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "1.08rem", color: "white", flexShrink: 0 }}>{t.avatar}</div>
+                    <div style={{ width: "44px", height: "44px", borderRadius: "50%", background: "linear-gradient(135deg, var(--purple), var(--gold))", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "1.08rem", color: "#17191C", flexShrink: 0 }}>{t.avatar}</div>
                     <div>
                       <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "1rem" }}>{t.name}</div>
                       <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.78rem", color: "var(--dim)" }}>{t.role}</div>

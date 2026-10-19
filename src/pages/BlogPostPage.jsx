@@ -151,7 +151,7 @@ export default function BlogPostPage() {
             {/* Author + topics row */}
             <div style={{ display: "flex", alignItems: "center", gap: "2.5rem", flexWrap: "wrap", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.9rem" }}>
-                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "linear-gradient(135deg, var(--purple), var(--gold))", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "1rem", color: "white", flexShrink: 0 }}>D</div>
+                <div style={{ width: 46, height: 46, borderRadius: "50%", background: "linear-gradient(135deg, var(--purple), var(--gold))", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Space Grotesk', sans-serif", fontWeight: 800, fontSize: "1rem", color: "#17191C", flexShrink: 0 }}>D</div>
                 <div>
                   <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, fontSize: "1rem", color: "var(--cream)" }}>Divyanshi Gupta</div>
                   <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "0.82rem", color: "var(--dim)" }}>Full-Stack Engineer · .NET · Azure · AI/ML</div>

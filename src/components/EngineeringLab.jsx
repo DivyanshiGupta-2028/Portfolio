@@ -152,7 +152,7 @@ export default function EngineeringLab() {
               <h3
                 style={{
                   fontSize: "1.3rem",
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   fontWeight: 700,
                   marginTop: "0.2rem",
                 }}
@@ -239,8 +239,8 @@ export default function EngineeringLab() {
           {/* Node Inspector Detail Panel */}
           <div
             style={{
-              background: "rgba(7, 10, 18, 0.8)",
-              border: "1px solid rgba(72, 229, 255, 0.25)",
+              background: "var(--bg-surface)",
+              border: "1px solid var(--border)",
               borderRadius: "12px",
               padding: "1.6rem",
               position: "relative",
@@ -291,7 +291,7 @@ export default function EngineeringLab() {
               style={{
                 fontSize: "1.25rem",
                 fontWeight: 700,
-                color: "#ffffff",
+                color: "var(--text-primary)",
                 marginBottom: "0.6rem",
               }}
             >

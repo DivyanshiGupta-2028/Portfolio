@@ -66,7 +66,7 @@ export default function EducationCertifications() {
                 style={{
                   fontSize: "1.35rem",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   marginBottom: "0.4rem",
                 }}
               >
@@ -167,7 +167,7 @@ export default function EducationCertifications() {
                 style={{
                   fontSize: "1.35rem",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   marginBottom: "0.4rem",
                 }}
               >
@@ -268,7 +268,7 @@ export default function EducationCertifications() {
                 style={{
                   fontSize: "1.35rem",
                   fontWeight: 700,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   marginBottom: "0.4rem",
                 }}
               >

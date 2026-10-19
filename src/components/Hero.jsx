@@ -404,7 +404,7 @@ export default function Hero() {
               <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--cyan)", letterSpacing: "0.15em" }}>
                 [{item.tag}]
               </div>
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", color: "#ffffff" }}>
+              <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", color: "var(--text-primary)" }}>
                 {item.title}
               </div>
               <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>

@@ -202,7 +202,7 @@ export default function Home() {
                       style={{
                         fontSize: "1.45rem",
                         fontWeight: 700,
-                        color: "#ffffff",
+                        color: "var(--text-primary)",
                         marginBottom: "0.7rem",
                         letterSpacing: "-0.01em",
                       }}

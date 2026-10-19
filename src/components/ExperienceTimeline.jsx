@@ -146,7 +146,7 @@ export default function ExperienceTimeline() {
                       style={{
                         fontSize: "1.45rem",
                         fontWeight: 700,
-                        color: "#ffffff",
+                        color: "var(--text-primary)",
                         marginTop: "0.2rem",
                       }}
                     >

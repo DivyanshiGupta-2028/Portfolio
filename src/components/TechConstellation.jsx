@@ -238,8 +238,8 @@ export default function TechConstellation() {
                           cursor: "pointer",
                           background: isSelected
                             ? `${cat.color}22`
-                            : "rgba(7, 10, 18, 0.75)",
-                          color: isSelected ? "#ffffff" : "var(--text-secondary)",
+                            : "var(--bg-surface)",
+                          color: isSelected ? "var(--text-primary)" : "var(--text-secondary)",
                           border: `1px solid ${isSelected ? cat.color : "rgba(72, 229, 255, 0.15)"}`,
                           boxShadow: isSelected ? `0 0 15px ${cat.color}44` : "none",
                           transform: isSelected ? "scale(1.05)" : "scale(1)",
@@ -281,7 +281,7 @@ export default function TechConstellation() {
               style={{
                 fontSize: "1.7rem",
                 fontWeight: 800,
-                color: "#ffffff",
+                color: "var(--text-primary)",
                 marginBottom: "0.4rem",
               }}
             >

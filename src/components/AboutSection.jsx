@@ -110,7 +110,7 @@ export default function AboutSection() {
                     style={{
                       fontSize: "0.9rem",
                       fontWeight: 600,
-                      color: "#ffffff",
+                      color: "var(--text-primary)",
                     }}
                   >
                     Resilient Architecture
@@ -134,7 +134,7 @@ export default function AboutSection() {
                     style={{
                       fontSize: "0.9rem",
                       fontWeight: 600,
-                      color: "#ffffff",
+                      color: "var(--text-primary)",
                     }}
                   >
                     Measurable Execution
@@ -202,7 +202,7 @@ export default function AboutSection() {
                 style={{
                   fontSize: "1.45rem",
                   fontWeight: 800,
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                   marginBottom: "0.2rem",
                 }}
               >
@@ -227,10 +227,10 @@ export default function AboutSection() {
                   display: "flex",
                   flexDirection: "column",
                   gap: "0.6rem",
-                  background: "rgba(7, 10, 18, 0.8)",
+                  background: "var(--bg-surface)",
                   padding: "1rem",
                   borderRadius: "8px",
-                  border: "1px solid rgba(72, 229, 255, 0.12)",
+                  border: "1px solid var(--border)",
                   fontFamily: "var(--font-mono)",
                   fontSize: "0.78rem",
                   textAlign: "left",
@@ -238,11 +238,11 @@ export default function AboutSection() {
               >
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ color: "var(--text-muted)" }}>LOCATION:</span>
-                  <span style={{ color: "#ffffff" }}>Noida / NCR, India</span>
+                  <span style={{ color: "var(--text-primary)" }}>Noida / NCR, India</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ color: "var(--text-muted)" }}>EXPERIENCE:</span>
-                  <span style={{ color: "#ffffff" }}>~3 Yrs (Combined)</span>
+                  <span style={{ color: "var(--text-primary)" }}>~3 Yrs (Combined)</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ color: "var(--text-muted)" }}>SPECIALTY:</span>

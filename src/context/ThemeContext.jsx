@@ -53,6 +53,8 @@ export function ThemeProvider({ children }) {
     root.style.setProperty("--emerald", "#FF793F");
     root.style.setProperty("--glow-cyan", "0 0 35px rgba(255, 121, 63, 0.28)");
     root.style.setProperty("--glow-purple", "0 0 35px rgba(255, 121, 63, 0.22)");
+    root.style.setProperty("--gold", "#FF793F");
+    root.style.setProperty("--teal", "#FF793F");
 
     if (isLight) {
       // ── Light Mode — warm off-white surfaces, dark graphite text ──
@@ -71,6 +73,11 @@ export function ThemeProvider({ children }) {
       root.style.setProperty("--text-secondary", "#3D4047");
       root.style.setProperty("--text-muted", "#6B7280");
       root.style.setProperty("--text-dim", "#9298A1");
+      root.style.setProperty("--cream", "#17191C");
+      root.style.setProperty("--dim", "#6B7280");
+      root.style.setProperty("--muted", "#4B5563");
+      root.style.setProperty("--surface", "rgba(255, 255, 255, 0.90)");
+      root.style.setProperty("--surface2", "rgba(244, 242, 239, 0.96)");
       root.style.setProperty("--border", "rgba(255, 121, 63, 0.18)");
       root.style.setProperty("--border-strong", "rgba(255, 121, 63, 0.45)");
       root.style.setProperty("--border-purple", "rgba(255, 121, 63, 0.25)");
@@ -92,6 +99,11 @@ export function ThemeProvider({ children }) {
       root.style.setProperty("--text-secondary", "#9298A1");
       root.style.setProperty("--text-muted", "#6B7280");
       root.style.setProperty("--text-dim", "#4B5563");
+      root.style.setProperty("--cream", "#E9E9E7");
+      root.style.setProperty("--dim", "#6B7280");
+      root.style.setProperty("--muted", "#9298A1");
+      root.style.setProperty("--surface", "rgba(37, 41, 46, 0.78)");
+      root.style.setProperty("--surface2", "rgba(42, 47, 54, 0.94)");
       root.style.setProperty("--border", "rgba(255, 121, 63, 0.14)");
       root.style.setProperty("--border-strong", "rgba(255, 121, 63, 0.45)");
       root.style.setProperty("--border-purple", "rgba(255, 121, 63, 0.22)");

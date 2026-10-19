@@ -27,7 +27,7 @@ export default function AboutPage() {
         <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "5rem 1.75rem 3rem" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "3rem", alignItems: "start" }}>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}>
-              <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
                 // ABOUT
               </div>
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
                 </span>
               </h1>
 
-              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem" }}>
+              <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem" }}>
                 Full-stack engineer with 3 years building enterprise SaaS backends, AI-integrated platforms, and consumer mobile apps. Specialist in .NET, ASP.NET Core, React, and multi-tenant architectures.
               </p>
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
                   fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
                   fontWeight: 700,
                   marginTop: "0.5rem",
-                  color: "#ffffff",
+                  color: "var(--text-primary)",
                 }}
               >
                 Developer Workstation & Telemetry Center
