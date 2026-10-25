@@ -61,7 +61,7 @@ export default function EngineeringLab() {
   const currentStep = currentSteps[selectedNode] || currentSteps[0];
 
   return (
-    <section id="lab" className="section-bg-cosmic" style={{ position: "relative" }}>
+    <section id="lab" className="section-bg-light-cream" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

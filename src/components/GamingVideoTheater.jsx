@@ -107,7 +107,7 @@ export default function GamingVideoTheater() {
   return (
     <>
     <div className="section-divider" />
-    <section className="gaming-theater-section section-bg-navy" style={{ position: "relative" }}>
+    <section className="gaming-theater-section section-bg-light-cream" style={{ position: "relative" }}>
       <div className="section-container" style={{ paddingBottom: 0 }}>
         {/* Section Header */}
         <div className="section-header">

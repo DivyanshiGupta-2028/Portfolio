@@ -65,7 +65,7 @@ export default function EngineeringIdentity() {
   return (
     <>
     <div className="section-divider" />
-    <section id="identity" className="section-bg-purple-mesh" style={{ position: "relative" }}>
+    <section id="identity" className="section-bg-navy" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

@@ -250,7 +250,7 @@ export default function ProjectsUniverse() {
       : PROJECTS.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="section-bg-cosmic" style={{ position: "relative" }}>
+    <section id="projects" className="section-bg-light-cream" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

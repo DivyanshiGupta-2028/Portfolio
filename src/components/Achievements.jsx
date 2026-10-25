@@ -4,7 +4,7 @@ export default function Achievements() {
   return (
     <>
     <div className="section-divider" />
-    <section id="achievements" className="section-bg-obsidian" style={{ position: "relative" }}>
+    <section id="achievements" className="section-bg-light-cream" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

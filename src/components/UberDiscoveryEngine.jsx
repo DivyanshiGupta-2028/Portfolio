@@ -192,7 +192,7 @@ export default function UberDiscoveryEngine() {
     <div className="section-divider" />
     <section
       id="discovery-matrix"
-      className="section-bg-cosmic"
+      className="section-bg-obsidian"
       style={{
         position: "relative",
         padding: "5rem 0 6rem",

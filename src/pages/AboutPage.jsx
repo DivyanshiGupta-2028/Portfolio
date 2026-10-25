@@ -66,7 +66,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3D Developer Workstation */}
-      <section className="section-bg-navy" style={{ padding: "3rem 1.5rem 3rem", position: "relative" }}>
+      <section className="section-bg-light-cream" style={{ padding: "3rem 1.5rem 3rem", position: "relative" }}>
         <div className="section-container" style={{ paddingBottom: 0 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}

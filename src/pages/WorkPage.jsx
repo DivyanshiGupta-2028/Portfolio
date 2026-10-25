@@ -158,7 +158,7 @@ export default function WorkPage() {
       </div>
 
       {/* ── CASE STUDY LIST (product.inc rows) ── */}
-      <section className="section-bg-charcoal" style={{ position: "relative" }}>
+      <section className="section-bg-light-cream" style={{ position: "relative" }}>
         <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "0 1.75rem" }}>
 
           {/* Section eyebrow */}

@@ -107,7 +107,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-bg-charcoal" style={{ position: "relative" }}>
+    <section id="contact" className="section-bg-light-cream" style={{ position: "relative" }}>
       <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "5rem 1.75rem 0" }}>
 
         {/* Section header */}
