@@ -251,22 +251,6 @@ export default function WorkPage() {
 
       {/* ── Deep Case Studies: Full Cards ── */}
       <ProjectsUniverse />
-
-      {/* ── Bottom CTA Band ── */}
-      <div className="section-bg-obsidian pi-cta-section">
-        <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
-          LOOKING TO COLLABORATE?
-        </p>
-        <h2 className="pi-cta-headline">
-          Let's build something{" "}
-          <span style={{ background: "linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-            that matters.
-          </span>
-        </h2>
-        <Link to="/contact" className="btn-flat-primary" style={{ textDecoration: "none", fontSize: "0.9rem" }}>
-          INITIATE CONTACT →
-        </Link>
-      </div>
     </main>
   );
 }

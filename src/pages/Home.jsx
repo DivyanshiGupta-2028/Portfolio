@@ -258,64 +258,6 @@ export default function Home() {
             })}
           </div>
 
-          {/* Bottom CTA strip */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            style={{
-              marginTop: "3rem",
-              padding: "2rem 2.5rem",
-              background: "rgba(12,18,34,0.7)",
-              border: "1px solid rgba(72,229,255,0.12)",
-              borderRadius: "14px",
-              backdropFilter: "blur(16px)",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: "1.5rem",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.7rem",
-                  color: "#10b981",
-                  letterSpacing: "0.15em",
-                  marginBottom: "0.4rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <span
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    borderRadius: "50%",
-                    background: "#10b981",
-                    boxShadow: "0 0 8px #10b981",
-                  }}
-                  className="cyber-pulse"
-                />
-                STATUS: OPEN TO OPPORTUNITIES · NOIDA/REMOTE
-              </div>
-              <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
-                Available for full-time backend engineering, full-stack, or API architecture roles.
-              </p>
-            </div>
-            <Link
-              to="/contact"
-              onClick={() => cyberAudio.playLaser()}
-              className="btn-cyber-primary"
-              style={{ textDecoration: "none", whiteSpace: "nowrap" }}
-            >
-              INITIATE CONTACT →
-            </Link>
-          </motion.div>
         </div>
       </section>
     </main>
