@@ -14,26 +14,60 @@ export default function Footer() {
       style={{
         position: "relative",
         zIndex: 10,
-        backgroundColor: "#070a14",
-        backgroundImage: "radial-gradient(ellipse 70% 40% at 50% 0%, rgba(255, 87, 34, 0.08) 0%, transparent 60%)",
-        borderTop: "1px solid rgba(255, 255, 255, 0.10)",
+        backgroundColor: "#050811",
+        borderTop: "1px solid rgba(255, 255, 255, 0.12)",
         color: "#ffffff",
         overflow: "hidden",
       }}
     >
-      {/* Background subtle dot-grid overlay */}
+      {/* Background Cinematic Tech Graphic (Exact NeurolinkX Footer Image) */}
+      <img
+        src="/footer-bg.png"
+        alt=""
+        role="presentation"
+        aria-hidden="true"
+        loading="lazy"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "center",
+          filter: "blur(4px)",
+          transform: "scale(1.06)",
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Dark tint overlay for pristine contrast & readability */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
+          background: "linear-gradient(180deg, rgba(5, 8, 17, 0.78) 0%, rgba(4, 7, 14, 0.88) 100%)",
+          zIndex: 1,
           pointerEvents: "none",
-          zIndex: 0,
         }}
       />
 
-      <div style={{ position: "relative", zIndex: 1, maxWidth: "1260px", margin: "0 auto", padding: "0 1.75rem" }}>
+      {/* Subtle Dot Grid Accent */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          pointerEvents: "none",
+          zIndex: 1,
+        }}
+      />
+
+      <div style={{ position: "relative", zIndex: 2, maxWidth: "1260px", margin: "0 auto", padding: "0 1.75rem" }}>
         {/* ── TOP: 5-Column Grid (NeurolinkX Layout) ── */}
         <div
           className="nlx-footer-grid"
