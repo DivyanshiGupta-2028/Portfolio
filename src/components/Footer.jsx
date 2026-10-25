@@ -288,8 +288,8 @@ export default function Footer() {
 
               {/* Resume */}
               <a
-                href="/DivyanshiGupta (1).pdf"
-                download
+                href="/divyanshi-gupta-resume.pdf"
+                download="divyanshi-gupta-resume.pdf"
                 aria-label="Download Resume"
                 style={{
                   display: "flex",
@@ -440,14 +440,14 @@ export default function Footer() {
                 { name: "Full-Time Backend", to: "/contact" },
                 { name: "Full-Stack Roles", to: "/contact" },
                 { name: "API Architecture", to: "/lab" },
-                { name: "Download CV (PDF)", to: "/DivyanshiGupta (1).pdf", download: true },
+                { name: "Download CV (PDF)", to: "/divyanshi-gupta-resume.pdf", download: true },
                 { name: "Immediate Joiner", to: "/contact" },
               ].map((item) => (
                 <li key={item.name}>
                   {item.download ? (
                     <a
                       href={item.to}
-                      download
+                      download="divyanshi-gupta-resume.pdf"
                       className="nlx-footer-link"
                       style={{
                         display: "inline-flex",

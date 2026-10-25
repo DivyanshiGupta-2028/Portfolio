@@ -174,8 +174,8 @@ export default function ContactSection() {
               {/* Resume download */}
               <div style={{ marginTop: "0.75rem" }}>
                 <a
-                  href="/DivyanshiGupta (1).pdf"
-                  download
+                  href="/divyanshi-gupta-resume.pdf"
+                  download="divyanshi-gupta-resume.pdf"
                   className="btn-flat-primary"
                   style={{ textDecoration: "none", fontSize: "0.8rem", height: "38px", padding: "0 1.1rem" }}
                 >
