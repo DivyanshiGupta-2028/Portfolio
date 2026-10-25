@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function AboutSection() {
   return (
-    <section id="about" style={{ position: "relative" }}>
+    <section id="about" className="section-bg-charcoal" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

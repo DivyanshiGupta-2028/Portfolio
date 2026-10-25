@@ -63,7 +63,9 @@ export default function EngineeringIdentity() {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <section id="identity" style={{ position: "relative" }}>
+    <>
+    <div className="section-divider" />
+    <section id="identity" className="section-bg-purple-mesh" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
@@ -222,5 +224,6 @@ export default function EngineeringIdentity() {
         </div>
       </div>
     </section>
+    </>
   );
 }

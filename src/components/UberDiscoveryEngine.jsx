@@ -188,12 +188,13 @@ export default function UberDiscoveryEngine() {
   };
 
   return (
+    <>
+    <div className="section-divider" />
     <section
       id="discovery-matrix"
+      className="section-bg-cosmic"
       style={{
         position: "relative",
-        borderTop: "1px solid var(--border)",
-        background: "var(--bg-gradient)",
         padding: "5rem 0 6rem",
       }}
     >
@@ -634,5 +635,6 @@ export default function UberDiscoveryEngine() {
         </AnimatePresence>
       </div>
     </section>
+    </>
   );
 }

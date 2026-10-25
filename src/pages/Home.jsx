@@ -88,7 +88,8 @@ export default function Home() {
       <UberDiscoveryEngine />
 
       {/* 06. Multi-Page Exploration Portals (Command Grid) */}
-      <section style={{ position: "relative" }}>
+      <section style={{ position: "relative" }} className="section-bg-charcoal">
+        <div className="section-divider" />
         <div className="section-container">
           <div className="section-header">
             <div className="section-eyebrow">

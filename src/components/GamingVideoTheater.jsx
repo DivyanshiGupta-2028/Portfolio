@@ -105,7 +105,9 @@ export default function GamingVideoTheater() {
   };
 
   return (
-    <section className="gaming-theater-section" style={{ position: "relative" }}>
+    <>
+    <div className="section-divider" />
+    <section className="gaming-theater-section section-bg-navy" style={{ position: "relative" }}>
       <div className="section-container" style={{ paddingBottom: 0 }}>
         {/* Section Header */}
         <div className="section-header">
@@ -459,5 +461,6 @@ export default function GamingVideoTheater() {
         }
       `}</style>
     </section>
+    </>
   );
 }

@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 
 export default function Achievements() {
   return (
-    <section id="achievements" style={{ position: "relative" }}>
+    <>
+    <div className="section-divider" />
+    <section id="achievements" className="section-bg-obsidian" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">
@@ -267,5 +269,6 @@ export default function Achievements() {
         }
       `}</style>
     </section>
+    </>
   );
 }

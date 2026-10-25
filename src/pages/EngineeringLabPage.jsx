@@ -8,6 +8,7 @@ export default function EngineeringLabPage() {
 
       {/* ── Cinematic 3D Page Hero ── */}
       <section
+        className="section-bg-void"
         style={{
           position: "relative",
           minHeight: "400px",

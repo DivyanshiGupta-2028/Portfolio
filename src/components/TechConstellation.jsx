@@ -98,7 +98,7 @@ export default function TechConstellation() {
       : SKILL_CATEGORIES.filter((c) => c.id === selectedCategory);
 
   return (
-    <section id="constellation" style={{ position: "relative" }}>
+    <section id="constellation" className="section-bg-purple-mesh" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function EducationCertifications() {
   return (
-    <section id="education" style={{ position: "relative" }}>
+    <section id="education" className="section-bg-purple-mesh" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

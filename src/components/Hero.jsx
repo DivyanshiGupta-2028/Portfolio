@@ -25,6 +25,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
+      className="section-bg-void"
       style={{
         minHeight: "100vh",
         display: "flex",

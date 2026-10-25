@@ -15,7 +15,7 @@ export default function ExperiencePage() {
     <main style={{ position: "relative", overflowX: "hidden", paddingTop: "80px" }}>
 
       {/* ── Product.inc style hero ── */}
-      <section style={{ position: "relative", overflow: "hidden" }}>
+      <section className="section-bg-void" style={{ position: "relative", overflow: "hidden" }}>
         <div style={{
           position: "absolute", top: "-10%", right: "0",
           width: "700px", height: "700px",
@@ -47,7 +47,7 @@ export default function ExperiencePage() {
         </div>
 
         {/* Metrics band */}
-        <div style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+        <div className="section-bg-navy" style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
           <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "2.5rem 1.75rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "2rem" }}>
             {METRICS.map((m, i) => (
               <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.08 }} className="pi-stat-block">

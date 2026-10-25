@@ -6,7 +6,7 @@ export default function ContactPage() {
     <main style={{ position: "relative", overflowX: "hidden", paddingTop: "80px" }}>
 
       {/* ── Product.inc style — full-width hero text, no 3D ── */}
-      <section style={{ position: "relative", overflow: "hidden" }}>
+      <section className="section-bg-void" style={{ position: "relative", overflow: "hidden" }}>
         {/* Subtle background glow */}
         <div style={{
           position: "absolute", top: "-20%", left: "50%", transform: "translateX(-50%)",

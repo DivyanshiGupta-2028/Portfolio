@@ -37,7 +37,7 @@ const EXPERIENCES = [
 
 export default function ExperienceTimeline() {
   return (
-    <section id="experience" style={{ position: "relative" }}>
+    <section id="experience" className="section-bg-charcoal" style={{ position: "relative" }}>
       <div className="section-container">
         {/* Section Header */}
         <div className="section-header">

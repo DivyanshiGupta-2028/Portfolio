@@ -104,7 +104,7 @@ export default function WorkPage() {
     <main style={{ position: "relative", overflowX: "hidden", paddingTop: "80px" }}>
 
       {/* ── Cinematic 3D Page Hero ── */}
-      <section style={{ position: "relative", minHeight: "360px", display: "flex", alignItems: "center", overflow: "hidden" }}>
+      <section className="section-bg-void" style={{ position: "relative", minHeight: "360px", display: "flex", alignItems: "center", overflow: "hidden" }}>
         <PageHero3D accentColor={0x48e5ff} secondColor={0x8b5cff} height={360} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(7,10,18,0.9) 0%, rgba(7,10,18,0.45) 60%, transparent 100%)", zIndex: 1, pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "120px", background: "linear-gradient(to bottom, transparent 0%, #070A12 100%)", zIndex: 2, pointerEvents: "none" }} />
@@ -131,7 +131,7 @@ export default function WorkPage() {
       </section>
 
       {/* ── Metrics Band (product.inc style) ── */}
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="section-bg-navy" style={{ borderTop: "1px solid rgba(255,121,63,0.1)", borderBottom: "1px solid rgba(255,121,63,0.1)" }}>
         <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "2.5rem 1.75rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "2rem" }}>
           {STATS.map((s, i) => (
             <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.08 }} className="pi-stat-block">
@@ -158,7 +158,7 @@ export default function WorkPage() {
       </div>
 
       {/* ── CASE STUDY LIST (product.inc rows) ── */}
-      <section style={{ position: "relative" }}>
+      <section className="section-bg-charcoal" style={{ position: "relative" }}>
         <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "0 1.75rem" }}>
 
           {/* Section eyebrow */}
@@ -253,7 +253,7 @@ export default function WorkPage() {
       <ProjectsUniverse />
 
       {/* ── Bottom CTA Band ── */}
-      <div className="pi-cta-section">
+      <div className="section-bg-obsidian pi-cta-section">
         <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em", marginBottom: "1.5rem" }}>
           LOOKING TO COLLABORATE?
         </p>

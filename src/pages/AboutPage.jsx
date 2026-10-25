@@ -16,7 +16,7 @@ export default function AboutPage() {
     <main style={{ position: "relative", overflowX: "hidden", paddingTop: "80px" }}>
 
       {/* ── product.inc style hero — large editorial text ── */}
-      <section style={{ position: "relative", overflow: "hidden" }}>
+      <section className="section-bg-void" style={{ position: "relative", overflow: "hidden" }}>
         <div style={{
           position: "absolute", top: "-10%", right: "-5%",
           width: "600px", height: "600px",
@@ -66,7 +66,7 @@ export default function AboutPage() {
       </section>
 
       {/* 3D Developer Workstation */}
-      <section style={{ padding: "2rem 1.5rem 1rem", position: "relative" }}>
+      <section className="section-bg-navy" style={{ padding: "3rem 1.5rem 3rem", position: "relative" }}>
         <div className="section-container" style={{ paddingBottom: 0 }}>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
