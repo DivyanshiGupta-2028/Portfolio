@@ -28,12 +28,13 @@ const PROJECTS_DATA = [
   {
     id: "dating-platform",
     num: "02",
-    title: "Dating Platform & Real-Time Discovery",
+    title: "Zinkr Dating Platform & Discovery",
     category: "Fullstack",
     role: "Full-Stack Architect",
     company: "Sanskriti IT Solutions",
     period: "2024",
     desc: "Bidirectional swipe-match platform with Google OAuth2 SSO, JWT refresh-token rotation, geo-distance discovery, and subscription tiers. Live on Play Store (internal beta).",
+    video: "/Record_2026-05-28-14-45-33.mp4",
     metrics: [
       { label: "Auth Flow", val: "OAuth2 + JWT", highlight: true },
       { label: "Discovery Engine", val: "Geo-Spatial" },
@@ -55,6 +56,7 @@ const PROJECTS_DATA = [
     company: "Sanskriti IT Solutions",
     period: "2024",
     desc: "Full-featured beauty e-commerce app with AI-powered recommendations, wishlist, coupon engine, and Razorpay payment gateway. Live in production on Google Play Store.",
+    video: "/Record_2026-05-28-14-40-29.mp4",
     metrics: [
       { label: "Store Status", val: "Live On Play Store", highlight: true },
       { label: "Payment Engine", val: "Razorpay Webhooks" },
@@ -572,6 +574,63 @@ export default function UberDiscoveryEngine() {
                     {selectedProject.overview}
                   </p>
                 </div>
+
+                {/* Live Video Demo if available */}
+                {selectedProject.video && (
+                  <div style={{ marginBottom: "1.8rem" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        marginBottom: "0.75rem",
+                      }}
+                    >
+                      <h4
+                        style={{
+                          fontFamily: "var(--font-mono)",
+                          fontSize: "0.75rem",
+                          color: "var(--cyan)",
+                          letterSpacing: "0.1em",
+                          textTransform: "uppercase",
+                          margin: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "0.5rem",
+                        }}
+                      >
+                        <span style={{ display: "inline-block", width: "8px", height: "8px", borderRadius: "50%", background: "#ef4444", boxShadow: "0 0 8px #ef4444" }} />
+                        LIVE PRODUCTION RECORDING FEED
+                      </h4>
+                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-muted)" }}>
+                        1080p · MP4 Feed
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        position: "relative",
+                        borderRadius: "12px",
+                        overflow: "hidden",
+                        border: "1px solid rgba(72, 229, 255, 0.25)",
+                        background: "#080c14",
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+                      }}
+                    >
+                      <video
+                        src={selectedProject.video}
+                        controls
+                        playsInline
+                        style={{
+                          width: "100%",
+                          maxHeight: "360px",
+                          display: "block",
+                          objectFit: "contain",
+                          background: "#000",
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
 
                 {/* Tech Stack Chips */}
                 <div style={{ marginBottom: "2rem" }}>

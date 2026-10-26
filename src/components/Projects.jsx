@@ -15,7 +15,7 @@ export default function Projects() {
         "SQL Server",
         "C#",
       ],
-      video: "https://raw.githubusercontent.com/intel-iot-devkit/sample-videos/master/one-by-one-person-detection.mp4",
+      video: "/Record_2026-05-28-14-45-33.mp4",
       emoji: "💘",
       featured: true,
       color: "#ff5078",

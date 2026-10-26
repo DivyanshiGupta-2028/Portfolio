@@ -39,7 +39,7 @@ const PROJECTS = [
   {
     id: "dating-platform",
     num: "02",
-    title: "Dating Platform",
+    title: "Zinkr Dating Platform",
     category: "Full-Stack",
     subCategory: "FULL-STACK PRODUCT / SECURE API DESIGN",
     accent: "#ec4899",
