@@ -148,7 +148,15 @@ export default function GamingVideoTheater() {
   return (
     <>
       <div className="section-divider" />
-      <section className="gaming-theater-section section-bg-light-cream" style={{ position: "relative" }}>
+      <section
+        className="gaming-theater-section"
+        style={{
+          position: "relative",
+          background: "var(--bg)",
+          color: "var(--text-primary)",
+          transition: "background 0.3s ease, color 0.3s ease",
+        }}
+      >
         <div className="section-container" style={{ paddingBottom: 0 }}>
           {/* Section Header */}
           <div className="section-header">
@@ -168,12 +176,13 @@ export default function GamingVideoTheater() {
           <div
             className="cyber-panel clipped-corner"
             style={{
-              background: "rgba(6, 10, 20, 0.94)",
-              border: "1px solid rgba(72, 229, 255, 0.35)",
-              boxShadow: "0 0 50px rgba(72, 229, 255, 0.18), 0 25px 60px rgba(0,0,0,0.8)",
+              background: "var(--bg-surface-elevated)",
+              border: "1px solid var(--border)",
+              boxShadow: "var(--card-shadow)",
               padding: "1.5rem",
               position: "relative",
               overflow: "hidden",
+              transition: "background 0.3s ease, border-color 0.3s ease",
             }}
           >
             {/* Top Gaming Telemetry Bar */}
@@ -183,7 +192,7 @@ export default function GamingVideoTheater() {
                 justifyContent: "space-between",
                 alignItems: "center",
                 paddingBottom: "1rem",
-                borderBottom: "1px solid rgba(72, 229, 255, 0.18)",
+                borderBottom: "1px solid var(--border)",
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.75rem",
                 color: "var(--text-muted)",
@@ -213,7 +222,7 @@ export default function GamingVideoTheater() {
 
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                 <span style={{ color: mission.color, fontWeight: 700 }}>{mission.badge}</span>
-                <span style={{ color: "var(--text-dim)" }}>
+                <span style={{ color: "var(--text-muted)" }}>
                   [{isPortrait ? "9:16 MOBILE FEED" : "16:9 DESKTOP FEED"}]
                 </span>
               </div>
@@ -243,7 +252,7 @@ export default function GamingVideoTheater() {
                     style={{
                       padding: "0.6rem 1.2rem",
                       borderRadius: "6px",
-                      background: isActive ? "rgba(72, 229, 255, 0.18)" : "var(--bg-surface)",
+                      background: isActive ? "var(--bg-surface)" : "transparent",
                       border: `1px solid ${isActive ? m.color : "var(--border)"}`,
                       color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
                       fontFamily: "var(--font-mono)",
@@ -296,7 +305,7 @@ export default function GamingVideoTheater() {
                 />
 
                 {isPortrait ? (
-                  /* CYBER SMARTPHONE RIG (Fits 9:16 portrait video edge-to-edge without side black bars!) */
+                  /* CYBER SMARTPHONE RIG */
                   <div
                     className="gaming-phone-rig"
                     style={{
@@ -307,9 +316,9 @@ export default function GamingVideoTheater() {
                       aspectRatio: "9 / 18",
                       borderRadius: "32px",
                       padding: "8px",
-                      background: "linear-gradient(145deg, rgba(25, 30, 48, 0.95), rgba(7, 10, 18, 0.98))",
-                      border: `2px solid ${mission.color}55`,
-                      boxShadow: `0 0 35px ${mission.color}25, 0 25px 60px rgba(0,0,0,0.8), inset 0 0 12px rgba(255,255,255,0.06)`,
+                      background: "var(--bg-surface-elevated)",
+                      border: `2px solid ${mission.color}66`,
+                      boxShadow: `0 0 35px ${mission.color}25, var(--card-shadow)`,
                     }}
                   >
                     {/* Top Phone Camera / Speaker Notch */}
@@ -391,7 +400,7 @@ export default function GamingVideoTheater() {
                         />
                       )}
 
-                      {/* Video Element (Fills the phone chassis without side black pillarbox void) */}
+                      {/* Video Element */}
                       <video
                         ref={videoRef}
                         key={mission.src}
@@ -575,7 +584,7 @@ export default function GamingVideoTheater() {
                 )}
               </div>
 
-              {/* COCKPIT TELEMETRY & COMMAND STATION (Takes right column in portrait, bottom in landscape) */}
+              {/* COCKPIT TELEMETRY & COMMAND STATION */}
               <div
                 style={{
                   display: "flex",
@@ -587,10 +596,11 @@ export default function GamingVideoTheater() {
                 {/* Mission Header Card */}
                 <div
                   style={{
-                    background: "rgba(10, 14, 26, 0.7)",
+                    background: "var(--bg-surface)",
                     borderRadius: "10px",
-                    border: "1px solid rgba(72, 229, 255, 0.15)",
+                    border: "1px solid var(--border)",
                     padding: "1.2rem",
+                    transition: "background 0.3s ease, border-color 0.3s ease",
                   }}
                 >
                   <div
@@ -665,8 +675,8 @@ export default function GamingVideoTheater() {
                 >
                   <div
                     style={{
-                      background: "rgba(8, 12, 22, 0.8)",
-                      border: "1px solid rgba(72, 229, 255, 0.2)",
+                      background: "var(--bg-surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "8px",
                       padding: "0.8rem 1rem",
                     }}
@@ -681,8 +691,8 @@ export default function GamingVideoTheater() {
 
                   <div
                     style={{
-                      background: "rgba(8, 12, 22, 0.8)",
-                      border: "1px solid rgba(72, 229, 255, 0.2)",
+                      background: "var(--bg-surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "8px",
                       padding: "0.8rem 1rem",
                     }}
@@ -697,8 +707,8 @@ export default function GamingVideoTheater() {
 
                   <div
                     style={{
-                      background: "rgba(8, 12, 22, 0.8)",
-                      border: "1px solid rgba(72, 229, 255, 0.2)",
+                      background: "var(--bg-surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "8px",
                       padding: "0.8rem 1rem",
                     }}
@@ -713,8 +723,8 @@ export default function GamingVideoTheater() {
 
                   <div
                     style={{
-                      background: "rgba(8, 12, 22, 0.8)",
-                      border: "1px solid rgba(72, 229, 255, 0.2)",
+                      background: "var(--bg-surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "8px",
                       padding: "0.8rem 1rem",
                     }}
@@ -732,8 +742,8 @@ export default function GamingVideoTheater() {
                 {mission.highlights && (
                   <div
                     style={{
-                      background: "rgba(8, 12, 22, 0.6)",
-                      border: "1px solid rgba(72, 229, 255, 0.12)",
+                      background: "var(--bg-surface)",
+                      border: "1px solid var(--border)",
                       borderRadius: "8px",
                       padding: "0.9rem 1.2rem",
                     }}
@@ -774,9 +784,9 @@ export default function GamingVideoTheater() {
                 <div
                   style={{
                     padding: "0.9rem 1.2rem",
-                    background: "rgba(7, 10, 18, 0.75)",
+                    background: "var(--bg-surface)",
                     borderRadius: "8px",
-                    border: "1px solid rgba(72, 229, 255, 0.12)",
+                    border: "1px solid var(--border)",
                     fontSize: "0.85rem",
                     color: "var(--text-secondary)",
                     lineHeight: 1.6,
@@ -791,8 +801,8 @@ export default function GamingVideoTheater() {
                 {/* Video Playback Controls & Scrubber */}
                 <div
                   style={{
-                    background: "rgba(10, 14, 26, 0.8)",
-                    border: "1px solid rgba(72, 229, 255, 0.2)",
+                    background: "var(--bg-surface)",
+                    border: "1px solid var(--border)",
                     borderRadius: "10px",
                     padding: "1rem 1.2rem",
                   }}
@@ -802,7 +812,7 @@ export default function GamingVideoTheater() {
                     onClick={handleSeek}
                     style={{
                       height: "6px",
-                      background: "rgba(255, 255, 255, 0.1)",
+                      background: "rgba(125, 125, 125, 0.2)",
                       cursor: "pointer",
                       position: "relative",
                       borderRadius: "3px",
@@ -835,8 +845,8 @@ export default function GamingVideoTheater() {
                       <button
                         onClick={togglePlay}
                         style={{
-                          background: "rgba(72, 229, 255, 0.12)",
-                          border: "1px solid rgba(72, 229, 255, 0.35)",
+                          background: "var(--bg-surface-elevated)",
+                          border: "1px solid var(--border)",
                           color: "var(--cyan)",
                           borderRadius: "6px",
                           padding: "0.45rem 0.95rem",
@@ -854,8 +864,8 @@ export default function GamingVideoTheater() {
                       <button
                         onClick={toggleMute}
                         style={{
-                          background: "rgba(72, 229, 255, 0.12)",
-                          border: "1px solid rgba(72, 229, 255, 0.35)",
+                          background: "var(--bg-surface-elevated)",
+                          border: "1px solid var(--border)",
                           color: "var(--cyan)",
                           borderRadius: "6px",
                           padding: "0.45rem 0.85rem",

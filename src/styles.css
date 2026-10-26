@@ -530,12 +530,17 @@ h1, h2, h3, h4, h5, h6 {
    Extracted directly from https://www.neurolinkxtech.com/
    ═════════════════════════════════════════════════════════════════ */
 
-/* Section 1: Hero — Midnight Space */
+/* ═════════════════════════════════════════════════════════════════
+   THEME-AWARE SECTION BACKGROUND SYSTEM (Interchanges seamlessly!)
+   ═════════════════════════════════════════════════════════════════ */
+
+/* ── Dark Mode Section Backgrounds (Default) ── */
 .section-bg-void {
-  background: #0a0e1a !important;
+  background: var(--bg) !important;
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 .section-bg-void::before {
   content: '';
@@ -548,13 +553,13 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
 }
 
-/* Section 2: Signature Slate Navy Blue (NeurolinkX's #1e2942 -> #1a2436 -> #0e1421) */
 .section-bg-navy {
-  background: linear-gradient(180deg, #1e2942 0%, #1a2436 50%, #0e1421 100%) !important;
+  background: linear-gradient(180deg, #0e1424 0%, var(--bg) 100%) !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 .section-bg-navy::before {
   content: '';
@@ -568,20 +573,20 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
   z-index: 0;
   opacity: 0.8;
 }
 
-/* Section 3: Deep Black Obsidian (NeurolinkX's black -> gray-900 -> black) */
 .section-bg-obsidian {
-  background: linear-gradient(135deg, #000000 0%, #0f172a 50%, #000000 100%) !important;
+  background: linear-gradient(135deg, #04060c 0%, #0a0e1a 50%, #04060c 100%) !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 .section-bg-obsidian::before {
   content: '';
@@ -592,22 +597,22 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
 }
 
-/* Section 4: Tech Terminal Slate (NeurolinkX's #0b1120 -> #111827 -> #0e1421) */
 .section-bg-charcoal {
-  background: linear-gradient(160deg, #0b1120 0%, #111827 45%, #0e1421 100%) !important;
+  background: linear-gradient(160deg, #080c16 0%, #0d1424 45%, #070a12 100%) !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* Section 5: Deep Midnight Indigo (#0b0b1a) */
 .section-bg-purple-mesh {
-  background: #0b0b1a !important;
+  background: #080a16 !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 .section-bg-purple-mesh::before {
   content: '';
@@ -618,32 +623,30 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 0;
 }
 
-/* Section 6: Cosmic Dark */
 .section-bg-cosmic {
-  background: linear-gradient(180deg, #101626 0%, #0c121e 100%) !important;
+  background: linear-gradient(180deg, #0c1220 0%, #080c14 100%) !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* ═════════════════════════════════════════════════════════════════
-   NEUROLINKX SIGNATURE LIGHT CREAM SECTION (.section-bg-light-cream)
-   High-contrast clean off-white with tech dot-matrix grid pattern
-   ═════════════════════════════════════════════════════════════════ */
+/* In Dark Theme (default), .section-bg-light-cream becomes seamless midnight */
 .section-bg-light-cream {
-  background-color: #FAF7F5 !important;
-  color: #17191C !important;
+  background-color: var(--bg) !important;
+  color: var(--text-primary) !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid rgba(23, 25, 28, 0.08);
-  border-bottom: 1px solid rgba(23, 25, 28, 0.08);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .section-bg-light-cream::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(23, 25, 28, 0.09) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.2px, transparent 1.2px);
   background-size: 26px 26px;
   pointer-events: none;
   z-index: 0;
@@ -652,177 +655,171 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 121, 63, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 78, 0, 0.04) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Typography inside light cream sections */
-.section-bg-light-cream h1,
-.section-bg-light-cream h2,
-.section-bg-light-cream h3,
-.section-bg-light-cream h4,
-.section-bg-light-cream h5,
-.section-bg-light-cream h6,
-.section-bg-light-cream .section-title,
-.section-bg-light-cream .pi-case-title,
-.section-bg-light-cream .card-title {
+/* ═════════════════════════════════════════════════════════════════
+   LIGHT THEME INTERCHANGE RULES — [data-theme="light"]
+   All sections, headings, cards and text turn into elegant Light Mode
+   ═════════════════════════════════════════════════════════════════ */
+[data-theme="light"] .section-bg-void {
+  background: #F8F9FA !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .section-bg-void::before {
+  background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(255, 78, 0, 0.06) 0%, transparent 60%);
+}
+
+[data-theme="light"] .section-bg-navy {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .section-bg-navy::before {
+  background: radial-gradient(ellipse 60% 50% at 20% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
+}
+[data-theme="light"] .section-bg-navy::after {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+[data-theme="light"] .section-bg-obsidian {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 50%, #FFFFFF 100%) !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+[data-theme="light"] .section-bg-obsidian::before {
+  background: radial-gradient(ellipse 70% 35% at 50% 100%, rgba(255, 78, 0, 0.05) 0%, transparent 60%);
+}
+
+[data-theme="light"] .section-bg-charcoal,
+[data-theme="light"] .section-bg-cosmic,
+[data-theme="light"] .section-bg-purple-mesh {
+  background: #F8F9FA !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .section-bg-light-cream {
+  background-color: #FAF7F5 !important;
   color: #17191C !important;
+  border-top: 1px solid rgba(23, 25, 28, 0.08) !important;
+  border-bottom: 1px solid rgba(23, 25, 28, 0.08) !important;
+}
+[data-theme="light"] .section-bg-light-cream::before {
+  background-image: radial-gradient(rgba(23, 25, 28, 0.09) 1.2px, transparent 1.2px);
 }
 
-.section-bg-light-cream p,
-.section-bg-light-cream .section-subtitle,
-.section-bg-light-cream .pi-case-desc,
-.section-bg-light-cream .text-muted {
-  color: #4B5563 !important;
+/* Light Mode Global Typography Interchange */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] .section-title,
+[data-theme="light"] .pi-case-title,
+[data-theme="light"] .card-title,
+[data-theme="light"] .uber-card-title {
+  color: #0f172a !important;
 }
 
-.section-bg-light-cream .section-eyebrow {
-  background: rgba(255, 121, 63, 0.09) !important;
-  border-color: rgba(255, 121, 63, 0.28) !important;
-  color: #d4602e !important;
+[data-theme="light"] p,
+[data-theme="light"] .section-subtitle,
+[data-theme="light"] .pi-case-desc,
+[data-theme="light"] .text-muted,
+[data-theme="light"] .uber-card-desc {
+  color: #334155 !important;
 }
 
-.section-bg-light-cream .section-eyebrow .dot {
-  background: #d4602e !important;
-  box-shadow: 0 0 8px rgba(212, 96, 46, 0.5) !important;
+[data-theme="light"] .section-eyebrow {
+  background: rgba(255, 78, 0, 0.08) !important;
+  border-color: rgba(255, 78, 0, 0.28) !important;
+  color: #ff4e00 !important;
 }
 
-/* High contrast gradient text on light background */
-.section-bg-light-cream .gradient-cyan-purple,
-.section-bg-light-cream .gradient-purple-cyan {
-  background: linear-gradient(135deg, #FF5722 0%, #d4602e 60%, #9333EA 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  filter: none !important;
+[data-theme="light"] .section-eyebrow .dot {
+  background: #ff4e00 !important;
+  box-shadow: 0 0 8px rgba(255, 78, 0, 0.5) !important;
 }
 
-/* Cards & panels inside light cream */
-.section-bg-light-cream .cyber-panel,
-.section-bg-light-cream .glass-card,
-.section-bg-light-cream .pi-case-row,
-.section-bg-light-cream .metric-card {
+/* Light Mode Card & Panel Interchanges */
+[data-theme="light"] .cyber-panel,
+[data-theme="light"] .glass-card,
+[data-theme="light"] .pi-case-row,
+[data-theme="light"] .metric-card,
+[data-theme="light"] .home-portals-grid > div,
+[data-theme="light"] .metric-cards-grid > div,
+[data-theme="light"] .achievements-grid > div,
+[data-theme="light"] .education-cert-grid > div,
+[data-theme="light"] .education-grid > div,
+[data-theme="light"] .projects-universe-grid > div {
   background: #ffffff !important;
-  border: 1px solid rgba(23, 25, 28, 0.09) !important;
-  box-shadow: 0 8px 24px rgba(23, 25, 28, 0.04) !important;
-  color: #17191C !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
 }
 
-.section-bg-light-cream .cyber-panel:hover,
-.section-bg-light-cream .glass-card:hover,
-.section-bg-light-cream .pi-case-row:hover {
+[data-theme="light"] .cyber-panel:hover,
+[data-theme="light"] .glass-card:hover,
+[data-theme="light"] .pi-case-row:hover,
+[data-theme="light"] .home-portals-grid > div:hover,
+[data-theme="light"] .projects-universe-grid > div:hover {
   background: #ffffff !important;
-  border-color: rgba(255, 121, 63, 0.45) !important;
-  box-shadow: 0 16px 36px rgba(255, 121, 63, 0.12), 0 4px 12px rgba(23, 25, 28, 0.06) !important;
+  border-color: rgba(255, 78, 0, 0.4) !important;
+  box-shadow: 0 16px 36px rgba(255, 78, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06) !important;
 }
 
-/* Tags & pills in light cream */
-.section-bg-light-cream .pi-tag,
-.section-bg-light-cream .tech-badge,
-.section-bg-light-cream .uber-chip {
-  background: rgba(23, 25, 28, 0.04) !important;
-  border-color: rgba(23, 25, 28, 0.1) !important;
-  color: #374151 !important;
+/* Tags & pills in light mode */
+[data-theme="light"] .pi-tag,
+[data-theme="light"] .tech-badge,
+[data-theme="light"] .uber-chip {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #334155 !important;
 }
 
-.section-bg-light-cream .pi-case-meta {
-  color: #6B7280 !important;
-}
-
-.section-bg-light-cream .pi-case-num {
-  color: rgba(23, 25, 28, 0.25) !important;
-}
-
-.section-bg-light-cream .pi-case-arrow {
-  color: rgba(23, 25, 28, 0.35) !important;
-}
-
-.section-bg-light-cream .pi-case-row:hover .pi-case-arrow {
-  color: #FF793F !important;
-}
-
-/* Buttons inside light cream sections */
-.section-bg-light-cream .btn-flat-secondary,
-.section-bg-light-cream .btn-cyber-secondary {
+/* Form inputs in light mode */
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select {
   background: #ffffff !important;
-  color: #17191C !important;
-  border: 1px solid rgba(23, 25, 28, 0.15) !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
 }
 
-.section-bg-light-cream .btn-flat-secondary:hover,
-.section-bg-light-cream .btn-cyber-secondary:hover {
-  border-color: #FF793F !important;
-  color: #d4602e !important;
-  box-shadow: 0 0 15px rgba(255, 121, 63, 0.2) !important;
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: #94a3b8 !important;
 }
 
-/* Form inputs inside light cream sections */
-.section-bg-light-cream input,
-.section-bg-light-cream textarea,
-.section-bg-light-cream select {
-  background: #ffffff !important;
-  color: #17191C !important;
-  border: 1px solid rgba(23, 25, 28, 0.18) !important;
+[data-theme="light"] input:focus,
+[data-theme="light"] textarea:focus {
+  border-color: #ff4e00 !important;
+  box-shadow: 0 0 0 3px rgba(255, 78, 0, 0.12) !important;
 }
 
-.section-bg-light-cream input::placeholder,
-.section-bg-light-cream textarea::placeholder {
-  color: #9CA3AF !important;
+/* Deep text overrides for inline styles in light mode */
+[data-theme="light"] [style*="color: var(--text-primary)"],
+[data-theme="light"] [style*="color:var(--text-primary)"],
+[data-theme="light"] [style*="color: #fff"],
+[data-theme="light"] [style*="color:#fff"],
+[data-theme="light"] [style*="color: #ffffff"],
+[data-theme="light"] [style*="color:#ffffff"] {
+  color: #0f172a !important;
 }
 
-.section-bg-light-cream input:focus,
-.section-bg-light-cream textarea:focus {
-  border-color: #FF793F !important;
-  box-shadow: 0 0 0 3px rgba(255, 121, 63, 0.15) !important;
+[data-theme="light"] [style*="color: var(--text-secondary)"],
+[data-theme="light"] [style*="color:var(--text-secondary)"] {
+  color: #334155 !important;
 }
 
-/* Deep text & card overrides for inline styles inside light cream sections */
-.section-bg-light-cream [style*="color: var(--text-primary)"],
-.section-bg-light-cream [style*="color:var(--text-primary)"],
-.section-bg-light-cream [style*="color: #fff"],
-.section-bg-light-cream [style*="color:#fff"],
-.section-bg-light-cream [style*="color: #ffffff"],
-.section-bg-light-cream [style*="color:#ffffff"] {
-  color: #17191C !important;
+[data-theme="light"] [style*="color: var(--text-muted)"],
+[data-theme="light"] [style*="color:var(--text-muted)"] {
+  color: #64748b !important;
 }
 
-.section-bg-light-cream [style*="color: var(--text-secondary)"],
-.section-bg-light-cream [style*="color:var(--text-secondary)"] {
-  color: #4B5563 !important;
-}
-
-.section-bg-light-cream [style*="color: var(--text-muted)"],
-.section-bg-light-cream [style*="color:var(--text-muted)"] {
-  color: #6B7280 !important;
-}
-
-.section-bg-light-cream .home-portals-grid > div,
-.section-bg-light-cream .metric-cards-grid > div,
-.section-bg-light-cream .achievements-grid > div,
-.section-bg-light-cream .education-cert-grid > div,
-.section-bg-light-cream .education-grid > div,
-.section-bg-light-cream .projects-universe-grid > div {
-  background: #ffffff !important;
-  border: 1px solid rgba(23, 25, 28, 0.09) !important;
-  box-shadow: 0 10px 30px rgba(23, 25, 28, 0.05) !important;
-}
-
-.section-bg-light-cream .home-portals-grid > div:hover,
-.section-bg-light-cream .metric-cards-grid > div:hover,
-.section-bg-light-cream .achievements-grid > div:hover,
-.section-bg-light-cream .education-cert-grid > div:hover,
-.section-bg-light-cream .education-grid > div:hover,
-.section-bg-light-cream .projects-universe-grid > div:hover {
-  border-color: #FF793F !important;
-  box-shadow: 0 18px 45px rgba(255, 121, 63, 0.15) !important;
-}
-
-/* Bottom status strip in Home */
-.section-bg-light-cream [style*="rgba(12,18,34"] {
-  background: #ffffff !important;
-  border: 1px solid rgba(23, 25, 28, 0.1) !important;
-  box-shadow: 0 10px 30px rgba(23, 25, 28, 0.05) !important;
-}
 
 /* Ensure all section content stays above the pseudo backgrounds */
 .section-bg-void > *,
