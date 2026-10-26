@@ -47,7 +47,7 @@ const PROJECTS = [
     liveLink: "https://play.google.com/apps/internaltest/4701291796801878386",
     liveLinkLabel: "PLAY STORE (INTERNAL BETA)",
     liveLinkType: "playstore",
-    video: "/Record_2026-05-28-14-45-33.mp4",
+    video: "/Zinkr_Ad_v6_full_edit.mp4",
     desc: "A dating platform with user authentication, profile management, discovery, matching workflows, and subscription-based premium features.",
     stack: ["React", "Node.js", "Express.js", "ASP.NET Core", "SQL Server", "MySQL", "JWT", "Google OAuth2"],
     metric: "Instant swipe-to-match & secure SSO token lifecycle",

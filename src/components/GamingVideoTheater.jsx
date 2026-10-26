@@ -7,7 +7,7 @@ const MISSIONS = [
     id: "dating-platform",
     title: "Zinkr // Dating Engine",
     sub: "Real-Time Matchmaking · WebSockets · Google OAuth2 · ASP.NET Core",
-    src: "/Record_2026-05-28-14-45-33.mp4",
+    src: "/Zinkr_Ad_v6_full_edit.mp4",
     badge: "MISSION 01 · ACTIVE FEED",
     color: "#48E5FF",
     latency: "42ms",

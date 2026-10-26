@@ -15,7 +15,7 @@ export default function Projects() {
         "SQL Server",
         "C#",
       ],
-      video: "/Record_2026-05-28-14-45-33.mp4",
+      video: "/Zinkr_Ad_v6_full_edit.mp4",
       emoji: "💘",
       featured: true,
       color: "#ff5078",

@@ -2,4 +2,3 @@ node_modules/
 dist/
 .vscode/
 venv/
-public/*.mp4

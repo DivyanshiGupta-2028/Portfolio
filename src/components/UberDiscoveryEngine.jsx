@@ -34,7 +34,7 @@ const PROJECTS_DATA = [
     company: "Sanskriti IT Solutions",
     period: "2024",
     desc: "Bidirectional swipe-match platform with Google OAuth2 SSO, JWT refresh-token rotation, geo-distance discovery, and subscription tiers. Live on Play Store (internal beta).",
-    video: "/Record_2026-05-28-14-45-33.mp4",
+    video: "/Zinkr_Ad_v6_full_edit.mp4",
     metrics: [
       { label: "Auth Flow", val: "OAuth2 + JWT", highlight: true },
       { label: "Discovery Engine", val: "Geo-Spatial" },
