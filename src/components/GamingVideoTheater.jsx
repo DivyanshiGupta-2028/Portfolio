@@ -149,13 +149,8 @@ export default function GamingVideoTheater() {
     <>
       <div className="section-divider" />
       <section
-        className="gaming-theater-section"
-        style={{
-          position: "relative",
-          background: "var(--bg)",
-          color: "var(--text-primary)",
-          transition: "background 0.3s ease, color 0.3s ease",
-        }}
+        className="gaming-theater-section section-bg-light-cream"
+        style={{ position: "relative" }}
       >
         <div className="section-container" style={{ paddingBottom: 0 }}>
           {/* Section Header */}
@@ -173,20 +168,10 @@ export default function GamingVideoTheater() {
           </div>
 
           {/* Video Theater Console HUD */}
-          <div
-            className="cyber-panel clipped-corner"
-            style={{
-              background: "var(--bg-surface-elevated)",
-              border: "1px solid var(--border)",
-              boxShadow: "var(--card-shadow)",
-              padding: "1.5rem",
-              position: "relative",
-              overflow: "hidden",
-              transition: "background 0.3s ease, border-color 0.3s ease",
-            }}
-          >
+          <div className="cyber-panel clipped-corner gvt-console-hud" style={{ padding: "1.5rem", position: "relative", overflow: "hidden" }}>
             {/* Top Gaming Telemetry Bar */}
             <div
+              className="gvt-telemetry-bar"
               style={{
                 display: "flex",
                 justifyContent: "space-between",
@@ -195,7 +180,6 @@ export default function GamingVideoTheater() {
                 borderBottom: "1px solid var(--border)",
                 fontFamily: "var(--font-mono)",
                 fontSize: "0.75rem",
-                color: "var(--text-muted)",
                 flexWrap: "wrap",
                 gap: "0.6rem",
               }}
@@ -215,14 +199,14 @@ export default function GamingVideoTheater() {
                   REC // LIVE UPLINK
                 </span>
                 <span>|</span>
-                <span style={{ color: "#34d399" }}>FPS: {fps}</span>
+                <span style={{ color: "#10b981", fontWeight: 700 }}>FPS: {fps}</span>
                 <span>|</span>
-                <span>LATENCY: {mission.latency}</span>
+                <span className="gvt-meta-text">LATENCY: {mission.latency}</span>
               </div>
 
               <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
                 <span style={{ color: mission.color, fontWeight: 700 }}>{mission.badge}</span>
-                <span style={{ color: "var(--text-muted)" }}>
+                <span className="gvt-meta-text">
                   [{isPortrait ? "9:16 MOBILE FEED" : "16:9 DESKTOP FEED"}]
                 </span>
               </div>
@@ -249,12 +233,10 @@ export default function GamingVideoTheater() {
                     key={m.id}
                     onClick={() => switchMission(idx)}
                     onMouseEnter={() => cyberAudio.playHover()}
+                    className={`gvt-tab-btn ${isActive ? "active" : ""}`}
                     style={{
                       padding: "0.6rem 1.2rem",
                       borderRadius: "6px",
-                      background: isActive ? "var(--bg-surface)" : "transparent",
-                      border: `1px solid ${isActive ? m.color : "var(--border)"}`,
-                      color: isActive ? "var(--text-primary)" : "var(--text-secondary)",
                       fontFamily: "var(--font-mono)",
                       fontSize: "0.78rem",
                       cursor: "pointer",
@@ -262,7 +244,7 @@ export default function GamingVideoTheater() {
                       alignItems: "center",
                       gap: "0.6rem",
                       whiteSpace: "nowrap",
-                      boxShadow: isActive ? `0 0 15px ${m.color}33` : "none",
+                      borderColor: isActive ? m.color : undefined,
                       transition: "all 0.2s ease",
                     }}
                   >
@@ -307,7 +289,7 @@ export default function GamingVideoTheater() {
                 {isPortrait ? (
                   /* CYBER SMARTPHONE RIG */
                   <div
-                    className="gaming-phone-rig"
+                    className="gaming-phone-rig gvt-phone-rig"
                     style={{
                       position: "relative",
                       zIndex: 1,
@@ -316,9 +298,7 @@ export default function GamingVideoTheater() {
                       aspectRatio: "9 / 18",
                       borderRadius: "32px",
                       padding: "8px",
-                      background: "var(--bg-surface-elevated)",
                       border: `2px solid ${mission.color}66`,
-                      boxShadow: `0 0 35px ${mission.color}25, var(--card-shadow)`,
                     }}
                   >
                     {/* Top Phone Camera / Speaker Notch */}
@@ -594,15 +574,7 @@ export default function GamingVideoTheater() {
                 }}
               >
                 {/* Mission Header Card */}
-                <div
-                  style={{
-                    background: "var(--bg-surface)",
-                    borderRadius: "10px",
-                    border: "1px solid var(--border)",
-                    padding: "1.2rem",
-                    transition: "background 0.3s ease, border-color 0.3s ease",
-                  }}
-                >
+                <div className="gvt-card gvt-header-card" style={{ borderRadius: "10px", padding: "1.2rem" }}>
                   <div
                     style={{
                       display: "flex",
@@ -628,7 +600,7 @@ export default function GamingVideoTheater() {
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.68rem",
-                        color: "#34d399",
+                        color: "#10b981",
                         display: "inline-flex",
                         alignItems: "center",
                         gap: "0.4rem",
@@ -643,10 +615,10 @@ export default function GamingVideoTheater() {
                   </div>
 
                   <h3
+                    className="gvt-title"
                     style={{
                       fontSize: "clamp(1.3rem, 2.5vw, 1.7rem)",
                       fontWeight: 800,
-                      color: "var(--text-primary)",
                       letterSpacing: "-0.02em",
                       marginBottom: "0.4rem",
                     }}
@@ -654,10 +626,10 @@ export default function GamingVideoTheater() {
                     {mission.title}
                   </h3>
                   <p
+                    className="gvt-sub"
                     style={{
                       fontSize: "0.85rem",
                       fontFamily: "var(--font-mono)",
-                      color: "var(--cyan)",
                       margin: 0,
                     }}
                   >
@@ -673,15 +645,8 @@ export default function GamingVideoTheater() {
                     gap: "0.8rem",
                   }}
                 >
-                  <div
-                    style={{
-                      background: "var(--bg-surface)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "8px",
-                      padding: "0.8rem 1rem",
-                    }}
-                  >
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-muted)", textTransform: "uppercase" }}>
+                  <div className="gvt-card gvt-metric-card" style={{ borderRadius: "8px", padding: "0.8rem 1rem" }}>
+                    <div className="gvt-metric-label" style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", textTransform: "uppercase" }}>
                       NETWORK LATENCY
                     </div>
                     <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--cyan)", fontFamily: "var(--font-display)" }}>
@@ -689,47 +654,26 @@ export default function GamingVideoTheater() {
                     </div>
                   </div>
 
-                  <div
-                    style={{
-                      background: "var(--bg-surface)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "8px",
-                      padding: "0.8rem 1rem",
-                    }}
-                  >
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-muted)", textTransform: "uppercase" }}>
+                  <div className="gvt-card gvt-metric-card" style={{ borderRadius: "8px", padding: "0.8rem 1rem" }}>
+                    <div className="gvt-metric-label" style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", textTransform: "uppercase" }}>
                       CONCURRENCY LOAD
                     </div>
-                    <div style={{ fontSize: "1.2rem", fontWeight: 800, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
+                    <div className="gvt-metric-val" style={{ fontSize: "1.2rem", fontWeight: 800, fontFamily: "var(--font-display)" }}>
                       {mission.concurrency}
                     </div>
                   </div>
 
-                  <div
-                    style={{
-                      background: "var(--bg-surface)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "8px",
-                      padding: "0.8rem 1rem",
-                    }}
-                  >
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-muted)", textTransform: "uppercase" }}>
+                  <div className="gvt-card gvt-metric-card" style={{ borderRadius: "8px", padding: "0.8rem 1rem" }}>
+                    <div className="gvt-metric-label" style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", textTransform: "uppercase" }}>
                       SECURITY PROTOCOL
                     </div>
-                    <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#34d399", fontFamily: "var(--font-mono)", marginTop: "0.2rem" }}>
+                    <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "#10b981", fontFamily: "var(--font-mono)", marginTop: "0.2rem" }}>
                       {mission.security}
                     </div>
                   </div>
 
-                  <div
-                    style={{
-                      background: "var(--bg-surface)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "8px",
-                      padding: "0.8rem 1rem",
-                    }}
-                  >
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "var(--text-muted)", textTransform: "uppercase" }}>
+                  <div className="gvt-card gvt-metric-card" style={{ borderRadius: "8px", padding: "0.8rem 1rem" }}>
+                    <div className="gvt-metric-label" style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", textTransform: "uppercase" }}>
                       FRAME SYNCHRONY
                     </div>
                     <div style={{ fontSize: "1.2rem", fontWeight: 800, color: mission.color, fontFamily: "var(--font-display)" }}>
@@ -740,19 +684,12 @@ export default function GamingVideoTheater() {
 
                 {/* Key Architecture Highlights */}
                 {mission.highlights && (
-                  <div
-                    style={{
-                      background: "var(--bg-surface)",
-                      border: "1px solid var(--border)",
-                      borderRadius: "8px",
-                      padding: "0.9rem 1.2rem",
-                    }}
-                  >
+                  <div className="gvt-card gvt-highlights-card" style={{ borderRadius: "8px", padding: "0.9rem 1.2rem" }}>
                     <div
+                      className="gvt-metric-label"
                       style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: "0.7rem",
-                        color: "var(--text-muted)",
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
                         marginBottom: "0.6rem",
@@ -764,12 +701,12 @@ export default function GamingVideoTheater() {
                       {mission.highlights.map((h, i) => (
                         <div
                           key={i}
+                          className="gvt-body-text"
                           style={{
                             display: "flex",
                             alignItems: "center",
                             gap: "0.6rem",
                             fontSize: "0.82rem",
-                            color: "var(--text-secondary)",
                           }}
                         >
                           <span style={{ color: mission.color, fontSize: "0.7rem" }}>◆</span>
@@ -781,17 +718,7 @@ export default function GamingVideoTheater() {
                 )}
 
                 {/* Mission Intel Narrative */}
-                <div
-                  style={{
-                    padding: "0.9rem 1.2rem",
-                    background: "var(--bg-surface)",
-                    borderRadius: "8px",
-                    border: "1px solid var(--border)",
-                    fontSize: "0.85rem",
-                    color: "var(--text-secondary)",
-                    lineHeight: 1.6,
-                  }}
-                >
+                <div className="gvt-card gvt-intel-card gvt-body-text" style={{ padding: "0.9rem 1.2rem", borderRadius: "8px", fontSize: "0.85rem", lineHeight: 1.6 }}>
                   <span style={{ color: mission.color, fontWeight: 700, fontFamily: "var(--font-mono)" }}>
                     // MISSION INTEL:{" "}
                   </span>
@@ -799,20 +726,13 @@ export default function GamingVideoTheater() {
                 </div>
 
                 {/* Video Playback Controls & Scrubber */}
-                <div
-                  style={{
-                    background: "var(--bg-surface)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "10px",
-                    padding: "1rem 1.2rem",
-                  }}
-                >
+                <div className="gvt-card gvt-controls-card" style={{ borderRadius: "10px", padding: "1rem 1.2rem" }}>
                   {/* Progress Scrubber */}
                   <div
                     onClick={handleSeek}
                     style={{
                       height: "6px",
-                      background: "rgba(125, 125, 125, 0.2)",
+                      background: "rgba(125, 125, 125, 0.25)",
                       cursor: "pointer",
                       position: "relative",
                       borderRadius: "3px",
@@ -844,18 +764,11 @@ export default function GamingVideoTheater() {
                     <div style={{ display: "flex", alignItems: "center", gap: "0.6rem" }}>
                       <button
                         onClick={togglePlay}
+                        className="btn-cyber-primary"
                         style={{
-                          background: "var(--bg-surface-elevated)",
-                          border: "1px solid var(--border)",
-                          color: "var(--cyan)",
-                          borderRadius: "6px",
                           padding: "0.45rem 0.95rem",
-                          fontFamily: "var(--font-mono)",
                           fontSize: "0.78rem",
                           cursor: "pointer",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.4rem",
                         }}
                       >
                         <span>{isPlaying ? "❚❚ PAUSE" : "▶ PLAY"}</span>
@@ -863,21 +776,17 @@ export default function GamingVideoTheater() {
 
                       <button
                         onClick={toggleMute}
+                        className="btn-cyber-secondary"
                         style={{
-                          background: "var(--bg-surface-elevated)",
-                          border: "1px solid var(--border)",
-                          color: "var(--cyan)",
-                          borderRadius: "6px",
                           padding: "0.45rem 0.85rem",
-                          fontFamily: "var(--font-mono)",
                           fontSize: "0.78rem",
                           cursor: "pointer",
                         }}
                       >
-                        {isMuted ? "🔇 UNMUTE" : "🔊 MUTED"}
+                        <span>{isMuted ? "🔇 UNMUTE" : "🔊 MUTED"}</span>
                       </button>
 
-                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", marginLeft: "0.4rem" }}>
+                      <span className="gvt-meta-text" style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", marginLeft: "0.4rem" }}>
                         {currentTime} / {duration}
                       </span>
                     </div>

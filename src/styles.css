@@ -531,16 +531,22 @@ h1, h2, h3, h4, h5, h6 {
    ═════════════════════════════════════════════════════════════════ */
 
 /* ═════════════════════════════════════════════════════════════════
-   THEME-AWARE SECTION BACKGROUND SYSTEM (Interchanges seamlessly!)
+   THEME INTERCHANGE SYSTEM
+   - In Dark Mode: Group A is Dark (#0a0e1a / #070A12), Group B is Light Cream (#FAF7F5).
+   - In Light Mode: Group A BECOMES Light Cream (#FAF7F5 / #FFFFFF), Group B BECOMES Dark (#070A12).
+   - Text color automatically inverts so Light background always has High-Contrast Dark text,
+     and Dark background always has High-Contrast Light text!
    ═════════════════════════════════════════════════════════════════ */
 
-/* ── Dark Mode Section Backgrounds (Default) ── */
+/* ── 1. DARK MODE (DEFAULT) ── */
+
+/* Group A: Dark Sections in Dark Mode */
 .section-bg-void {
-  background: var(--bg) !important;
+  background: #0a0e1a !important;
+  color: #f1f5f9 !important;
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .section-bg-void::before {
   content: '';
@@ -554,12 +560,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-bg-navy {
-  background: linear-gradient(180deg, #0e1424 0%, var(--bg) 100%) !important;
+  background: linear-gradient(180deg, #1e2942 0%, #1a2436 50%, #0e1421 100%) !important;
+  color: #f1f5f9 !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .section-bg-navy::before {
   content: '';
@@ -581,12 +587,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-bg-obsidian {
-  background: linear-gradient(135deg, #04060c 0%, #0a0e1a 50%, #04060c 100%) !important;
+  background: linear-gradient(135deg, #000000 0%, #0f172a 50%, #000000 100%) !important;
+  color: #f1f5f9 !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .section-bg-obsidian::before {
   content: '';
@@ -598,21 +604,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-bg-charcoal {
-  background: linear-gradient(160deg, #080c16 0%, #0d1424 45%, #070a12 100%) !important;
+  background: linear-gradient(160deg, #0b1120 0%, #111827 45%, #0e1421 100%) !important;
+  color: #f1f5f9 !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .section-bg-purple-mesh {
-  background: #080a16 !important;
+  background: #0b0b1a !important;
+  color: #f1f5f9 !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .section-bg-purple-mesh::before {
   content: '';
@@ -624,29 +630,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-bg-cosmic {
-  background: linear-gradient(180deg, #0c1220 0%, #080c14 100%) !important;
+  background: linear-gradient(180deg, #101626 0%, #0c121e 100%) !important;
+  color: #f1f5f9 !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* In Dark Theme (default), .section-bg-light-cream becomes seamless midnight */
+/* Group B: White/Cream Sections in Dark Mode (Default) */
 .section-bg-light-cream {
-  background-color: var(--bg) !important;
-  color: var(--text-primary) !important;
+  background-color: #FAF7F5 !important;
+  color: #17191C !important;
   position: relative;
   z-index: 2;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  border-top: 1px solid rgba(23, 25, 28, 0.08);
+  border-bottom: 1px solid rgba(23, 25, 28, 0.08);
 }
 .section-bg-light-cream::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(23, 25, 28, 0.09) 1.2px, transparent 1.2px);
   background-size: 26px 26px;
   pointer-events: none;
   z-index: 0;
@@ -655,27 +660,131 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 78, 0, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 121, 63, 0.04) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
 
+/* Group B in Dark Mode: Typography is CRISP DARK on the White/Cream background */
+.section-bg-light-cream h1,
+.section-bg-light-cream h2,
+.section-bg-light-cream h3,
+.section-bg-light-cream h4,
+.section-bg-light-cream h5,
+.section-bg-light-cream h6,
+.section-bg-light-cream .section-title,
+.section-bg-light-cream .pi-case-title,
+.section-bg-light-cream .card-title,
+.section-bg-light-cream .gvt-title,
+.section-bg-light-cream .gvt-metric-val {
+  color: #17191C !important;
+}
+
+.section-bg-light-cream p,
+.section-bg-light-cream .section-subtitle,
+.section-bg-light-cream .pi-case-desc,
+.section-bg-light-cream .text-muted,
+.section-bg-light-cream .gvt-body-text,
+.section-bg-light-cream .gvt-meta-text {
+  color: #374151 !important;
+}
+
+.section-bg-light-cream .gvt-sub {
+  color: #ea580c !important;
+}
+
+.section-bg-light-cream .gvt-metric-label {
+  color: #6b7280 !important;
+}
+
+.section-bg-light-cream .section-eyebrow {
+  background: rgba(255, 121, 63, 0.09) !important;
+  border-color: rgba(255, 121, 63, 0.28) !important;
+  color: #d4602e !important;
+}
+.section-bg-light-cream .section-eyebrow .dot {
+  background: #d4602e !important;
+  box-shadow: 0 0 8px rgba(212, 96, 46, 0.5) !important;
+}
+
+/* Group B in Dark Mode: Cards are Clean White */
+.section-bg-light-cream .cyber-panel,
+.section-bg-light-cream .glass-card,
+.section-bg-light-cream .pi-case-row,
+.section-bg-light-cream .metric-card,
+.section-bg-light-cream .gvt-console-hud,
+.section-bg-light-cream .gvt-card,
+.section-bg-light-cream .projects-universe-grid > div,
+.section-bg-light-cream .home-portals-grid > div,
+.section-bg-light-cream .metric-cards-grid > div,
+.section-bg-light-cream .achievements-grid > div,
+.section-bg-light-cream .education-cert-grid > div,
+.section-bg-light-cream .education-grid > div {
+  background: #ffffff !important;
+  border: 1px solid rgba(23, 25, 28, 0.10) !important;
+  box-shadow: 0 8px 24px rgba(23, 25, 28, 0.05) !important;
+  color: #17191C !important;
+}
+
+.section-bg-light-cream .gvt-phone-rig {
+  background: #f1f5f9 !important;
+  border: 2px solid rgba(23, 25, 28, 0.16) !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.section-bg-light-cream .gvt-tab-btn {
+  background: #f1f5f9 !important;
+  border: 1px solid rgba(23, 25, 28, 0.12) !important;
+  color: #374151 !important;
+}
+.section-bg-light-cream .gvt-tab-btn.active {
+  background: #ffffff !important;
+  color: #17191C !important;
+  box-shadow: 0 4px 12px rgba(23, 25, 28, 0.08) !important;
+}
+
+.section-bg-light-cream .pi-tag,
+.section-bg-light-cream .tech-badge,
+.section-bg-light-cream .uber-chip {
+  background: rgba(23, 25, 28, 0.05) !important;
+  border-color: rgba(23, 25, 28, 0.12) !important;
+  color: #374151 !important;
+}
+
+.section-bg-light-cream input,
+.section-bg-light-cream textarea,
+.section-bg-light-cream select {
+  background: #ffffff !important;
+  color: #17191C !important;
+  border: 1px solid rgba(23, 25, 28, 0.18) !important;
+}
+
+.section-bg-light-cream input::placeholder,
+.section-bg-light-cream textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
 /* ═════════════════════════════════════════════════════════════════
-   LIGHT THEME INTERCHANGE RULES — [data-theme="light"]
-   All sections, headings, cards and text turn into elegant Light Mode
+   2. LIGHT MODE INTERCHANGE — [data-theme="light"]
+   - Group A (previously dark) BECOMES LIGHT CREAM / WHITE with DARK TEXT!
+   - Group B (previously light cream) BECOMES DARK MIDNIGHT with LIGHT TEXT!
    ═════════════════════════════════════════════════════════════════ */
+
+/* Group A in Light Mode: BECOMES WHITE / LIGHT CREAM */
 [data-theme="light"] .section-bg-void {
-  background: #F8F9FA !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: #FAF7F5 !important;
+  color: #17191C !important;
+  border-bottom: 1px solid rgba(23, 25, 28, 0.08) !important;
 }
 [data-theme="light"] .section-bg-void::before {
-  background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(255, 78, 0, 0.06) 0%, transparent 60%);
+  background: radial-gradient(ellipse 70% 50% at 50% -10%, rgba(255, 78, 0, 0.05) 0%, transparent 60%);
 }
 
 [data-theme="light"] .section-bg-navy {
   background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%) !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #17191C !important;
+  border-top-color: rgba(23, 25, 28, 0.08) !important;
+  border-bottom-color: rgba(23, 25, 28, 0.08) !important;
 }
 [data-theme="light"] .section-bg-navy::before {
   background: radial-gradient(ellipse 60% 50% at 20% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 60%);
@@ -685,9 +794,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme="light"] .section-bg-obsidian {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 50%, #FFFFFF 100%) !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F5 50%, #FFFFFF 100%) !important;
+  color: #17191C !important;
+  border-top-color: rgba(23, 25, 28, 0.08) !important;
+  border-bottom-color: rgba(23, 25, 28, 0.08) !important;
 }
 [data-theme="light"] .section-bg-obsidian::before {
   background: radial-gradient(ellipse 70% 35% at 50% 100%, rgba(255, 78, 0, 0.05) 0%, transparent 60%);
@@ -696,128 +806,170 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="light"] .section-bg-charcoal,
 [data-theme="light"] .section-bg-cosmic,
 [data-theme="light"] .section-bg-purple-mesh {
-  background: #F8F9FA !important;
-  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
-}
-
-[data-theme="light"] .section-bg-light-cream {
-  background-color: #FAF7F5 !important;
+  background: #FAF7F5 !important;
   color: #17191C !important;
-  border-top: 1px solid rgba(23, 25, 28, 0.08) !important;
-  border-bottom: 1px solid rgba(23, 25, 28, 0.08) !important;
-}
-[data-theme="light"] .section-bg-light-cream::before {
-  background-image: radial-gradient(rgba(23, 25, 28, 0.09) 1.2px, transparent 1.2px);
+  border-top-color: rgba(23, 25, 28, 0.08) !important;
+  border-bottom-color: rgba(23, 25, 28, 0.08) !important;
 }
 
-/* Light Mode Global Typography Interchange */
-[data-theme="light"] h1,
-[data-theme="light"] h2,
-[data-theme="light"] h3,
-[data-theme="light"] h4,
-[data-theme="light"] h5,
-[data-theme="light"] h6,
-[data-theme="light"] .section-title,
-[data-theme="light"] .pi-case-title,
-[data-theme="light"] .card-title,
-[data-theme="light"] .uber-card-title {
+/* Group A in Light Mode: Typography is CRISP DARK on the White/Cream background */
+[data-theme="light"] .section-bg-void h1,
+[data-theme="light"] .section-bg-void h2,
+[data-theme="light"] .section-bg-void h3,
+[data-theme="light"] .section-bg-void h4,
+[data-theme="light"] .section-bg-navy h1,
+[data-theme="light"] .section-bg-navy h2,
+[data-theme="light"] .section-bg-navy h3,
+[data-theme="light"] .section-bg-navy h4,
+[data-theme="light"] .section-bg-obsidian h1,
+[data-theme="light"] .section-bg-obsidian h2,
+[data-theme="light"] .section-bg-obsidian h3,
+[data-theme="light"] .section-bg-obsidian h4,
+[data-theme="light"] .section-bg-obsidian .uber-card-title,
+[data-theme="light"] .section-bg-charcoal h1,
+[data-theme="light"] .section-bg-charcoal h2,
+[data-theme="light"] .section-bg-charcoal h3,
+[data-theme="light"] .section-bg-charcoal h4 {
   color: #0f172a !important;
 }
 
-[data-theme="light"] p,
-[data-theme="light"] .section-subtitle,
-[data-theme="light"] .pi-case-desc,
-[data-theme="light"] .text-muted,
-[data-theme="light"] .uber-card-desc {
+[data-theme="light"] .section-bg-void p,
+[data-theme="light"] .section-bg-navy p,
+[data-theme="light"] .section-bg-obsidian p,
+[data-theme="light"] .section-bg-obsidian .uber-card-desc,
+[data-theme="light"] .section-bg-charcoal p {
   color: #334155 !important;
 }
 
-[data-theme="light"] .section-eyebrow {
-  background: rgba(255, 78, 0, 0.08) !important;
-  border-color: rgba(255, 78, 0, 0.28) !important;
+[data-theme="light"] .section-bg-obsidian .uber-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(23, 25, 28, 0.10) !important;
+  box-shadow: 0 4px 20px rgba(23, 25, 28, 0.05) !important;
+  color: #0f172a !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Group B in Light Mode: INTERCHANGES TO DEEP DARK / MIDNIGHT!
+   ───────────────────────────────────────────────────────────────── */
+[data-theme="light"] .section-bg-light-cream {
+  background: #070A12 !important;
+  color: #f1f5f9 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+}
+[data-theme="light"] .section-bg-light-cream::before {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px) !important;
+}
+[data-theme="light"] .section-bg-light-cream::after {
+  background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(255, 78, 0, 0.08) 0%, transparent 60%) !important;
+}
+
+/* Group B in Light Mode: Typography is CRISP LIGHT on the Dark background */
+[data-theme="light"] .section-bg-light-cream h1,
+[data-theme="light"] .section-bg-light-cream h2,
+[data-theme="light"] .section-bg-light-cream h3,
+[data-theme="light"] .section-bg-light-cream h4,
+[data-theme="light"] .section-bg-light-cream h5,
+[data-theme="light"] .section-bg-light-cream h6,
+[data-theme="light"] .section-bg-light-cream .section-title,
+[data-theme="light"] .section-bg-light-cream .pi-case-title,
+[data-theme="light"] .section-bg-light-cream .card-title,
+[data-theme="light"] .section-bg-light-cream .gvt-title,
+[data-theme="light"] .section-bg-light-cream .gvt-metric-val {
+  color: #f1f5f9 !important;
+}
+
+[data-theme="light"] .section-bg-light-cream p,
+[data-theme="light"] .section-bg-light-cream .section-subtitle,
+[data-theme="light"] .section-bg-light-cream .pi-case-desc,
+[data-theme="light"] .section-bg-light-cream .gvt-body-text {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+[data-theme="light"] .section-bg-light-cream .text-muted,
+[data-theme="light"] .section-bg-light-cream .gvt-meta-text,
+[data-theme="light"] .section-bg-light-cream .gvt-metric-label {
+  color: rgba(255, 255, 255, 0.48) !important;
+}
+
+[data-theme="light"] .section-bg-light-cream .gvt-sub {
   color: #ff4e00 !important;
 }
 
-[data-theme="light"] .section-eyebrow .dot {
+[data-theme="light"] .section-bg-light-cream .section-eyebrow {
+  background: rgba(255, 78, 0, 0.15) !important;
+  border-color: rgba(255, 78, 0, 0.40) !important;
+  color: #ff4e00 !important;
+}
+[data-theme="light"] .section-bg-light-cream .section-eyebrow .dot {
   background: #ff4e00 !important;
-  box-shadow: 0 0 8px rgba(255, 78, 0, 0.5) !important;
+  box-shadow: 0 0 10px rgba(255, 78, 0, 0.6) !important;
 }
 
-/* Light Mode Card & Panel Interchanges */
-[data-theme="light"] .cyber-panel,
-[data-theme="light"] .glass-card,
-[data-theme="light"] .pi-case-row,
-[data-theme="light"] .metric-card,
-[data-theme="light"] .home-portals-grid > div,
-[data-theme="light"] .metric-cards-grid > div,
-[data-theme="light"] .achievements-grid > div,
-[data-theme="light"] .education-cert-grid > div,
-[data-theme="light"] .education-grid > div,
-[data-theme="light"] .projects-universe-grid > div {
-  background: #ffffff !important;
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05) !important;
-  color: #0f172a !important;
+/* Group B in Light Mode: Cards are Deep Dark Cyber Glass */
+[data-theme="light"] .section-bg-light-cream .cyber-panel,
+[data-theme="light"] .section-bg-light-cream .glass-card,
+[data-theme="light"] .section-bg-light-cream .pi-case-row,
+[data-theme="light"] .section-bg-light-cream .metric-card,
+[data-theme="light"] .section-bg-light-cream .gvt-console-hud,
+[data-theme="light"] .section-bg-light-cream .gvt-card,
+[data-theme="light"] .section-bg-light-cream .projects-universe-grid > div,
+[data-theme="light"] .section-bg-light-cream .home-portals-grid > div,
+[data-theme="light"] .section-bg-light-cream .metric-cards-grid > div,
+[data-theme="light"] .section-bg-light-cream .achievements-grid > div,
+[data-theme="light"] .section-bg-light-cream .education-cert-grid > div,
+[data-theme="light"] .section-bg-light-cream .education-grid > div {
+  background: rgba(13, 21, 37, 0.90) !important;
+  border: 1px solid rgba(72, 229, 255, 0.25) !important;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7) !important;
+  color: #f1f5f9 !important;
 }
 
-[data-theme="light"] .cyber-panel:hover,
-[data-theme="light"] .glass-card:hover,
-[data-theme="light"] .pi-case-row:hover,
-[data-theme="light"] .home-portals-grid > div:hover,
-[data-theme="light"] .projects-universe-grid > div:hover {
-  background: #ffffff !important;
-  border-color: rgba(255, 78, 0, 0.4) !important;
-  box-shadow: 0 16px 36px rgba(255, 78, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06) !important;
+[data-theme="light"] .section-bg-light-cream .cyber-panel:hover,
+[data-theme="light"] .section-bg-light-cream .glass-card:hover,
+[data-theme="light"] .section-bg-light-cream .pi-case-row:hover,
+[data-theme="light"] .section-bg-light-cream .home-portals-grid > div:hover,
+[data-theme="light"] .section-bg-light-cream .projects-universe-grid > div:hover {
+  background: rgba(17, 26, 45, 0.95) !important;
+  border-color: rgba(255, 78, 0, 0.5) !important;
+  box-shadow: 0 0 35px rgba(255, 78, 0, 0.3), 0 20px 50px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* Tags & pills in light mode */
-[data-theme="light"] .pi-tag,
-[data-theme="light"] .tech-badge,
-[data-theme="light"] .uber-chip {
-  background: rgba(0, 0, 0, 0.04) !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  color: #334155 !important;
+[data-theme="light"] .section-bg-light-cream .gvt-phone-rig {
+  background: #0d1525 !important;
+  border: 2px solid rgba(72, 229, 255, 0.4) !important;
+  box-shadow: 0 0 35px rgba(72, 229, 255, 0.2), 0 20px 50px rgba(0, 0, 0, 0.8) !important;
 }
 
-/* Form inputs in light mode */
-[data-theme="light"] input,
-[data-theme="light"] textarea,
-[data-theme="light"] select {
-  background: #ffffff !important;
-  color: #0f172a !important;
-  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+[data-theme="light"] .section-bg-light-cream .gvt-tab-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+[data-theme="light"] .section-bg-light-cream .gvt-tab-btn.active {
+  background: rgba(72, 229, 255, 0.18) !important;
+  color: #f1f5f9 !important;
+  border-color: var(--cyan) !important;
 }
 
-[data-theme="light"] input::placeholder,
-[data-theme="light"] textarea::placeholder {
-  color: #94a3b8 !important;
+[data-theme="light"] .section-bg-light-cream .pi-tag,
+[data-theme="light"] .section-bg-light-cream .tech-badge,
+[data-theme="light"] .section-bg-light-cream .uber-chip {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f1f5f9 !important;
 }
 
-[data-theme="light"] input:focus,
-[data-theme="light"] textarea:focus {
-  border-color: #ff4e00 !important;
-  box-shadow: 0 0 0 3px rgba(255, 78, 0, 0.12) !important;
+[data-theme="light"] .section-bg-light-cream input,
+[data-theme="light"] .section-bg-light-cream textarea,
+[data-theme="light"] .section-bg-light-cream select {
+  background: rgba(13, 21, 37, 0.85) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(72, 229, 255, 0.25) !important;
 }
-
-/* Deep text overrides for inline styles in light mode */
-[data-theme="light"] [style*="color: var(--text-primary)"],
-[data-theme="light"] [style*="color:var(--text-primary)"],
-[data-theme="light"] [style*="color: #fff"],
-[data-theme="light"] [style*="color:#fff"],
-[data-theme="light"] [style*="color: #ffffff"],
-[data-theme="light"] [style*="color:#ffffff"] {
-  color: #0f172a !important;
-}
-
-[data-theme="light"] [style*="color: var(--text-secondary)"],
-[data-theme="light"] [style*="color:var(--text-secondary)"] {
-  color: #334155 !important;
-}
-
-[data-theme="light"] [style*="color: var(--text-muted)"],
-[data-theme="light"] [style*="color:var(--text-muted)"] {
-  color: #64748b !important;
+[data-theme="light"] .section-bg-light-cream input::placeholder,
+[data-theme="light"] .section-bg-light-cream textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 
