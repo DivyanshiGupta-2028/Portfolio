@@ -52,7 +52,7 @@ export default function Contact() {
                 }}
               >
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:divyanshi2028@gmail.com"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -75,10 +75,10 @@ export default function Contact() {
                   }}
                 >
                   <span style={{ fontSize: "1.08rem" }}>✉️</span>{" "}
-                  hello@divyanshig.dev
+                  divyanshi2028@gmail.com
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/divyanshi-gupta"
                   target="_blank"
                   rel="noreferrer"
                   style={{
@@ -104,6 +104,54 @@ export default function Contact() {
                 >
                   <span style={{ fontSize: "1.08rem" }}>🔗</span> LinkedIn
                   Profile
+                </a>
+                <a
+                  href="https://github.com/divyanshi-gupta"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "1rem 1.2rem",
+                    border: "1px solid var(--border)",
+                    color: "var(--muted)",
+                    textDecoration: "none",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "0.82rem",
+                    transition: "all 0.3s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "var(--blue)";
+                    e.currentTarget.style.color = "var(--cream)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "var(--border)";
+                    e.currentTarget.style.color = "var(--muted)";
+                  }}
+                >
+                  <span style={{ fontSize: "1.08rem" }}>⌨️</span> GitHub
+                  Profile
+                </a>
+                <a
+                  href="/divyanshi-gupta-resume.pdf"
+                  download="Divyanshi_Gupta_Resume.pdf"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1rem",
+                    padding: "1rem 1.2rem",
+                    border: "1px solid var(--border)",
+                    color: "var(--cream)",
+                    background: "rgba(255, 121, 63, 0.15)",
+                    textDecoration: "none",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "0.82rem",
+                    transition: "all 0.3s",
+                  }}
+                >
+                  <span style={{ fontSize: "1.08rem" }}>↓</span> Download
+                  Resume
                 </a>
               </div>
             </motion.div>

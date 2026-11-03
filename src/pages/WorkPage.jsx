@@ -1,99 +1,87 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import PageHero3D from "../components/PageHero3D";
 import GamingVideoTheater from "../components/GamingVideoTheater";
 import ProjectsUniverse from "../components/ProjectsUniverse";
 
-/* ── product.inc style case list data ── */
+/* ── Verified Case list data matching the 6 resume projects ── */
 const CASES = [
   {
     num: "01",
     title: "License Administration System",
-    meta: "Enterprise SaaS · Backend Engineering · 2024–25",
-    desc: "Multi-tenant SaaS licensing platform with RBAC, feature-tier entitlements, and atomic SQL Server stored procedures. Delivered 40% reduction in manual admin effort.",
-    tags: [".NET", "ASP.NET Core", "Angular", "SQL Server", "RBAC", "Azure DevOps"],
+    meta: "Multi-Tenant SaaS · C# & ASP.NET Core · Angular · SQL Server",
+    desc: "Multi-tenant SaaS platform for centralized license administration, assignment, and feature-based access control. Helped reduce manual license assignment effort by 40%.",
+    tags: ["C#", "ASP.NET Core", "Angular", "SQL Server", "RBAC", "Multi-Tenancy"],
     badge: "VERIFIED 40% GAIN",
     badgeColor: "#48E5FF",
     accentRgb: "72,229,255",
-    anchor: "#license-admin",
+    anchor: "#projects",
   },
   {
     num: "02",
-    title: "Dating Platform",
-    meta: "Full-Stack Product · Secure API Design · 2024",
-    desc: "Bidirectional swipe-match platform with Google OAuth2 SSO, JWT refresh-token rotation, geo-distance discovery, and subscription tiers. Live on Play Store (internal beta).",
-    tags: ["React", "Node.js", "ASP.NET Core", "SQL Server", "JWT", "OAuth2", "MySQL"],
+    title: "Dating Platform – Full Stack and .NET Backend",
+    meta: "Full-Stack Product · ASP.NET Core & Node.js · React · SQL Server & MySQL",
+    desc: "Dating platform with user authentication, profile management, discovery, matching workflows, Google OAuth 2.0, JWT sessions, and premium subscription features.",
+    tags: ["React", "Node.js", "Express.js", "ASP.NET Core", "SQL Server", "MySQL", "JWT", "OAuth 2.0"],
     badge: "LIVE RECORDING",
     badgeColor: "#ec4899",
     accentRgb: "236,72,153",
     liveLink: "https://play.google.com/apps/internaltest/4701291796801878386",
-    anchor: "#dating-platform",
+    anchor: "#projects",
   },
   {
     num: "03",
-    title: "Sales Inventory Management",
-    meta: "Business Application · Inventory Automation · 2024",
-    desc: "Real-time inventory tracking with dynamic GST/non-GST tax calculation engine, automated reorder triggers, and RBAC for cashiers vs. warehouse managers.",
-    tags: [".NET", "ASP.NET Core", "Angular", "SQL Server", "JWT"],
+    title: "Sales Inventory Management System",
+    meta: "Business Application · .NET & Angular · React · SQL Server & MySQL",
+    desc: "Inventory management application with stock tracking, dynamic GST and non-GST invoice generation, modular REST APIs, and role-based access control.",
+    tags: [".NET", "Angular", "React", "SQL Server", "MySQL", "JWT", "REST APIs"],
     badge: "INVOICE AUTOMATION",
     badgeColor: "#38bdf8",
     accentRgb: "56,189,248",
-    anchor: "#sales-inventory",
+    anchor: "#projects",
   },
   {
     num: "04",
-    title: "BellezBuy E-Commerce",
-    meta: "Consumer Mobile · React Native / FastAPI · 2024",
-    desc: "Full-featured beauty e-commerce app with AI-powered recommendations, wishlist, coupon engine, and Razorpay payment gateway. Live on Play Store.",
-    tags: ["React Native", "FastAPI", "Python", "MySQL", "Razorpay"],
+    title: "BellezBuy – E-Commerce Platform",
+    meta: "E-Commerce System · React & Node.js · MySQL · Brevo Email Dispatch",
+    desc: "E-commerce platform with product catalogue, order management, payment API integration, OTP verification emails, password resets, and transactional notifications.",
+    tags: ["React", "Node.js", "MySQL", "Brevo", "Payment APIs"],
     badge: "LIVE ON PLAY STORE",
-    badgeColor: "#f59e0b",
-    accentRgb: "245,158,11",
+    badgeColor: "#10b981",
+    accentRgb: "16,185,129",
     liveLink: "https://play.google.com/store/apps/details?id=com.Bellezbuy.app&hl=en",
-    anchor: "#bellezbuy",
+    anchor: "#projects",
   },
   {
     num: "05",
-    title: "WellMove – Physiotherapy AI System",
-    meta: "AI-Integrated Healthcare · 2024",
-    desc: "Exercise prescription platform with AI-driven form analysis, therapist portal with RBAC dashboards, telehealth session scheduling, and real-time progress analytics.",
-    tags: ["React", "FastAPI", "Node.js", "Python", "AI/ML", "JWT", "MySQL"],
+    title: "WellMove – AI-Powered Wellness Platform",
+    meta: "AI-Integrated Healthcare · Python & FastAPI · MySQL · JWT · AI/ML",
+    desc: "AI-integrated wellness platform providing user management, health-data APIs, personalized recommendations, trend analysis, adaptive goals, and smart notification triggers.",
+    tags: ["Python", "FastAPI", "MySQL", "JWT", "AI/ML", "Trend Analysis"],
     badge: "AI-INTEGRATED",
-    badgeColor: "#10b981",
-    accentRgb: "16,185,129",
+    badgeColor: "#a855f7",
+    accentRgb: "168,85,247",
     liveLink: "https://wellnessphysioportal.sanskriti-tech.cloud/",
-    anchor: "#wellmove",
+    anchor: "#projects",
   },
   {
     num: "06",
-    title: "Sanskriti CMS",
-    meta: "Content Management System · 2023",
-    desc: "High-performance CMS with dynamic content modules, role-based editorial workflow, and aggressive caching strategy achieving 35% page load reduction.",
-    tags: [".NET", "ASP.NET Core", "SQL Server", "Angular", "CDN Caching"],
-    badge: "35% LOAD REDUCTION",
-    badgeColor: "#8b5cff",
-    accentRgb: "139,92,255",
-    anchor: "#cms",
-  },
-  {
-    num: "07",
-    title: "HR Management System",
-    meta: "Enterprise Internal Tool · 2023",
-    desc: "Employee lifecycle management with attendance tracking, leave requests, payroll summaries, and manager-approval workflows. Deployed internally at Sanskriti IT Solutions.",
-    tags: [".NET", "ASP.NET Core", "SQL Server", "Angular", "RBAC"],
-    badge: "INTERNAL DEPLOY",
-    badgeColor: "#94a3b8",
-    accentRgb: "148,163,184",
-    anchor: "#hrms",
+    title: "ASP.NET Calculators Suite",
+    meta: "Financial Engines · ASP.NET Core MVC · Razor Pages · C# · SQL",
+    desc: "Collection of web-based financial calculators: EMI, HRA, GST, TDS, Auto Loan, and Net Worth Calculators with strict decimal precision and validation.",
+    tags: ["ASP.NET Core MVC", "Razor Pages", "C#", "SQL", "Financial Logic"],
+    badge: "FINANCIAL ENGINES",
+    badgeColor: "#f59e0b",
+    accentRgb: "245,158,11",
+    anchor: "#projects",
   },
 ];
 
-/* ── Stats for the top metrics band ── */
+/* ── Stats for top metrics band ── */
 const STATS = [
-  { val: "7", label: "SHIPPED PRODUCTS" },
-  { val: "40%", label: "VERIFIED EFFICIENCY GAIN" },
-  { val: "3", label: "LIVE DEPLOYMENTS" },
+  { val: "6", label: "PRODUCTION PROJECTS" },
+  { val: "40%", label: "MANUAL EFFORT REDUCED" },
+  { val: "35%", label: "CMS LOAD TIME IMPROVED" },
   { val: "Sub-45ms", label: "API LATENCY" },
 ];
 
@@ -113,24 +101,24 @@ export default function WorkPage() {
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--cyan)", letterSpacing: "0.2em", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "0.6rem" }}>
               <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--cyan)", boxShadow: "0 0 12px var(--cyan)" }} className="cyber-pulse" />
-              CASE STUDIES // PRODUCTION ARCHIVE · 7 WORKS
+              CASE STUDIES // PRODUCTION ARCHIVE · 6 PROJECTS
             </div>
 
             <h1 style={{ fontSize: "clamp(2.4rem, 5.5vw, 4.5rem)", fontWeight: 800, lineHeight: 1.02, letterSpacing: "-0.04em", marginBottom: "1.2rem", maxWidth: "720px" }}>
               SELECTED{" "}
               <span style={{ background: "linear-gradient(135deg, var(--cyan) 0%, var(--purple) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", filter: "drop-shadow(0 0 22px rgba(72,229,255,0.4))" }}>
-                WORKS.
+                PROJECTS.
               </span>
             </h1>
 
             <p style={{ color: "var(--text-secondary)", fontSize: "clamp(0.95rem, 1.6vw, 1.08rem)", lineHeight: 1.7, maxWidth: "560px" }}>
-              Enterprise backends, AI-integrated platforms, and consumer mobile apps — shipped to production with measurable outcomes.
+              Enterprise SaaS platforms, .NET backends, full-stack applications, and AI-integrated systems built with verified production impact.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── Metrics Band (product.inc style) ── */}
+      {/* ── Metrics Band ── */}
       <div className="section-bg-navy" style={{ borderTop: "1px solid rgba(255,121,63,0.1)", borderBottom: "1px solid rgba(255,121,63,0.1)" }}>
         <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "2.5rem 1.75rem", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "2rem" }}>
           {STATS.map((s, i) => (
@@ -146,9 +134,9 @@ export default function WorkPage() {
       <div className="pi-ticker-wrap">
         <div className="pi-ticker-inner">
           {[...Array(2)].flatMap(() => [
-            ".NET 7", "●", "ASP.NET Core", "●", "React", "●", "Node.js", "●", "Angular", "●",
-            "SQL Server", "●", "FastAPI", "●", "React Native", "●", "Azure", "●", "JWT/OAuth2",
-            "●", "RBAC", "●", "AI/ML Pipeline", "●", "Razorpay", "●", "Docker",
+            "C#", "●", "ASP.NET Core", "●", ".NET", "●", "React", "●", "Angular", "●",
+            "Node.js", "●", "Express.js", "●", "SQL Server", "●", "MySQL", "●", "FastAPI",
+            "●", "JWT Authentication", "●", "OAuth 2.0", "●", "RBAC", "●", "Azure DevOps", "●",
           ]).map((item, i) => (
             item === "●"
               ? <span key={i} className="pi-ticker-dot" />
@@ -157,17 +145,17 @@ export default function WorkPage() {
         </div>
       </div>
 
-      {/* ── CASE STUDY LIST (product.inc rows) ── */}
+      {/* ── CASE STUDY LIST ── */}
       <section className="section-bg-light-cream" style={{ position: "relative" }}>
         <div style={{ maxWidth: "1260px", margin: "0 auto", padding: "0 1.75rem" }}>
 
           {/* Section eyebrow */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: "4rem", paddingBottom: "1rem" }}>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-muted)", letterSpacing: "0.16em" }}>
-              // ALL PROJECTS
+              // ALL 6 PROJECTS
             </div>
             <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem", color: "var(--text-dim)", letterSpacing: "0.1em" }}>
-              2023 → PRESENT
+              PORTFOLIO ARCHIVE
             </div>
           </div>
 
@@ -229,11 +217,14 @@ export default function WorkPage() {
                           </a>
                         )}
                         <button
-                          onClick={(e) => { e.stopPropagation(); document.querySelector(c.anchor)?.scrollIntoView({ behavior: "smooth" }); }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            document.querySelector(c.anchor)?.scrollIntoView({ behavior: "smooth" });
+                          }}
                           className="btn-flat-secondary"
                           style={{ fontSize: "0.8rem", height: "38px", padding: "0 1.1rem" }}
                         >
-                          VIEW FULL CASE STUDY ↓
+                          VIEW FULL SPECIFICATION ↓
                         </button>
                       </div>
                     </motion.div>
@@ -246,10 +237,10 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* ── Gaming Video Holo-Theater ── */}
+      {/* ── Gaming Video Holo-Theater (Production Screen Recordings) ── */}
       <GamingVideoTheater />
 
-      {/* ── Deep Case Studies: Full Cards ── */}
+      {/* ── Deep Case Studies: Full Cards & Specifications ── */}
       <ProjectsUniverse />
     </main>
   );

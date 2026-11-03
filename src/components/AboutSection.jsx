@@ -62,7 +62,7 @@ export default function AboutSection() {
                   lineHeight: 1.8,
                 }}
               >
-                I'm a software engineer who enjoys understanding how applications work beneath the surface — from API design and authentication to database operations and the user experiences built on top of them.
+                I am a Full-Stack Developer with nearly 3 years of combined internship and professional experience, including extensive hands-on product engineering at Sanskriti IT Solutions Pvt. Ltd. in Noida.
               </p>
 
               <p
@@ -72,7 +72,7 @@ export default function AboutSection() {
                   lineHeight: 1.75,
                 }}
               >
-                My work spans .NET backend development, full-stack JavaScript applications, enterprise workflows, and AI-integrated systems. I enjoy breaking down complex requirements into maintainable services, practical features, and reliable application flows.
+                My core expertise centers on C# and ASP.NET Core backend development, REST API development, and frontend applications built with React and Angular. I design database-driven business systems, multi-tenant SaaS licensing platforms, and e-commerce applications using SQL Server and MySQL.
               </p>
 
               <p
@@ -82,7 +82,7 @@ export default function AboutSection() {
                   lineHeight: 1.75,
                 }}
               >
-                I believe good engineering is not just about making something work. It's about making it understandable, secure, maintainable, and useful.
+                Across Node.js and .NET backends, I emphasize secure authentication and authorization (JWT, Google OAuth 2.0, RBAC, and audit logging), as well as AI-integrated applications that leverage data pipelines for personalized user recommendations and adaptive goals.
               </p>
 
               {/* Engineering Principles */}
@@ -217,7 +217,7 @@ export default function AboutSection() {
                   marginBottom: "1.2rem",
                 }}
               >
-                FULL-STACK SOFTWARE ENGINEER
+                FULL-STACK DEVELOPER | .NET · REACT · NODE.JS
               </div>
 
               {/* Quick Dossier Specs */}
@@ -242,7 +242,7 @@ export default function AboutSection() {
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ color: "var(--text-muted)" }}>EXPERIENCE:</span>
-                  <span style={{ color: "var(--text-primary)" }}>~3 Yrs (Combined)</span>
+                  <span style={{ color: "var(--text-primary)" }}>Nearly 3 Yrs (Combined)</span>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                   <span style={{ color: "var(--text-muted)" }}>SPECIALTY:</span>

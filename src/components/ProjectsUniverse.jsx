@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cyberAudio } from "../utils/cyberAudio";
 
@@ -7,65 +7,65 @@ const PROJECTS = [
     id: "license-admin",
     num: "01",
     title: "License Administration System",
-    category: "Enterprise",
-    subCategory: "ENTERPRISE SAAS / BACKEND ENGINEERING",
+    category: ".NET Backend",
+    subCategory: "MULTI-TENANT SAAS // BACKEND ENGINEERING",
     accent: "#48E5FF",
     badge: "VERIFIED 40% GAIN",
-    desc: "A multi-tenant SaaS licensing system designed for centralized license administration, assignment, and feature-based access control.",
-    stack: ["C#", ".NET", "ASP.NET Core", "Angular", "SQL Server", "RBAC", "Azure DevOps"],
+    desc: "Multi-tenant SaaS platform for centralized license administration and feature-based access control.",
+    stack: ["C#", "ASP.NET Core", "Angular", "SQL Server"],
     metric: "40% reduction in manual license assignment effort",
     problemStatement:
       "Enterprise software deployments previously required error-prone manual license provisioning across multiple client organizations, leading to billing discrepancies, delayed onboardings, and untracked feature entitlements.",
     myContribution:
-      "Architected backend micro-services and Web APIs in ASP.NET Core; engineered multi-tenant schema partitioning and stored procedures in SQL Server; implemented role-based authorization filters and centralized license assignment flows.",
+      "Contributed backend REST APIs, licensing workflows, and database operations in ASP.NET Core and SQL Server for centralized license administration and feature-based access control.",
     keyFeatures: [
-      "Centralized multi-tenant license administration console",
-      "Feature-based SaaS tier licensing and dynamic entitlement toggles",
-      "Hierarchical Role-Based Access Control (RBAC) with audit trail",
-      "Atomic SQL Server stored procedures preventing duplicate license allocations",
-      "High-efficiency API endpoints integrated with Angular enterprise frontend",
-      "Continuous deployment pipelines configured via Azure DevOps",
+      "Centralized license management.",
+      "Feature-based SaaS licensing.",
+      "Multi-tenancy.",
+      "Role-Based Access Control.",
+      "License administration workflows.",
     ],
     technicalImplementation:
-      "Developed using ASP.NET Core dependency injection and custom policy-based authorization middleware. Multi-tenancy was enforced at the query pipeline level, ensuring absolute tenant data isolation. Optimized SQL Server execution plans to process bulk tenant operations without table contention.",
+      "Engineered multi-tenant database partitioning on Microsoft SQL Server with precompiled atomic stored procedures. Implemented policy-based authorization filters and centralized license assignment flows in ASP.NET Core.",
     challenges:
-      "Preventing license over-allocation race conditions during simultaneous user checkouts. Solved with optimistic concurrency tokens and database transaction isolation levels.",
+      "Preventing license over-allocation race conditions during simultaneous user checkouts. Solved with optimistic concurrency control and database transaction isolation levels.",
     verifiedOutcomes: [
-      "Reduced manual license assignment effort by 40% across administrative workflows",
-      "Guaranteed tenant isolation with zero data leakage across multi-tenant boundaries",
-      "Sub-45ms average response times on high-frequency entitlement checks",
+      "Helped reduce manual license assignment effort by 40%",
+      "Guaranteed multi-tenant isolation and robust access control",
+      "Sub-45ms average response times across entitlement checks",
     ],
   },
   {
     id: "dating-platform",
     num: "02",
-    title: "Zinkr Dating Platform",
+    title: "Dating Platform – Full Stack and .NET Backend",
     category: "Full-Stack",
-    subCategory: "FULL-STACK PRODUCT / SECURE API DESIGN",
+    subCategory: "FULL-STACK PRODUCT // SECURE API DESIGN",
     accent: "#ec4899",
     badge: "LIVE RECORDING",
     liveLink: "https://play.google.com/apps/internaltest/4701291796801878386",
     liveLinkLabel: "PLAY STORE (INTERNAL BETA)",
     liveLinkType: "playstore",
     video: "/Zinkr_Ad_v6_full_edit.mp4",
-    desc: "A dating platform with user authentication, profile management, discovery, matching workflows, and subscription-based premium features.",
-    stack: ["React", "Node.js", "Express.js", "ASP.NET Core", "SQL Server", "MySQL", "JWT", "Google OAuth2"],
-    metric: "Instant swipe-to-match & secure SSO token lifecycle",
+    desc: "Dating platform with user authentication, profile management, discovery, matching workflows, and premium subscription features.",
+    stack: ["React", "Node.js", "Express.js", "ASP.NET Core", "SQL Server", "MySQL", "JWT", "OAuth 2.0"],
+    metric: "Dual OAuth 2.0 + JWT auth with low-latency matching",
     problemStatement:
-      "Dating applications require high concurrency during peak evening hours, sub-second profile discovery based on preference algorithms, and rock-solid privacy protection around user chats and personal details.",
+      "Dating applications require fast real-time profile discovery, secure user credential handling, and reliable subscription tier workflows.",
     myContribution:
-      "Engineered backend REST endpoints in ASP.NET Core and Node.js; implemented Google OAuth2 SSO and stateless JWT authentication with refresh token rotation; created match-evaluation algorithms and responsive React discovery interfaces.",
+      "Developed backend REST endpoints in ASP.NET Core and Node.js; implemented Google OAuth 2.0 SSO and stateless JWT authentication; built user profile management, matching workflows, and React discovery UI.",
     keyFeatures: [
-      "Dual authentication: Google OAuth2 single sign-on + email verification",
-      "JWT-based session authentication with protected route middleware",
-      "Dynamic profile discovery with geo-distance and preference filtering",
-      "Bidirectional swipe matching workflow with low-latency notification triggers",
-      "Subscription tier permissions unlocking premium search filters",
+      "User authentication.",
+      "Profile management.",
+      "Discovery and matching.",
+      "Google OAuth 2.0.",
+      "JWT-based sessions.",
+      "Premium subscription workflows.",
     ],
     technicalImplementation:
-      "Utilized ASP.NET Core 7 Web APIs for authentication and subscription tiers, paired with Express.js microservices for lightweight profile feeds. Implemented SQL Server indexing on geo-coordinates and preference attributes to ensure low-latency query results.",
+      "Utilized ASP.NET Core Web APIs for authentication and subscription tiers, paired with Express.js microservices for lightweight profile feeds. Implemented indexing on SQL Server and MySQL to ensure low-latency query results.",
     challenges:
-      "Handling bi-directional matching state when two users swipe each other asynchronously without generating duplicate notification events.",
+      "Managing bi-directional matching state when two users swipe each other asynchronously without generating duplicate notification events.",
     verifiedOutcomes: [
       "Smooth profile discovery flows verified on live production screen recording",
       "Zero unauthorized access incidents across protected profile endpoints",
@@ -74,29 +74,29 @@ const PROJECTS = [
   {
     id: "sales-inventory",
     num: "03",
-    title: "Sales Inventory Management",
-    category: "Backend",
-    subCategory: "BUSINESS APPLICATION / INVENTORY AUTOMATION",
+    title: "Sales Inventory Management System",
+    category: ".NET Backend",
+    subCategory: "BUSINESS APPLICATION // INVENTORY AUTOMATION",
     accent: "#38bdf8",
     badge: "INVOICE AUTOMATION",
-    desc: "An inventory management system supporting product and stock tracking, modular APIs, access control, and GST/non-GST invoice generation.",
-    stack: [".NET", "ASP.NET Core", "Angular", "SQL Server", "JWT", "Stored Procedures"],
+    desc: "Inventory management application with stock tracking, invoicing, modular APIs, and role-based access control.",
+    stack: [".NET", "Angular", "React", "SQL Server", "MySQL", "JWT"],
     metric: "< 3s dynamic invoice generation with automated tax breakdown",
     problemStatement:
-      "Retail and wholesale distributors struggled with inventory discrepancies between point-of-sale terminals and back-office warehouses, along with complex statutory compliance regarding GST calculations.",
+      "Businesses struggled with inventory discrepancies between sales points and warehouses, along with complex statutory compliance regarding GST calculations.",
     myContribution:
-      "Developed modular .NET Web API services for stock intake, barcode scanning, and invoice generation; created automated GST/non-GST tax calculation engines; optimized database queries for inventory transactions.",
+      "Developed modular REST APIs for stock tracking, inventory updates, and GST/non-GST invoice generation with role-based access control.",
     keyFeatures: [
-      "Real-time product catalog & stock level telemetry",
-      "Dynamic GST & non-GST tax calculation engine with PDF invoice compiling",
-      "Automated low-inventory thresholds and reorder triggers",
-      "Role-Based Access Control partitioning cashiers from warehouse managers",
-      "Modular backend services designed for multi-store deployment",
+      "Inventory and stock tracking.",
+      "GST invoice generation.",
+      "Non-GST invoice generation.",
+      "Modular REST APIs.",
+      "Role-based access control.",
     ],
     technicalImplementation:
-      "Built with C# and .NET backend services utilizing Unit of Work and Repository design patterns. Formulated T-SQL stored procedures with row-level locks during checkout to prevent negative inventory allocations.",
+      "Built with C# and .NET backend services utilizing modular REST APIs. Formulated stored procedures in SQL Server and MySQL with transaction locks during checkout to prevent negative inventory allocations.",
     challenges:
-      "Handling split-second concurrent checkouts of the last remaining stock item without creating orphaned payment records.",
+      "Handling split-second concurrent checkouts of the last remaining stock item without creating orphaned records.",
     verifiedOutcomes: [
       "Eliminated manual inventory reconciliation bottlenecks",
       "Generated compliant GST and non-GST commercial invoices in under 3 seconds",
@@ -105,9 +105,9 @@ const PROJECTS = [
   {
     id: "bellezbuy",
     num: "04",
-    title: "BellezBuy — E-Commerce",
+    title: "BellezBuy – E-Commerce Platform",
     category: "Full-Stack",
-    subCategory: "E-COMMERCE / FULL-STACK INTEGRATION",
+    subCategory: "E-COMMERCE // FULL-STACK INTEGRATION",
     accent: "#10b981",
     badge: "LIVE ON PLAY STORE",
     liveLink: "https://play.google.com/store/apps/details?id=com.Bellezbuy.app&hl=en",
@@ -115,89 +115,91 @@ const PROJECTS = [
     liveLinkType: "playstore",
     video: "/Record_2026-05-28-14-40-29.mp4",
     videoAdmin: "/VID20260529105202.mp4",
-    desc: "An e-commerce platform focused on product catalogues, order management, payment integrations, and transactional communication.",
-    stack: ["React", "Node.js", "MySQL", "Brevo API", "Razorpay / Payment Gateway", "CSS Modules"],
+    desc: "E-commerce platform with product catalogue, order management, payment API integration, and transactional email workflows.",
+    stack: ["React", "Node.js", "MySQL", "Brevo"],
     metric: "Automated OTP verification & zero duplicate order entries",
     problemStatement:
-      "Online boutique buyers required an intuitive shopping experience with instant order receipts and secure checkout, while store administrators required real-time inventory management.",
+      "Online shoppers required an intuitive shopping experience with instant order receipts and secure checkout, while store administrators required real-time inventory management.",
     myContribution:
-      "Built the full-stack shopping and admin experience with React and Node.js; integrated payment gateways with cryptographic webhook verification; configured automated Brevo email services for OTPs and invoices.",
+      "Built the full-stack shopping and admin experience with React and Node.js; integrated payment APIs with webhook validation; configured automated Brevo email services for OTPs and notifications.",
     keyFeatures: [
-      "Interactive responsive product catalog with search, filter, and sorting",
-      "Cart management and secure order checkout workflows",
-      "Cryptographically verified payment gateway webhook integration",
-      "Automated transactional emails: OTP authentication, password resets, and order confirmations via Brevo",
-      "Dedicated merchant admin dashboard for inventory tracking and status updates",
+      "Product catalogue.",
+      "Order management.",
+      "Payment API integration.",
+      "OTP verification emails.",
+      "Password reset emails.",
+      "Transactional notifications.",
     ],
     technicalImplementation:
-      "Client frontend built in React with optimized component state. Node.js Express backend connects to MySQL through parameterized queries. Webhook handlers verify SHA-256 signatures before committing order records to prevent duplicate fulfillment.",
+      "Client frontend built in React with optimized state management. Node.js backend connects to MySQL through parameterized queries. Webhook handlers verify signatures before committing order records to prevent duplicate fulfillment.",
     challenges:
-      "Handling network drops during customer checkout. Webhooks reconcile payment confirmation asynchronously even if the browser window closes.",
+      "Handling network drops during customer checkout. Webhooks reconcile payment confirmation asynchronously even if the client disconnects.",
     verifiedOutcomes: [
       "Shipped production platform with verified customer and admin video recordings",
-      "100% reliable transactional email dispatch powered by Brevo API",
+      "100% reliable transactional email dispatch powered by Brevo",
     ],
   },
   {
     id: "wellmove",
     num: "05",
-    title: "WellMove — AI Wellness Platform",
-    category: "AI / Integration",
-    subCategory: "AI-INTEGRATED BACKEND / PERSONALIZATION",
+    title: "WellMove – AI-Powered Wellness Platform",
+    category: "AI Integration",
+    subCategory: "AI-INTEGRATED WELLNESS // TELEMETRY",
     accent: "#a855f7",
     badge: "LIVE WEB PORTAL",
     liveLink: "https://wellnessphysioportal.sanskriti-tech.cloud/",
     liveLinkLabel: "LAUNCH PHYSIO PORTAL",
     liveLinkType: "web",
-    desc: "An AI-integrated wellness platform with user-management and health-data APIs, personalized recommendation workflows, adaptive goals, and smart notifications.",
-    stack: ["Python", "FastAPI", "REST APIs", "AI/ML Integration", "MySQL", "JWT", "Pydantic"],
+    desc: "AI-integrated wellness platform providing user management, health-data APIs, personalized recommendations, trend analysis, adaptive goals, and smart notification triggers.",
+    stack: ["Python", "FastAPI", "MySQL", "JWT", "AI/ML"],
     metric: "Sub-50ms health telemetry ingestion & adaptive goal triggers",
     problemStatement:
-      "Wellness applications often present static advice rather than adapting to an individual's evolving biometric data, activity consistency, and sleep patterns over time.",
+      "Wellness platforms often present static advice rather than adapting to an individual's evolving biometric data, activity consistency, and health patterns over time.",
     myContribution:
-      "Engineered FastAPI backend services for user profiles and biometric metric ingestion; designed machine learning recommendation routines that calculate activity trends and trigger personalized wellness reminders.",
+      "Engineered FastAPI backend services for user management and health-data APIs; designed machine learning recommendation routines that calculate activity trends and trigger smart notifications.",
     keyFeatures: [
-      "FastAPI asynchronous endpoints accepting continuous health metrics",
-      "JWT-based security ensuring sensitive health telemetry remains private",
-      "Trend analysis algorithms evaluating multi-week activity patterns",
-      "Personalized recommendation workflows suggesting customized routines",
-      "Adaptive goal-setting system that recalibrates daily targets based on progress",
-      "Automated notification triggers based on user streaks and milestone completion",
+      "User management.",
+      "Health-data APIs.",
+      "JWT authentication.",
+      "Personalized recommendations.",
+      "Trend analysis.",
+      "Adaptive goals.",
+      "Smart notification triggers.",
     ],
     technicalImplementation:
-      "FastAPI backend leverages asynchronous Python coroutines and Pydantic schema validation. Ingested time-series records are analyzed by algorithmic pipelines to generate personalized advice without blocking the main event loop.",
+      "FastAPI backend leverages asynchronous Python coroutines. Ingested time-series records in MySQL are analyzed by trend analysis routines to calculate personalized advice without blocking the event loop.",
     challenges:
-      "Maintaining high API responsiveness while processing complex statistical trend calculations on user health histories.",
+      "Maintaining high API responsiveness while processing statistical trend calculations on user health histories.",
     verifiedOutcomes: [
-      "Asynchronous non-blocking architecture capable of handling concurrent health telemetry feeds",
-      "Automated adaptive goal calculations based strictly on real user data inputs",
+      "Asynchronous non-blocking architecture handling concurrent health telemetry feeds",
+      "Adaptive goal calculations based strictly on real user data inputs",
     ],
   },
   {
     id: "aspnet-calculators",
     num: "06",
     title: "ASP.NET Calculators Suite",
-    category: "Backend",
-    subCategory: "WEB APPLICATIONS / BUSINESS LOGIC",
+    category: ".NET Backend",
+    subCategory: "FINANCIAL ENGINES // BUSINESS LOGIC",
     accent: "#f59e0b",
     badge: "FINANCIAL ENGINES",
-    desc: "Interactive financial and tax utility suite powered by ASP.NET Core MVC & Razor Pages implementing precise mathematical business logic.",
-    stack: ["ASP.NET Core MVC", "Razor Pages", "C#", "SQL Server", "Bootstrap"],
+    desc: "Collection of web-based financial calculators implementing precise mathematical business logic in C#.",
+    stack: ["ASP.NET Core MVC", "Razor Pages", "C#", "SQL"],
     metric: "6 Production Financial & Tax Calculation Engines",
     problemStatement:
-      "Financial calculators often suffer from rounding errors, inconsistent client-side JavaScript math, and poor validation of negative or boundary inputs.",
+      "Financial calculators often suffer from rounding errors, inconsistent client-side math, and poor validation of boundary inputs.",
     myContribution:
-      "Engineered server-side calculation engines in C# covering EMI, HRA, GST, TDS, Auto Loan, and Net Worth computations with strict decimal precision and comprehensive server-side validation.",
+      "Engineered server-side calculation engines in C# covering EMI, HRA, GST, TDS, Auto Loan, and Net Worth computations with strict decimal precision and comprehensive validation.",
     keyFeatures: [
-      "EMI Calculator: Amortization schedules with compound interest algorithms",
-      "HRA Calculator: Indian tax exemption clauses comparing salary components",
-      "GST Calculator: Forward and reverse GST tax liability breakdown",
-      "TDS Calculator: Section-wise withholding tax computation",
-      "Auto Loan Calculator: Principal, interest, down-payment, and tenor optimization",
-      "Net Worth Calculator: Asset and liability balance sheet aggregator",
+      "EMI Calculator.",
+      "HRA Calculator.",
+      "GST Calculator.",
+      "TDS Calculator.",
+      "Auto Loan Calculator.",
+      "Net Worth Calculator.",
     ],
     technicalImplementation:
-      "Utilized ASP.NET Core MVC controllers with strict ViewModel validation attributes. Computations executed using high-precision C# decimal types to avoid floating-point inaccuracies.",
+      "Utilized ASP.NET Core MVC controllers and Razor Pages with strict ViewModel validation attributes. Computations executed using high-precision C# decimal types to avoid floating-point inaccuracies.",
     challenges:
       "Implementing boundary condition validation across extreme financial loan tenors and tiered tax brackets.",
     verifiedOutcomes: [
@@ -205,40 +207,9 @@ const PROJECTS = [
       "Responsive, clean UI accessible across desktop and mobile devices",
     ],
   },
-  {
-    id: "boutique-management",
-    num: "07",
-    title: "Boutique Management System",
-    category: "Enterprise",
-    subCategory: "BUSINESS AUTOMATION / OPERATIONS",
-    accent: "#8B5CFF",
-    badge: "STORE OPERATIONS",
-    desc: "A refined commerce operations dashboard with connected inventory, customer order processing, and sales tracking.",
-    stack: ["React", "Node.js", "SQL Server", "REST APIs", "Express.js"],
-    metric: "Unified customer order tracking & inventory sync",
-    problemStatement:
-      "Independent boutiques frequently handle custom alterations, advance deposits, and bespoke inventory orders using disjointed paper notebooks, resulting in lost customer history.",
-    myContribution:
-      "Created an operational dashboard uniting customer contact profiles, tailored order specs, fabric inventory, and payment milestones into a single relational database.",
-    keyFeatures: [
-      "Customer registry with order history and tailored sizing profiles",
-      "Real-time fabric and garment inventory tracking",
-      "Order processing with advance deposit and final settlement logging",
-      "Administrative sales summaries and daily business insights",
-      "Clean, modern UI designed for touchscreen store counter tablets",
-    ],
-    technicalImplementation:
-      "React SPA communicating with Node.js Express endpoints, querying a structured Microsoft SQL Server schema. Implemented foreign key constraints and transactional saves to maintain relationship integrity between orders and customers.",
-    challenges:
-      "Designing a flexible schema capable of accommodating custom bespoke orders alongside off-the-rack inventory items.",
-    verifiedOutcomes: [
-      "Centralized store operations eliminating paper order slips",
-      "Instant lookup of customer past measurements and transaction history",
-    ],
-  },
 ];
 
-const CATEGORIES = ["All Projects", "Backend", "Full-Stack", "Enterprise", "AI / Integration"];
+const CATEGORIES = ["All Projects", ".NET Backend", "Full-Stack", "AI Integration"];
 
 export default function ProjectsUniverse() {
   const [activeCategory, setActiveCategory] = useState("All Projects");
@@ -256,13 +227,13 @@ export default function ProjectsUniverse() {
         <div className="section-header">
           <div className="section-eyebrow">
             <span className="dot" />
-            MISSION ARCHIVES // PRODUCTION BUILDS
+            PROJECT ARCHIVE // PRODUCTION BUILDS
           </div>
           <h2 className="section-title">
-            PROJECTS ARE <span className="gradient-cyan-purple">THE PROOF.</span>
+            FEATURED <span className="gradient-cyan-purple">PROJECTS.</span>
           </h2>
           <p className="section-subtitle">
-            Explore the applications, APIs, and systems I've worked on. Each project represents real problem-solving, architectural considerations, and verified outcomes.
+            Explore 6 production applications, APIs, and systems. Each project represents verified engineering problem-solving, architectural considerations, and documented outcomes.
           </p>
         </div>
 
@@ -354,7 +325,7 @@ export default function ProjectsUniverse() {
                       letterSpacing: "0.15em",
                     }}
                   >
-                    MISSION // {project.num}
+                    PROJECT // {project.num}
                   </span>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                     {project.liveLink && (
@@ -494,6 +465,38 @@ export default function ProjectsUniverse() {
                   {project.desc}
                 </p>
 
+                {/* Key Features Bullet List */}
+                <div style={{ marginBottom: "1.4rem" }}>
+                  <div
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.72rem",
+                      color: "var(--cyan)",
+                      marginBottom: "0.5rem",
+                      letterSpacing: "0.05em",
+                    }}
+                  >
+                    KEY FEATURES:
+                  </div>
+                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.35rem", padding: 0 }}>
+                    {project.keyFeatures.map((feat, fIdx) => (
+                      <li
+                        key={fIdx}
+                        style={{
+                          fontSize: "0.84rem",
+                          color: "var(--text-primary)",
+                          display: "flex",
+                          alignItems: "flex-start",
+                          gap: "0.45rem",
+                        }}
+                      >
+                        <span style={{ color: "var(--cyan)", fontSize: "0.75rem" }}>▹</span>
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
                 {/* Tech Stack Pills */}
                 <div
                   style={{
@@ -503,7 +506,7 @@ export default function ProjectsUniverse() {
                     marginBottom: "1.6rem",
                   }}
                 >
-                  {project.stack.slice(0, 5).map((tech, i) => (
+                  {project.stack.map((tech, i) => (
                     <span
                       key={i}
                       style={{
@@ -519,18 +522,6 @@ export default function ProjectsUniverse() {
                       {tech}
                     </span>
                   ))}
-                  {project.stack.length > 5 && (
-                    <span
-                      style={{
-                        padding: "0.25rem 0.55rem",
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.72rem",
-                        color: "var(--text-muted)",
-                      }}
-                    >
-                      +{project.stack.length - 5} more
-                    </span>
-                  )}
                 </div>
               </div>
 
@@ -592,7 +583,7 @@ export default function ProjectsUniverse() {
                       gap: "0.3rem",
                     }}
                   >
-                    CASE STUDY <span>→</span>
+                    DETAILS <span>→</span>
                   </span>
                 </div>
               </div>
@@ -680,7 +671,7 @@ export default function ProjectsUniverse() {
                   marginBottom: "0.4rem",
                 }}
               >
-                MISSION CASE STUDY // {selectedProject.num} · {selectedProject.subCategory}
+                PROJECT SPECIFICATION // {selectedProject.num} · {selectedProject.subCategory}
               </div>
 
               {/* Modal Title */}
@@ -694,6 +685,18 @@ export default function ProjectsUniverse() {
               >
                 {selectedProject.title}
               </h2>
+
+              {/* Description */}
+              <p
+                style={{
+                  color: "var(--text-secondary)",
+                  fontSize: "1.05rem",
+                  lineHeight: 1.7,
+                  marginBottom: "1.4rem",
+                }}
+              >
+                {selectedProject.desc}
+              </p>
 
               {/* Stack Pills */}
               <div
@@ -862,56 +865,6 @@ export default function ProjectsUniverse() {
 
               {/* Case Study Grid Sections */}
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                {/* Problem Statement */}
-                <div
-                  style={{
-                    background: "var(--bg-surface-elevated)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "10px",
-                    padding: "1.2rem 1.4rem",
-                  }}
-                >
-                  <h4
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.82rem",
-                      color: "var(--cyan)",
-                      marginBottom: "0.5rem",
-                      letterSpacing: "0.08em",
-                    }}
-                  >
-                    [01] PROBLEM STATEMENT
-                  </h4>
-                  <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.6 }}>
-                    {selectedProject.problemStatement}
-                  </p>
-                </div>
-
-                {/* My Contribution */}
-                <div
-                  style={{
-                    background: "var(--bg-surface-elevated)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "10px",
-                    padding: "1.2rem 1.4rem",
-                  }}
-                >
-                  <h4
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: "0.82rem",
-                      color: "var(--cyan)",
-                      marginBottom: "0.5rem",
-                      letterSpacing: "0.08em",
-                    }}
-                  >
-                    [02] ENGINEERING ROLE & CONTRIBUTIONS
-                  </h4>
-                  <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.6 }}>
-                    {selectedProject.myContribution}
-                  </p>
-                </div>
-
                 {/* Key Features */}
                 <div
                   style={{
@@ -930,16 +883,66 @@ export default function ProjectsUniverse() {
                       letterSpacing: "0.08em",
                     }}
                   >
-                    [03] ARCHITECTURAL FEATURES
+                    KEY FEATURES
                   </h4>
-                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.5rem", padding: 0 }}>
                     {selectedProject.keyFeatures.map((feat, i) => (
-                      <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontSize: "0.9rem", color: "var(--text-primary)" }}>
+                      <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontSize: "0.95rem", color: "var(--text-primary)" }}>
                         <span style={{ color: "var(--cyan)" }}>▹</span>
                         <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                {/* Problem Statement */}
+                <div
+                  style={{
+                    background: "var(--bg-surface-elevated)",
+                    border: "1px solid var(--border)",
+                    borderRadius: "10px",
+                    padding: "1.2rem 1.4rem",
+                  }}
+                >
+                  <h4
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.82rem",
+                      color: "var(--cyan)",
+                      marginBottom: "0.5rem",
+                      letterSpacing: "0.08em",
+                    }}
+                  >
+                    PROBLEM STATEMENT & CONTEXT
+                  </h4>
+                  <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.6 }}>
+                    {selectedProject.problemStatement}
+                  </p>
+                </div>
+
+                {/* Engineering Role & Contribution */}
+                <div
+                  style={{
+                    background: "var(--bg-surface-elevated)",
+                    border: "1px solid var(--border)",
+                    borderRadius: "10px",
+                    padding: "1.2rem 1.4rem",
+                  }}
+                >
+                  <h4
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: "0.82rem",
+                      color: "var(--cyan)",
+                      marginBottom: "0.5rem",
+                      letterSpacing: "0.08em",
+                    }}
+                  >
+                    ENGINEERING CONTRIBUTIONS
+                  </h4>
+                  <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem", lineHeight: 1.6 }}>
+                    {selectedProject.myContribution}
+                  </p>
                 </div>
 
                 {/* Technical Implementation & Challenges */}
@@ -968,7 +971,7 @@ export default function ProjectsUniverse() {
                         letterSpacing: "0.08em",
                       }}
                     >
-                      [04] TECHNICAL IMPLEMENTATION
+                      TECHNICAL IMPLEMENTATION
                     </h4>
                     <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", lineHeight: 1.55 }}>
                       {selectedProject.technicalImplementation}
@@ -992,7 +995,7 @@ export default function ProjectsUniverse() {
                         letterSpacing: "0.08em",
                       }}
                     >
-                      [05] CHALLENGES & RESOLUTION
+                      CHALLENGES & RESOLUTION
                     </h4>
                     <p style={{ color: "var(--text-secondary)", fontSize: "0.88rem", lineHeight: 1.55 }}>
                       {selectedProject.challenges}
@@ -1019,9 +1022,9 @@ export default function ProjectsUniverse() {
                         letterSpacing: "0.08em",
                       }}
                     >
-                      [06] VERIFIED OUTCOMES
+                      VERIFIED OUTCOMES
                     </h4>
-                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.4rem" }}>
+                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0.4rem", padding: 0 }}>
                       {selectedProject.verifiedOutcomes.map((outc, i) => (
                         <li key={i} style={{ display: "flex", alignItems: "center", gap: "0.6rem", fontSize: "0.9rem", color: "#e2e8f0" }}>
                           <span style={{ color: "#34d399" }}>✔</span>

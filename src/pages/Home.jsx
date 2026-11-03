@@ -6,6 +6,7 @@ import UberDiscoveryEngine from "../components/UberDiscoveryEngine";
 import GamingVideoTheater from "../components/GamingVideoTheater";
 import EngineeringIdentity from "../components/EngineeringIdentity";
 import Achievements from "../components/Achievements";
+import Skills from "../components/Skills";
 import { cyberAudio } from "../utils/cyberAudio";
 
 const PORTALS = [
@@ -14,13 +15,13 @@ const PORTALS = [
     to: "/work",
     label: "Projects Universe",
     eyebrow: "PORTAL_01",
-    desc: "7 complete production applications: License SaaS (40% gain), Dating Platform with live recordings, BellezBuy e-commerce, WellMove AI system.",
+    desc: "6 complete production applications: License SaaS (40% gain), Dating Platform with live recordings, BellezBuy e-commerce, WellMove AI system, and ASP.NET Calculators.",
     cta: "OPEN PROJECTS UNIVERSE",
     accent: "var(--cyan)",
     accentRgb: "72,229,255",
     bg: "linear-gradient(135deg, rgba(72,229,255,0.06) 0%, rgba(12,18,34,0.9) 100%)",
     icon: "⚡",
-    stats: ["7 Products", "40% Gain", "3 Live Demos"],
+    stats: ["6 Projects", "40% Gain", "Live Demos"],
     btnClass: "btn-cyber-primary",
   },
   {
@@ -42,13 +43,13 @@ const PORTALS = [
     to: "/experience",
     label: "Experience & Skills",
     eyebrow: "PORTAL_03",
-    desc: "Career timeline at Sanskriti IT Solutions, verified 40% & 35% benchmark improvements, and interactive technology constellation graph.",
+    desc: "Career timeline at Sanskriti IT Solutions, verified 40% & 35% benchmark improvements, and interactive technology skills matrix.",
     cta: "VIEW EXPERIENCE",
     accent: "var(--cyan)",
     accentRgb: "72,229,255",
     bg: "linear-gradient(135deg, rgba(72,229,255,0.06) 0%, rgba(12,18,34,0.9) 100%)",
     icon: "📡",
-    stats: ["3 Yrs XP", "AZ-900", "RBAC Expert"],
+    stats: ["Nearly 3 Yrs XP", "AZ-900 & AI-900", "RBAC & SaaS"],
     btnClass: "btn-cyber-primary",
   },
   {
@@ -72,7 +73,7 @@ export default function Home() {
 
   return (
     <main style={{ position: "relative", overflowX: "hidden" }}>
-      {/* 01. Hero with 3D Atom Core & Gaming Telemetry */}
+      {/* 01. Hero with 3D Atom Core & Telemetry */}
       <Hero />
 
       {/* 02. Gaming Video Holo-Theater */}
@@ -84,10 +85,13 @@ export default function Home() {
       {/* 04. Verified Achievements */}
       <Achievements />
 
-      {/* 05. Uber Careers & Product Inc Discovery Matrix */}
+      {/* 05. Technical Skills Visualization (7 Distinguishable Categories) */}
+      <Skills />
+
+      {/* 06. Project Discovery Matrix */}
       <UberDiscoveryEngine />
 
-      {/* 06. Multi-Page Exploration Portals (Command Grid) */}
+      {/* 07. Multi-Page Exploration Portals (Command Grid) */}
       <section style={{ position: "relative" }} className="section-bg-light-cream">
         <div className="section-divider" />
         <div className="section-container">

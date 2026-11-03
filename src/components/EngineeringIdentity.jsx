@@ -11,7 +11,7 @@ const CAPABILITIES = [
     accent: "var(--cyan)",
     icon: "⚡",
     points: [
-      "ASP.NET Core & .NET 7+ enterprise service design",
+      "ASP.NET Core & .NET enterprise service design",
       "Robust REST API development with OpenAPI/Swagger specifications",
       "Decoupled business logic & clean domain service layers",
       "Configurable Dependency Injection & custom middleware pipelines",
@@ -78,7 +78,7 @@ export default function EngineeringIdentity() {
             <span className="gradient-cyan-purple">SYSTEMS THAT SOLVE REAL PROBLEMS.</span>
           </h2>
           <p className="section-subtitle">
-            Software engineer who works across backend systems, APIs, authentication, database operations, enterprise applications, and frontend integration.
+            Full-Stack Developer with experience building web applications, REST APIs, database-driven business systems, SaaS licensing platforms, inventory management systems, e-commerce applications, and AI-integrated wellness applications.
           </p>
         </div>
 

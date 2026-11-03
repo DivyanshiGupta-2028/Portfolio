@@ -42,8 +42,8 @@ export default function AboutPage() {
                 </span>
               </h1>
 
-              <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "520px", marginBottom: "2rem" }}>
-                Full-stack engineer with 3 years building enterprise SaaS backends, AI-integrated platforms, and consumer mobile apps. Specialist in .NET, ASP.NET Core, React, and multi-tenant architectures.
+              <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "540px", marginBottom: "2rem" }}>
+                Full-Stack Developer with nearly 3 years of combined internship and professional experience building enterprise SaaS platforms, .NET backends, React and Angular applications, and AI-integrated systems.
               </p>
 
               {/* Identity chips — product.inc flat tags */}

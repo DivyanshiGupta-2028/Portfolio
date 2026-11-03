@@ -6,7 +6,7 @@ import TechConstellation from "../components/TechConstellation";
 const METRICS = [
   { val: "40%", label: "LICENSE EFFICIENCY GAIN", color: "var(--cyan)" },
   { val: "35%", label: "CMS LOAD REDUCTION", color: "var(--purple)" },
-  { val: "3 YRS", label: "ENGINEERING EXPERIENCE", color: "#10b981" },
+  { val: "NEARLY 3 YRS", label: "COMBINED EXPERIENCE", color: "#10b981" },
   { val: "AZ-900", label: "AZURE CERTIFIED", color: "#f59e0b" },
 ];
 
@@ -40,8 +40,8 @@ export default function ExperiencePage() {
               </span>
             </h1>
 
-            <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "520px" }}>
-              3 years building enterprise systems at Sanskriti IT Solutions. Verified 40% and 35% benchmark improvements, AZ-900 Azure certified, and a full-stack tech constellation spanning 20+ technologies.
+            <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: "560px" }}>
+              Nearly 3 years of combined internship and professional experience at Sanskriti IT Solutions. Verified 40% reduction in manual license assignment effort, 35% Angular CMS speed improvement, and AZ-900 & AI-900 Microsoft Azure certifications.
             </p>
           </motion.div>
         </div>

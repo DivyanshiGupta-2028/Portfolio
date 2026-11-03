@@ -132,7 +132,7 @@ export default function Footer() {
             </Link>
 
             <p style={{ color: "#94a3b8", fontSize: "0.85rem", lineHeight: 1.65, margin: 0 }}>
-              Full-Stack Software Engineer specializing in .NET Core microservices, reactive frontend architectures, and high-performance cloud APIs.
+              Full-Stack Developer specializing in .NET Backend Development, React, Node.js, and Angular.
             </p>
 
             {/* Address & Direct Channels */}
@@ -289,7 +289,7 @@ export default function Footer() {
               {/* Resume */}
               <a
                 href="/divyanshi-gupta-resume.pdf"
-                download="divyanshi-gupta-resume.pdf"
+                download="Divyanshi_Gupta_Resume.pdf"
                 aria-label="Download Resume"
                 style={{
                   display: "flex",
@@ -329,9 +329,9 @@ export default function Footer() {
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.7rem" }}>
               {[
-                { name: "C# & .NET 7+", to: "/experience" },
+                { name: "C# & .NET", to: "/experience" },
                 { name: "ASP.NET Core APIs", to: "/work" },
-                { name: "React & Next.js", to: "/work" },
+                { name: "React & Angular", to: "/work" },
                 { name: "SQL Server & Multi-Tenancy", to: "/lab" },
                 { name: "AI / FastAPI Integration", to: "/lab" },
               ].map((item) => (

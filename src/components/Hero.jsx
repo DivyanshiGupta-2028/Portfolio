@@ -99,11 +99,11 @@ export default function Hero() {
               }}
               className="cyber-pulse"
             />
-            <span style={{ color: "var(--cyan)", fontWeight: 700 }}>FULL-STACK ENGINEER</span>
+            <span style={{ color: "var(--cyan)", fontWeight: 700 }}>FULL-STACK DEVELOPER</span>
           </div>
           <div className="hero-telemetry-divider">|</div>
           <div className="hero-telemetry-item">
-            <span style={{ color: "#34d399", fontWeight: 600 }}>100% INTEGRITY</span>
+            <span style={{ color: "#34d399", fontWeight: 600 }}>NEARLY 3 YRS EXP</span>
           </div>
           <div className="hero-telemetry-divider">|</div>
           <div className="hero-telemetry-item">
@@ -111,7 +111,7 @@ export default function Hero() {
           </div>
           <div className="hero-telemetry-divider">|</div>
           <div className="hero-telemetry-item">
-            <span style={{ color: "var(--purple)", fontWeight: 600 }}>.NET · THREE.JS · REACT</span>
+            <span style={{ color: "var(--purple)", fontWeight: 600 }}>.NET · REACT · NODE.JS · ANGULAR</span>
           </div>
         </motion.div>
 
@@ -125,7 +125,7 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Eyebrow */}
+            {/* Eyebrow / Greeting */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,14 +136,14 @@ export default function Hero() {
                 alignItems: "center",
                 gap: "0.6rem",
                 fontFamily: "var(--font-mono)",
-                fontSize: "0.78rem",
-                letterSpacing: "0.15em",
+                fontSize: "0.85rem",
+                letterSpacing: "0.12em",
                 color: "var(--cyan)",
                 background: "rgba(72, 229, 255, 0.07)",
                 border: "1px solid rgba(72, 229, 255, 0.25)",
-                padding: "0.42rem 1.1rem",
+                padding: "0.45rem 1.2rem",
                 borderRadius: "999px",
-                marginBottom: "1.3rem",
+                marginBottom: "1.2rem",
               }}
             >
               <span
@@ -153,48 +153,47 @@ export default function Hero() {
                 }}
                 className="cyber-pulse"
               />
-              FULL-STACK SOFTWARE ENGINEER // INDIA
+              Hi, I'm Divyanshi Gupta
             </motion.div>
 
-            {/* Main Headline with Glitch */}
+            {/* Main Headline */}
             <h1
               className="hero-headline"
               style={{
-                fontSize: "clamp(1.75rem, 3.6vw, 3.8rem)",
+                fontSize: "clamp(1.85rem, 3.4vw, 3.4rem)",
                 fontWeight: 800,
-                lineHeight: 1.12,
+                lineHeight: 1.15,
                 letterSpacing: "-0.03em",
-                marginBottom: "1rem",
+                marginBottom: "1.2rem",
                 wordBreak: "break-word",
                 overflowWrap: "break-word",
                 maxWidth: "100%",
               }}
             >
-              I BUILD THE{" "}
+              Full-Stack Developer specializing in{" "}
               <span
                 style={{
                   background: "linear-gradient(135deg, var(--cyan) 0%, #20b4d4 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  filter: "drop-shadow(0 0 28px rgba(72, 229, 255, 0.4))",
+                  filter: "drop-shadow(0 0 24px rgba(72, 229, 255, 0.35))",
                   display: "inline-block",
                   ...(glitchActive ? {
                     animation: "glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
                   } : {}),
                 }}
               >
-                SYSTEMS
+                .NET Backend Development,
               </span>{" "}
-              BEHIND GREAT{" "}
               <span
                 style={{
                   background: "linear-gradient(135deg, var(--purple) 0%, #c084fc 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  filter: "drop-shadow(0 0 28px rgba(139, 92, 255, 0.4))",
+                  filter: "drop-shadow(0 0 24px rgba(139, 92, 255, 0.35))",
                 }}
               >
-                DIGITAL EXPERIENCES.
+                React, Node.js, and Angular.
               </span>
             </h1>
 
@@ -203,20 +202,18 @@ export default function Hero() {
               className="hero-pitch"
               style={{
                 color: "var(--text-secondary)",
-                fontSize: "clamp(0.88rem, 1.1vw, 1.05rem)",
-                lineHeight: 1.65,
-                maxWidth: "560px",
+                fontSize: "clamp(0.95rem, 1.15vw, 1.12rem)",
+                lineHeight: 1.7,
+                maxWidth: "580px",
                 width: "100%",
                 wordBreak: "break-word",
-                marginBottom: "1.25rem",
+                marginBottom: "1.4rem",
               }}
             >
-              Nearly 3 years building secure APIs, enterprise applications, full-stack products, and AI-integrated backend systems at Sanskriti IT Solutions — delivering{" "}
-              <span style={{ color: "var(--cyan)", fontWeight: 600 }}>40% efficiency gains</span> and{" "}
-              <span style={{ color: "var(--purple)", fontWeight: 600 }}>sub-45ms latency</span>.
+              I build scalable web applications, secure REST APIs, database-driven systems, and modern full-stack solutions. Nearly 3 years of combined internship and professional experience.
             </p>
 
-            {/* Sanskriti-Tech Inspired High-Impact Metric Strip */}
+            {/* Verified Metrics Strip */}
             <div
               className="hero-metrics-pill-container"
               style={{
@@ -240,28 +237,28 @@ export default function Hero() {
                   40%
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
-                  SaaS Gain
+                  SaaS Effort Reduced
                 </div>
               </div>
               <div style={{ textAlign: "center", minWidth: 0, borderLeft: "1px solid rgba(255,255,255,0.1)", borderRight: "1px solid rgba(255,255,255,0.1)" }}>
                 <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.05rem, 2.2vw, 1.45rem)", color: "var(--purple)", letterSpacing: "-0.02em" }}>
-                  &lt;45ms
+                  35%
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
-                  API Latency
+                  CMS Load Improved
                 </div>
               </div>
               <div style={{ textAlign: "center", minWidth: 0 }}>
                 <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(1.05rem, 2.2vw, 1.45rem)", color: "#f59e0b", letterSpacing: "-0.02em" }}>
-                  3+ Yrs
+                  Nearly 3 Yrs
                 </div>
                 <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.66rem", color: "var(--text-muted)", letterSpacing: "0.04em", marginTop: "2px" }}>
-                  Sanskriti IT
+                  Combined Experience
                 </div>
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons: View My Projects, Download Resume, Contact Me */}
             <div
               style={{
                 display: "flex",
@@ -271,38 +268,39 @@ export default function Hero() {
               }}
               className="hero-cta-row"
             >
-              <a
-                href="#discovery-matrix"
+              <Link
+                to="/work"
                 onClick={() => cyberAudio.playLaser()}
                 className="btn-cyber-primary"
                 style={{ textDecoration: "none" }}
               >
-                <span>DISCOVERY MATRIX</span>
-                <span>↓</span>
-              </a>
-
-              <Link
-                to="/work"
-                onClick={() => cyberAudio.playClick()}
-                className="btn-cyber-secondary"
-                style={{ textDecoration: "none" }}
-              >
-                <span>CASE STUDIES</span>
+                <span>View My Projects</span>
                 <span>→</span>
               </Link>
 
               <a
                 href="/divyanshi-gupta-resume.pdf"
-                download="divyanshi-gupta-resume.pdf"
+                download="Divyanshi_Gupta_Resume.pdf"
                 className="btn-cyber-secondary"
                 onClick={() => cyberAudio.playSuccess()}
+                style={{ textDecoration: "none" }}
               >
-                <span>RESUME</span>
+                <span>Download Resume</span>
                 <span>↓</span>
               </a>
+
+              <Link
+                to="/contact"
+                onClick={() => cyberAudio.playClick()}
+                className="btn-cyber-secondary"
+                style={{ textDecoration: "none" }}
+              >
+                <span>Contact Me</span>
+                <span>✉</span>
+              </Link>
             </div>
 
-            {/* Social/contact strip */}
+            {/* Social/contact strip: LinkedIn, GitHub, Email */}
             <div
               className="hero-social-strip"
               style={{
@@ -313,15 +311,15 @@ export default function Hero() {
               }}
             >
               {[
-                { label: "LinkedIn", href: "https://linkedin.com/in/divyanshi-gupta-dev", icon: "🔗" },
+                { label: "LinkedIn", href: "https://www.linkedin.com/in/divyanshi-gupta", icon: "🔗" },
                 { label: "GitHub", href: "https://github.com/divyanshi-gupta", icon: "⌨️" },
-                { label: "Email", href: "mailto:divyanshigupta2028@gmail.com", icon: "📡" },
+                { label: "Email", href: "mailto:divyanshi2028@gmail.com", icon: "✉️" },
               ].map(link => (
                 <a
                   key={link.label}
                   href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={link.label === "Email" ? undefined : "_blank"}
+                  rel={link.label === "Email" ? undefined : "noopener noreferrer"}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -386,10 +384,10 @@ export default function Hero() {
           className="hero-meta-strip"
         >
           {[
-            { tag: "SKILL_01", title: "Backend Engineering", desc: "ASP.NET Core · C# · APIs · Microservices" },
-            { tag: "SKILL_02", title: "Data & Architecture", desc: "SQL Server · RBAC · Multi-Tenancy" },
-            { tag: "SKILL_03", title: "Full-Stack Development", desc: "React · Angular · Node.js · Express" },
-            { tag: "SKILL_04", title: "AI-Integrated Systems", desc: "FastAPI · Python · Health Telemetry" },
+            { tag: "SKILL_01", title: ".NET Backend Development", desc: "ASP.NET Core · C# · REST APIs · Architecture" },
+            { tag: "SKILL_02", title: "Full-Stack Development", desc: "React · Angular · Node.js · Express.js" },
+            { tag: "SKILL_03", title: "Databases & Security", desc: "SQL Server · MySQL · Stored Procedures · RBAC" },
+            { tag: "SKILL_04", title: "SaaS & AI Integration", desc: "Multi-Tenancy · JWT · Google OAuth 2.0 · FastAPI" },
           ].map((item) => (
             <div
               key={item.tag}

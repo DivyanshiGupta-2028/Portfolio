@@ -130,57 +130,125 @@ export default function ContactSection() {
         <div className="pi-contact-grid">
           {/* Left: Direct channels */}
           <div className="pi-contact-left">
-            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "var(--text-muted)", marginBottom: "2.5rem" }}>
-              DIRECT CHANNELS
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.7rem", letterSpacing: "0.14em", color: "var(--cyan)", marginBottom: "1rem" }}>
+              // CONTACT DETAILS
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "2.2rem" }}>
-              {CHANNELS.map((ch) => (
-                <div key={ch.label}>
-                  <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "var(--text-dim)", marginBottom: "0.35rem" }}>
-                    {ch.label}
-                  </div>
-                  <a
-                    href={ch.href}
-                    target={ch.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    className="dashed-link"
-                    style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
-                  >
-                    {ch.value} <span style={{ opacity: 0.5, fontSize: "0.8rem" }}>{ch.icon}</span>
-                  </a>
+            <div style={{ marginBottom: "2rem" }}>
+              <div style={{ fontSize: "1.6rem", fontWeight: 800, color: "var(--text-primary)", marginBottom: "0.25rem" }}>
+                Divyanshi Gupta
+              </div>
+              <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.82rem", color: "var(--cyan)" }}>
+                Full-Stack Developer | .NET Backend | React | Node.js
+              </div>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "1.8rem" }}>
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "var(--text-dim)", marginBottom: "0.35rem" }}>
+                  EMAIL ADDRESS
                 </div>
-              ))}
+                <a
+                  href="mailto:divyanshi2028@gmail.com"
+                  className="dashed-link"
+                  style={{ fontFamily: "var(--font-body)", fontSize: "1.05rem", color: "var(--text-primary)", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                >
+                  divyanshi2028@gmail.com <span style={{ opacity: 0.6, fontSize: "0.85rem" }}>✉</span>
+                </a>
+              </div>
+
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "var(--text-dim)", marginBottom: "0.35rem" }}>
+                  LINKEDIN PROFILE
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/divyanshi-gupta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dashed-link"
+                  style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                >
+                  linkedin.com/in/divyanshi-gupta <span style={{ opacity: 0.5, fontSize: "0.8rem" }}>↗</span>
+                </a>
+              </div>
+
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "var(--text-dim)", marginBottom: "0.35rem" }}>
+                  GITHUB PROFILE
+                </div>
+                <a
+                  href="https://github.com/divyanshi-gupta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dashed-link"
+                  style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                >
+                  github.com/divyanshi-gupta <span style={{ opacity: 0.5, fontSize: "0.8rem" }}>↗</span>
+                </a>
+              </div>
+
+              <div>
+                <div style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.12em", color: "var(--text-dim)", marginBottom: "0.35rem" }}>
+                  LOCATION
+                </div>
+                <div style={{ fontFamily: "var(--font-body)", fontSize: "0.92rem", color: "var(--text-secondary)" }}>
+                  Noida, Uttar Pradesh, India
+                </div>
+              </div>
             </div>
 
-            {/* Availability badge */}
-            <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.55rem", fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "#34d399" }}>
+            {/* Quick Actions Strip */}
+            <div style={{ marginTop: "2.5rem", paddingTop: "1.8rem", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.55rem", fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "#34d399", marginBottom: "1.2rem" }}>
                 <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981" }} className="cyber-pulse" />
                 OPEN TO OPPORTUNITIES · IMMEDIATE JOIN
               </div>
 
-              {/* Copy email */}
-              <div style={{ marginTop: "1.5rem" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.65rem" }}>
+                <a
+                  href="mailto:divyanshi2028@gmail.com"
+                  className="btn-flat-primary"
+                  style={{ textDecoration: "none", fontSize: "0.8rem", height: "38px", padding: "0 1.1rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                >
+                  ✉ Email Me
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/divyanshi-gupta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-flat-secondary"
+                  style={{ textDecoration: "none", fontSize: "0.8rem", height: "38px", padding: "0 1.1rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                >
+                  LinkedIn Profile ↗
+                </a>
+
+                <a
+                  href="https://github.com/divyanshi-gupta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-flat-secondary"
+                  style={{ textDecoration: "none", fontSize: "0.8rem", height: "38px", padding: "0 1.1rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                >
+                  GitHub Profile ↗
+                </a>
+
+                <a
+                  href="/divyanshi-gupta-resume.pdf"
+                  download="Divyanshi_Gupta_Resume.pdf"
+                  className="btn-flat-primary"
+                  style={{ textDecoration: "none", fontSize: "0.8rem", height: "38px", padding: "0 1.1rem", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}
+                >
+                  ↓ Resume Download
+                </a>
+
                 <button
                   onClick={copyEmail}
                   className="btn-flat-secondary"
                   style={{ fontSize: "0.8rem", height: "38px", padding: "0 1.1rem" }}
                 >
-                  {copiedEmail ? "✓ COPIED!" : "COPY EMAIL"}
+                  {copiedEmail ? "✓ Copied!" : "Copy Email"}
                 </button>
-              </div>
-
-              {/* Resume download */}
-              <div style={{ marginTop: "0.75rem" }}>
-                <a
-                  href="/divyanshi-gupta-resume.pdf"
-                  download="divyanshi-gupta-resume.pdf"
-                  className="btn-flat-primary"
-                  style={{ textDecoration: "none", fontSize: "0.8rem", height: "38px", padding: "0 1.1rem" }}
-                >
-                  ↓ DOWNLOAD RESUME
-                </a>
               </div>
             </div>
           </div>

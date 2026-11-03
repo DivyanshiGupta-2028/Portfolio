@@ -8,159 +8,143 @@ const PROJECTS_DATA = [
     id: "license-admin",
     num: "01",
     title: "License Administration System",
-    category: "Enterprise SaaS",
-    role: "Lead Backend & Architecture Engineer",
+    category: ".NET Backend",
+    role: "Full-Stack Software Engineer",
     company: "Sanskriti IT Solutions",
-    period: "2024 – 2025",
-    desc: "Multi-tenant SaaS licensing platform with granular RBAC, feature-tier entitlements, and atomic SQL Server stored procedures. Delivered 40% reduction in manual admin intervention.",
+    period: "2024 – 2026",
+    desc: "Multi-tenant SaaS platform for centralized license administration, assignment, and feature-based access control. Helped reduce manual license assignment effort by 40%.",
     metrics: [
       { label: "Admin Effort Reduction", val: "40%", highlight: true },
       { label: "API Latency", val: "Sub-45ms" },
       { label: "Isolation Level", val: "Multi-Tenant" },
     ],
-    tags: ["ASP.NET Core", ".NET 7+", "Angular", "SQL Server", "RBAC", "Azure DevOps"],
+    tags: ["C#", "ASP.NET Core", "Angular", "SQL Server"],
     badge: "VERIFIED 40% GAIN",
     badgeColor: "#48E5FF",
     demoUrl: null,
     githubUrl: null,
-    overview: "Architected enterprise licensing system supporting multi-tier customer provisioning, automated subscription renew triggers, and RBAC matrix. Integrated with ASP.NET Core asynchronous controllers and optimized T-SQL query plans.",
+    overview:
+      "Contributed to a multi-tenant License Administration System with feature-based SaaS licensing and RBAC. Developed REST APIs, backend services, authentication workflows, and atomic stored procedures on Microsoft SQL Server. Helped reduce manual license assignment effort by 40%.",
   },
   {
     id: "dating-platform",
     num: "02",
-    title: "Zinkr Dating Platform & Discovery",
+    title: "Dating Platform – Full Stack and .NET Backend",
     category: "Fullstack",
-    role: "Full-Stack Architect",
+    role: "Full-Stack Developer",
     company: "Sanskriti IT Solutions",
     period: "2024",
-    desc: "Bidirectional swipe-match platform with Google OAuth2 SSO, JWT refresh-token rotation, geo-distance discovery, and subscription tiers. Live on Play Store (internal beta).",
+    desc: "Dating platform with user authentication, profile management, discovery, matching workflows, and premium subscription features.",
     video: "/Zinkr_Ad_v6_full_edit.mp4",
     metrics: [
-      { label: "Auth Flow", val: "OAuth2 + JWT", highlight: true },
-      { label: "Discovery Engine", val: "Geo-Spatial" },
+      { label: "Auth Architecture", val: "Google OAuth 2.0 + JWT", highlight: true },
+      { label: "Discovery Engine", val: "Preference & Matching" },
       { label: "Status", val: "Play Store Beta" },
     ],
-    tags: ["React", "Node.js", "ASP.NET Core", "SQL Server", "JWT", "OAuth2", "MySQL"],
+    tags: ["React", "Node.js", "Express.js", "ASP.NET Core", "SQL Server", "MySQL", "JWT", "OAuth 2.0"],
     badge: "LIVE RECORDING",
     badgeColor: "#ec4899",
     demoUrl: "https://play.google.com/apps/internaltest/4701291796801878386",
     githubUrl: null,
-    overview: "Built complete matching and messaging subsystem with token-rotation security, profile verification flows, and low-latency API contracts.",
-  },
-  {
-    id: "bellezbuy",
-    num: "03",
-    title: "BellezBuy E-Commerce Mobile App",
-    category: "Mobile Apps",
-    role: "Mobile & Backend Developer",
-    company: "Sanskriti IT Solutions",
-    period: "2024",
-    desc: "Full-featured beauty e-commerce app with AI-powered recommendations, wishlist, coupon engine, and Razorpay payment gateway. Live in production on Google Play Store.",
-    video: "/Record_2026-05-28-14-40-29.mp4",
-    metrics: [
-      { label: "Store Status", val: "Live On Play Store", highlight: true },
-      { label: "Payment Engine", val: "Razorpay Webhooks" },
-      { label: "Engine", val: "FastAPI + React Native" },
-    ],
-    tags: ["React Native", "FastAPI", "Python", "MySQL", "Razorpay", "REST APIs"],
-    badge: "LIVE ON PLAY STORE",
-    badgeColor: "#f59e0b",
-    demoUrl: "https://play.google.com/store/apps/details?id=com.Bellezbuy.app&hl=en",
-    githubUrl: null,
-    overview: "Engineered mobile storefront, catalog search, order lifecycle management, and secure webhook validation for payment callbacks.",
-  },
-  {
-    id: "wellmove",
-    num: "04",
-    title: "WellMove – Physiotherapy AI Portal",
-    category: "AI & Healthcare",
-    role: "Full-Stack AI Integration",
-    company: "Sanskriti IT Solutions",
-    period: "2024",
-    desc: "Exercise prescription platform with AI-driven form analysis, therapist portal with RBAC dashboards, telehealth session scheduling, and real-time progress analytics.",
-    metrics: [
-      { label: "AI Integration", val: "Computer Vision Form Analysis", highlight: true },
-      { label: "Portal Access", val: "Therapist & Patient RBAC" },
-      { label: "Deployment", val: "Live Production Cloud" },
-    ],
-    tags: ["React", "FastAPI", "Node.js", "Python", "AI/ML", "JWT", "MySQL"],
-    badge: "AI-INTEGRATED",
-    badgeColor: "#10b981",
-    demoUrl: "https://wellnessphysioportal.sanskriti-tech.cloud/",
-    githubUrl: null,
-    overview: "Bridged Python/FastAPI computer-vision processing pipelines with React dashboards to allow clinical staff to review patient rehabilitation compliance.",
+    overview:
+      "Engineered backend REST endpoints in ASP.NET Core and Node.js with Google OAuth 2.0 SSO and stateless JWT authentication. Implemented profile discovery, matching algorithms, and responsive React frontend interfaces.",
   },
   {
     id: "sales-inventory",
-    num: "05",
-    title: "Sales & Inventory Automation Engine",
-    category: "Enterprise SaaS",
-    role: "Backend Engineer",
+    num: "03",
+    title: "Sales Inventory Management System",
+    category: ".NET Backend",
+    role: "Full-Stack Developer",
     company: "Sanskriti IT Solutions",
     period: "2024",
-    desc: "Real-time inventory tracking with dynamic GST/non-GST tax calculation engine, automated reorder triggers, and RBAC for cashiers vs. warehouse managers.",
+    desc: "Inventory management application with stock tracking, invoicing, modular APIs, and role-based access control.",
     metrics: [
-      { label: "Tax Calculation", val: "GST & Non-GST Engine", highlight: true },
-      { label: "Reorder Trigger", val: "Real-Time Thresholds" },
-      { label: "Architecture", val: "ASP.NET Core + SQL Server" },
+      { label: "Invoice Engine", val: "GST & Non-GST Engine", highlight: true },
+      { label: "Security", val: "Role-Based Access Control" },
+      { label: "Architecture", val: ".NET + Angular + React" },
     ],
-    tags: [".NET", "ASP.NET Core", "Angular", "SQL Server", "JWT", "Stored Procedures"],
+    tags: [".NET", "Angular", "React", "SQL Server", "MySQL", "JWT"],
     badge: "INVOICE AUTOMATION",
     badgeColor: "#38bdf8",
     demoUrl: null,
     githubUrl: null,
-    overview: "Implemented atomic stock deduction, ledger updates, and complex multi-item invoice generation with instant tax breakdowns.",
+    overview:
+      "Developed modular REST APIs for inventory and stock tracking, automated GST/non-GST invoice generation, and role-based access control partitioning cashiers from warehouse managers.",
   },
   {
-    id: "sanskriti-cms",
+    id: "bellezbuy",
+    num: "04",
+    title: "BellezBuy – E-Commerce Platform",
+    category: "Fullstack",
+    role: "Full-Stack Developer",
+    company: "Sanskriti IT Solutions",
+    period: "2024",
+    desc: "E-commerce platform with product catalogue, order management, payment API integration, and transactional email workflows.",
+    video: "/Record_2026-05-28-14-40-29.mp4",
+    metrics: [
+      { label: "Store Status", val: "Live On Play Store", highlight: true },
+      { label: "Transactional Email", val: "Brevo API Automation" },
+      { label: "Database", val: "MySQL Relational Schema" },
+    ],
+    tags: ["React", "Node.js", "MySQL", "Brevo"],
+    badge: "LIVE ON PLAY STORE",
+    badgeColor: "#10b981",
+    demoUrl: "https://play.google.com/store/apps/details?id=com.Bellezbuy.app&hl=en",
+    githubUrl: null,
+    overview:
+      "Built full-stack e-commerce solution with React frontend and Node.js backend. Integrated payment APIs, product catalogue, order management, OTP verification emails, password resets, and transactional notifications via Brevo.",
+  },
+  {
+    id: "wellmove",
+    num: "05",
+    title: "WellMove – AI-Powered Wellness Platform",
+    category: "AI Integration",
+    role: "AI-Integrated Backend Developer",
+    company: "Sanskriti IT Solutions",
+    period: "2024",
+    desc: "AI-integrated wellness platform providing user management, health-data APIs, personalized recommendations, trend analysis, adaptive goals, and smart notification triggers.",
+    metrics: [
+      { label: "AI Workflows", val: "Personalized Recommendations", highlight: true },
+      { label: "Telemetry", val: "Trend Analysis & Goals" },
+      { label: "Deployment", val: "Live Web Portal" },
+    ],
+    tags: ["Python", "FastAPI", "MySQL", "JWT", "AI/ML"],
+    badge: "AI-INTEGRATED",
+    badgeColor: "#a855f7",
+    demoUrl: "https://wellnessphysioportal.sanskriti-tech.cloud/",
+    githubUrl: null,
+    overview:
+      "Engineered asynchronous FastAPI backend services for user management and health-data ingestion. Developed algorithmic trend analysis, adaptive goals, and smart notification triggers based on user progress.",
+  },
+  {
+    id: "aspnet-calculators",
     num: "06",
-    title: "Sanskriti Enterprise CMS & CDN Engine",
-    category: "Enterprise SaaS",
-    role: "Fullstack Engineer",
+    title: "ASP.NET Calculators Suite",
+    category: ".NET Backend",
+    role: "Backend Developer",
     company: "Sanskriti IT Solutions",
-    period: "2023",
-    desc: "High-performance CMS with dynamic content modules, role-based editorial workflow, and aggressive CDN caching strategy achieving 35% page load reduction.",
+    period: "2024",
+    desc: "Collection of web-based financial calculators: EMI Calculator, HRA Calculator, GST Calculator, TDS Calculator, Auto Loan Calculator, and Net Worth Calculator.",
     metrics: [
-      { label: "Load Time Reduction", val: "35%", highlight: true },
-      { label: "Caching", val: "CDN Edge + In-Memory" },
-      { label: "Workflow", val: "Editorial Approval Tiers" },
+      { label: "Precision", val: "Strict Decimal Accuracy", highlight: true },
+      { label: "Calculators", val: "6 Financial Engines" },
+      { label: "Framework", val: "ASP.NET Core MVC" },
     ],
-    tags: [".NET", "ASP.NET Core", "SQL Server", "Angular", "CDN Caching", "REST APIs"],
-    badge: "35% LOAD REDUCTION",
-    badgeColor: "#8b5cff",
+    tags: ["ASP.NET Core MVC", "Razor Pages", "C#", "SQL"],
+    badge: "FINANCIAL ENGINES",
+    badgeColor: "#f59e0b",
     demoUrl: null,
     githubUrl: null,
-    overview: "Built modular block architecture and caching layer that drastically lowered database round-trips for high-traffic media pages.",
-  },
-  {
-    id: "hrms",
-    num: "07",
-    title: "Internal HR Management & Payroll Suite",
-    category: "Enterprise SaaS",
-    role: "Fullstack Engineer",
-    company: "Sanskriti IT Solutions",
-    period: "2023",
-    desc: "Employee lifecycle management with attendance tracking, leave requests, payroll summaries, and manager-approval workflows. Deployed internally at Sanskriti IT Solutions.",
-    metrics: [
-      { label: "Adoption", val: "100% Internal Staff", highlight: true },
-      { label: "Security", val: "Hierarchical RBAC" },
-      { label: "Stack", val: ".NET Core + Angular" },
-    ],
-    tags: [".NET", "ASP.NET Core", "SQL Server", "Angular", "RBAC", "Reporting"],
-    badge: "INTERNAL DEPLOY",
-    badgeColor: "#94a3b8",
-    demoUrl: null,
-    githubUrl: null,
-    overview: "Streamlined corporate leave requests, automated month-end payroll calculation, and integrated role-based security hierarchy.",
+    overview:
+      "Collection of interactive web-based financial calculators built with ASP.NET Core MVC and Razor Pages. Features server-side validation and high-precision C# decimal business logic for banking, loan, and tax computation.",
   },
 ];
 
 const CATEGORIES = [
   "All Tracks",
-  "Enterprise SaaS",
+  ".NET Backend",
   "Fullstack",
-  "Mobile Apps",
-  "AI & Healthcare",
+  "AI Integration",
 ];
 
 export default function UberDiscoveryEngine() {
@@ -225,7 +209,7 @@ export default function UberDiscoveryEngine() {
                 boxShadow: "0 0 10px var(--cyan)",
               }}
             />
-            DISCOVERY ENGINE // UBER CAREERS & PRODUCT.INC MATRIX
+            DISCOVERY ENGINE // PROJECT ARCHIVES
           </div>
           <h2
             style={{
@@ -256,11 +240,11 @@ export default function UberDiscoveryEngine() {
               lineHeight: 1.6,
             }}
           >
-            Explore verified backend architectures, fullstack applications, and AI integrations. Filter by domain or search tech stack keywords.
+            Explore verified .NET backends, full-stack applications, database-driven systems, and AI integrations. Filter by domain or search tech stack keywords.
           </p>
         </div>
 
-        {/* Uber Search Box */}
+        {/* Search Box */}
         <div className="uber-search-box">
           <svg
             width="20"
@@ -278,7 +262,7 @@ export default function UberDiscoveryEngine() {
           <input
             type="text"
             className="uber-search-input"
-            placeholder="Search ASP.NET Core, React, SQL Server, AI/ML, RBAC, latency..."
+            placeholder="Search ASP.NET Core, React, SQL Server, Python, Node.js, JWT, RBAC..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -308,7 +292,7 @@ export default function UberDiscoveryEngine() {
               whiteSpace: "nowrap",
             }}
           >
-            {filteredProjects.length} {filteredProjects.length === 1 ? "Result" : "Results"}
+            {filteredProjects.length} {filteredProjects.length === 1 ? "Project" : "Projects"}
           </span>
         </div>
 
@@ -432,7 +416,7 @@ export default function UberDiscoveryEngine() {
           </div>
         )}
 
-        {/* Detailed Modal / Deep-Dive Drawer (Uber + Product.inc style) */}
+        {/* Detailed Modal / Deep-Dive Drawer */}
         <AnimatePresence>
           {selectedProject && (
             <motion.div

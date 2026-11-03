@@ -125,7 +125,7 @@ export default function Navbar() {
                   letterSpacing: "0.15em",
                 }}
               >
-                DIGITAL REALM // 3D ARCHITECTURE
+                FULL-STACK DEVELOPER // .NET · REACT · NODE.JS
               </div>
             </div>
           </Link>
