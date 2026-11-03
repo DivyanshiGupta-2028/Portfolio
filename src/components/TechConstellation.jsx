@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { cyberAudio } from "../utils/cyberAudio";
 
 const SKILL_CATEGORIES = [
@@ -7,7 +6,9 @@ const SKILL_CATEGORIES = [
     id: "languages",
     label: "Programming Languages",
     icon: "💻",
-    color: "#48E5FF",
+    color: "#0284c7",
+    colorLight: "#0284c7",
+    colorDark: "#38bdf8",
     skills: [
       { name: "C#", role: "Primary language for ASP.NET Core Web APIs, multi-tenant services, and business logic", projects: ["License Admin", "Dating Platform", "ASP.NET Calculators"] },
       { name: "JavaScript", role: "Modern asynchronous ES6+ execution, DOM APIs, and full-stack event handling", projects: ["BellezBuy", "Dating Platform"] },
@@ -22,7 +23,9 @@ const SKILL_CATEGORIES = [
     id: "backend",
     label: "Backend Development",
     icon: "⚡",
-    color: "#8B5CFF",
+    color: "#7c3aed",
+    colorLight: "#7c3aed",
+    colorDark: "#a78bfa",
     skills: [
       { name: "ASP.NET Core", role: "High-throughput Web APIs, dependency injection, and middleware orchestration", projects: ["License Admin", "Dating Platform"] },
       { name: ".NET", role: "Unified cross-platform framework powering enterprise microservices and desktop-grade speed", projects: ["License Admin", "Sales Inventory"] },
@@ -37,7 +40,9 @@ const SKILL_CATEGORIES = [
     id: "frontend",
     label: "Frontend Development",
     icon: "🎨",
-    color: "#38bdf8",
+    color: "#0891b2",
+    colorLight: "#0891b2",
+    colorDark: "#22d3ee",
     skills: [
       { name: "React", role: "Component architecture, hooks, state orchestration, and responsive SPAs", projects: ["BellezBuy", "Dating Platform", "Sales Inventory"] },
       { name: "Angular", role: "Enterprise modular frontend with TypeScript, lazy loading, and reactive services", projects: ["License Admin", "Sales Inventory"] },
@@ -51,7 +56,9 @@ const SKILL_CATEGORIES = [
     id: "databases",
     label: "Databases",
     icon: "🗄️",
-    color: "#10b981",
+    color: "#059669",
+    colorLight: "#059669",
+    colorDark: "#34d399",
     skills: [
       { name: "Microsoft SQL Server", role: "Enterprise relational database design, indexing, transactions, and ACID compliance", projects: ["License Admin", "Dating Platform", "Sales Inventory", "ASP.NET Calculators"] },
       { name: "MySQL", role: "Relational database modeling, schema design, and query optimization", projects: ["BellezBuy", "WellMove Wellness", "Sales Inventory"] },
@@ -64,7 +71,9 @@ const SKILL_CATEGORIES = [
     id: "security",
     label: "Authentication and Security",
     icon: "🔐",
-    color: "#f59e0b",
+    color: "#d97706",
+    colorLight: "#d97706",
+    colorDark: "#fbbf24",
     skills: [
       { name: "REST APIs", role: "Stateless HTTP service contracts, status codes, and JSON schemas", projects: ["All Projects"] },
       { name: "API Integration", role: "Integrating third-party payment gateways, messaging, and identity services", projects: ["BellezBuy", "WellMove", "Dating Platform"] },
@@ -80,7 +89,9 @@ const SKILL_CATEGORIES = [
     id: "devops",
     label: "DevOps and Tools",
     icon: "🛠️",
-    color: "#ec4899",
+    color: "#db2777",
+    colorLight: "#db2777",
+    colorDark: "#f472b6",
     skills: [
       { name: "Git", role: "Distributed version control, branching strategies, and commit hygiene", projects: ["All Projects"] },
       { name: "GitHub", role: "Remote repository management, pull requests, and collaborative code reviews", projects: ["All Projects"] },
@@ -99,7 +110,9 @@ const SKILL_CATEGORIES = [
     id: "ai",
     label: "AI Integration",
     icon: "🤖",
-    color: "#a855f7",
+    color: "#9333ea",
+    colorLight: "#9333ea",
+    colorDark: "#c084fc",
     skills: [
       { name: "ML Model Integration", role: "Connecting predictive models and algorithmic inference with backend REST APIs", projects: ["WellMove Wellness"] },
       { name: "Trend Analysis", role: "Time-series data aggregation and multi-week trend calculation algorithms", projects: ["WellMove Wellness"] },
@@ -112,7 +125,12 @@ const SKILL_CATEGORIES = [
 
 export default function TechConstellation() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [activeSkill, setActiveSkill] = useState(SKILL_CATEGORIES[0].skills[0]);
+  const [activeSkill, setActiveSkill] = useState({
+    ...SKILL_CATEGORIES[0].skills[0],
+    category: SKILL_CATEGORIES[0].label,
+    color: SKILL_CATEGORIES[0].color,
+    icon: SKILL_CATEGORIES[0].icon,
+  });
 
   const displayedCategories =
     selectedCategory === "all"
@@ -141,7 +159,7 @@ export default function TechConstellation() {
           style={{
             display: "flex",
             justifyContent: "center",
-            gap: "0.5rem",
+            gap: "0.55rem",
             flexWrap: "wrap",
             marginBottom: "2.5rem",
           }}
@@ -151,19 +169,11 @@ export default function TechConstellation() {
               cyberAudio.playClick();
               setSelectedCategory("all");
             }}
-            style={{
-              padding: "0.45rem 1rem",
-              borderRadius: "999px",
-              fontFamily: "var(--font-mono)",
-              fontSize: "0.78rem",
-              cursor: "pointer",
-              background: selectedCategory === "all" ? "var(--cyan)" : "var(--bg-surface)",
-              color: selectedCategory === "all" ? "#040711" : "var(--text-secondary)",
-              border: `1px solid ${selectedCategory === "all" ? "var(--cyan)" : "var(--border)"}`,
-              transition: "all 0.2s ease",
-            }}
+            className={`constellation-cat-btn ${selectedCategory === "all" ? "active" : ""}`}
+            style={{ "--active-color": "var(--cyan)" }}
           >
-            ALL CATEGORIES
+            <span>🌐</span>
+            <span>ALL CATEGORIES</span>
           </button>
 
           {SKILL_CATEGORIES.map((cat) => {
@@ -175,22 +185,10 @@ export default function TechConstellation() {
                   cyberAudio.playClick();
                   setSelectedCategory(cat.id);
                 }}
-                style={{
-                  padding: "0.45rem 1rem",
-                  borderRadius: "999px",
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.78rem",
-                  cursor: "pointer",
-                  background: isSelected ? cat.color : "var(--bg-surface)",
-                  color: isSelected ? "#040711" : "var(--text-secondary)",
-                  border: `1px solid ${isSelected ? cat.color : "var(--border)"}`,
-                  transition: "all 0.2s ease",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.4rem",
-                }}
+                className={`constellation-cat-btn ${isSelected ? "active" : ""}`}
+                style={{ "--active-color": cat.color }}
               >
-                <span>{cat.icon}</span>
+                <span className="cat-icon">{cat.icon}</span>
                 <span>{cat.label}</span>
               </button>
             );
@@ -209,7 +207,7 @@ export default function TechConstellation() {
         >
           {/* Left: Star Map / Clustered Nodes */}
           <div
-            className="cyber-panel"
+            className="cyber-panel constellation-nodes-container"
             style={{
               padding: "2rem",
               minHeight: "440px",
@@ -219,22 +217,13 @@ export default function TechConstellation() {
             }}
           >
             {displayedCategories.map((cat) => (
-              <div key={cat.id}>
+              <div key={cat.id} className="constellation-cluster-group">
                 <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.6rem",
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.75rem",
-                    color: cat.color,
-                    letterSpacing: "0.15em",
-                    marginBottom: "0.85rem",
-                    textTransform: "uppercase",
-                  }}
+                  className="constellation-cluster-title"
+                  style={{ color: cat.color }}
                 >
-                  <span>{cat.icon}</span>
-                  <span>{cat.label}</span>
+                  <span style={{ fontSize: "1rem" }}>{cat.icon}</span>
+                  <span>CLUSTER // {cat.label}</span>
                 </div>
 
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.55rem" }}>
@@ -245,24 +234,16 @@ export default function TechConstellation() {
                         key={skill.name}
                         onClick={() => {
                           cyberAudio.playNodeSelect();
-                          setActiveSkill({ ...skill, category: cat.label, color: cat.color, icon: cat.icon });
+                          setActiveSkill({
+                            ...skill,
+                            category: cat.label,
+                            color: cat.color,
+                            icon: cat.icon,
+                          });
                         }}
                         onMouseEnter={() => cyberAudio.playHover()}
-                        style={{
-                          padding: "0.45rem 0.85rem",
-                          borderRadius: "8px",
-                          fontFamily: "var(--font-mono)",
-                          fontSize: "0.8rem",
-                          cursor: "pointer",
-                          background: isSelected
-                            ? `${cat.color}22`
-                            : "var(--bg-surface)",
-                          color: isSelected ? "var(--text-primary)" : "var(--text-secondary)",
-                          border: `1px solid ${isSelected ? cat.color : "rgba(72, 229, 255, 0.15)"}`,
-                          boxShadow: isSelected ? `0 0 15px ${cat.color}44` : "none",
-                          transform: isSelected ? "scale(1.05)" : "scale(1)",
-                          transition: "all 0.2s ease",
-                        }}
+                        className={`constellation-node-btn ${isSelected ? "active" : ""}`}
+                        style={{ "--node-accent": cat.color }}
                       >
                         {skill.name}
                       </button>
@@ -275,100 +256,41 @@ export default function TechConstellation() {
 
           {/* Right: Selected Node Telemetry Inspector */}
           <div
-            className="cyber-panel clipped-corner"
+            className="cyber-panel clipped-corner constellation-inspector-panel"
             style={{
               padding: "2rem",
-              background: "var(--bg-surface-elevated)",
-              border: `1px solid ${activeSkill?.color || "var(--cyan)"}`,
-              boxShadow: `0 0 30px ${activeSkill?.color || "var(--cyan)"}22`,
+              "--inspector-accent": activeSkill?.color || "var(--cyan)",
             }}
           >
-            <div
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.72rem",
-                color: activeSkill?.color || "var(--cyan)",
-                letterSpacing: "0.15em",
-                marginBottom: "0.6rem",
-              }}
-            >
-              // SKILL INSPECTOR
+            <div className="constellation-inspector-eyebrow">
+              // TELEMETRY INSPECTOR
             </div>
 
-            <h3
-              style={{
-                fontSize: "1.7rem",
-                fontWeight: 800,
-                color: "var(--text-primary)",
-                marginBottom: "0.4rem",
-              }}
-            >
+            <h3 className="constellation-inspector-title">
               {activeSkill?.name || "Select a Skill"}
             </h3>
 
-            <div
-              style={{
-                display: "inline-block",
-                padding: "0.2rem 0.6rem",
-                borderRadius: "4px",
-                background: `${activeSkill?.color || "#48e5ff"}18`,
-                color: activeSkill?.color || "#48e5ff",
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.72rem",
-                marginBottom: "1.4rem",
-              }}
-            >
-              CATEGORY: {activeSkill?.category || "PROGRAMMING LANGUAGES"}
+            <div className="constellation-inspector-badge">
+              CATEGORY: {activeSkill?.category?.toUpperCase() || "SYSTEM NODE"}
             </div>
 
-            <div style={{ marginBottom: "1.5rem" }}>
-              <div
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.75rem",
-                  color: "var(--text-muted)",
-                  marginBottom: "0.3rem",
-                }}
-              >
+            <div style={{ marginBottom: "1.6rem" }}>
+              <div className="constellation-inspector-label">
                 ARCHITECTURAL ROLE & APPLICATION:
               </div>
-              <p
-                style={{
-                  color: "var(--text-primary)",
-                  fontSize: "0.95rem",
-                  lineHeight: 1.6,
-                }}
-              >
+              <p className="constellation-inspector-role">
                 {activeSkill?.role}
               </p>
             </div>
 
             {activeSkill?.projects && (
               <div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "0.75rem",
-                    color: "var(--text-muted)",
-                    marginBottom: "0.6rem",
-                  }}
-                >
+                <div className="constellation-inspector-label" style={{ marginBottom: "0.6rem" }}>
                   VERIFIED IMPLEMENTATIONS:
                 </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem" }}>
+                <div className="constellation-impl-tags">
                   {activeSkill.projects.map((proj, i) => (
-                    <span
-                      key={i}
-                      style={{
-                        padding: "0.3rem 0.65rem",
-                        borderRadius: "4px",
-                        background: "rgba(72, 229, 255, 0.08)",
-                        border: "1px solid rgba(72, 229, 255, 0.2)",
-                        fontFamily: "var(--font-mono)",
-                        fontSize: "0.75rem",
-                        color: "var(--cyan)",
-                      }}
-                    >
+                    <span key={i} className="constellation-impl-tag">
                       {proj}
                     </span>
                   ))}
